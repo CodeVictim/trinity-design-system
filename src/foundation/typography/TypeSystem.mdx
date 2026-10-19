@@ -1,0 +1,56 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { SimpleTable, CodeBlock, Code, byPrefix, byCategory } from '../../shared/doc-kit';
+
+<Meta title="Trinity/Foundation/Typography/Type System" />
+
+# Type System
+
+Trinity sets all text in **ABC Repro**, with two icon fonts (**TrinityIcons**, **TrinityBrandIcons**). Type is applied through **text-style classes** that map 1:1 to Figma text styles; the classes are built on typography primitives.
+
+<CodeBlock>{`Primitives        font-family · font-size · font-weight · line-height · letter-spacing
+    └── Text styles   .text-heading-lg · .text-body-sm · .text-data-md …   (Figma text styles)
+            └── Component   applies a text style through its own tokens`}</CodeBlock>
+
+## Font Family
+
+<SimpleTable head={['Family', 'Token', 'Use']} rows={[
+  ...byPrefix('font-family/').map(f => [String(f.value), <Code>{f.css}</Code>, String(f.value).includes('Icon') ? 'UI icons (1,415 glyphs)' : 'All text — UI, headings, data']),
+  ['TrinityBrandIcons', '— (no primitive yet)', 'Brand / industry icons'],
+]} />
+
+## Type Styles
+
+<SimpleTable head={['Style', 'Class', 'Size', 'Weight', 'Line height']} rows={
+  byCategory('textStyle').filter(s => s.group !== 'Icon Fonts').map(s => [s.figma, <Code>{s.css}</Code>, `${s.value.size}px`, s.value.style, s.value.lh])
+} />
+
+## Weight Usage Rules
+
+<SimpleTable head={['Weight', 'Token', 'Use for']} rows={[
+  ['Light · 300', <Code>--font-weight-text-light</Code>, 'Defined but not used by any text style'],
+  ['Regular · 400', <Code>--font-weight-text-regular</Code>, 'Body text, links'],
+  ['Medium · 500', <Code>--font-weight-text-medium</Code>, 'Headings, data, emphasis, captions — the strongest weight (there is no bold)'],
+]} />
+
+## Primitive Token Scale
+
+### Font Sizes
+
+<SimpleTable head={['Token', 'Value']} rows={[...byPrefix('font-size/')].sort((a, b) => a.value - b.value).map(s => [<Code>{s.css}</Code>, s.out])} />
+
+### Line Heights
+
+<SimpleTable head={['Token', 'Value']} rows={byPrefix('line-height/').map(s => [<Code>{s.css}</Code>, s.out])} />
+
+### Letter Spacing
+
+<SimpleTable head={['Token', 'Value']} rows={byPrefix('letter-spacing/').map(s => [<Code>{s.css}</Code>, s.out])} />
+
+## Common Mistakes
+
+<SimpleTable head={['Don’t', 'Do']} rows={[
+  ['Restate font-size / weight / line-height in component CSS', 'Apply the text-style class or the component’s own type tokens'],
+  ['Use bold (600–700)', 'Use Medium (500) — Trinity has no bold'],
+  ['Use Caption (10px) for long or important text', 'Use Body/xs (12px) or larger'],
+  ['Pick a heading style for visual size only', 'Match the heading style to the heading level'],
+]} />

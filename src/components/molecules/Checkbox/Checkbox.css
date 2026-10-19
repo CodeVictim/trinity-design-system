@@ -1,0 +1,21 @@
+/* Figma bindings: checkbox/gap, checkbox/label-default|label-disabled, text style Body/sm (font-weight/text/Regular) */
+.tri-checkbox {
+  position: relative; display: inline-flex; align-items: center;
+  gap: var(--checkbox-gap); cursor: pointer;
+}
+.tri-checkbox__native {
+  position: absolute; inset: 0 auto 0 0; width: var(--checkbox-width); height: var(--checkbox-height);
+  margin: 0; opacity: 0; cursor: inherit;
+}
+.tri-checkbox__label {
+  font-family: var(--font-family-trinityfont), 'ABC Repro', sans-serif;
+  font-size: 14px; line-height: 1.3; font-weight: var(--font-weight-text-regular);
+  color: var(--checkbox-label-default);
+}
+.tri-checkbox.is-disabled { cursor: not-allowed; }
+.tri-checkbox.is-disabled .tri-checkbox__label { color: var(--checkbox-label-disabled); }
+
+/* Live states drive the atom's authored hover / focus looks */
+.tri-checkbox:not(.is-disabled):hover .tri-cbi__container { box-shadow: 0 0 0 2px var(--checkbox-hover-stroke); }
+.tri-checkbox__native:focus-visible + .tri-cbi .tri-cbi__container { box-shadow: 0 0 0 2px var(--checkbox-focus-outer-stroke); }
+.tri-checkbox__native:focus-visible + .tri-cbi .tri-cbi__input { box-shadow: inset 0 0 0 1px var(--checkbox-focus-inner-stroke); }

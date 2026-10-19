@@ -1,0 +1,9 @@
+/* Trinity primitives — import order: raw values first, composites last. GENERATED. */
+@import './primitives-color.css';
+@import './primitives-data-color.css';
+@import './primitives-spacing.css';
+@import './primitives-radius.css';
+@import './primitives-opacity.css';
+@import './primitives-typography.css';
+@import './primitives-shadow.css';
+@import './text-styles.css';

@@ -1,0 +1,34 @@
+/* Figma bindings: badge/display/*, badge/dot/*, text style Body/xs Medium */
+.tri-badge {
+  display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box;
+  height: 20px;
+  padding: var(--badge-display-default-top-bottom-padding) var(--badge-display-default-left-right-padding);
+  border-radius: var(--badge-display-default-radius);
+  font-family: var(--font-family-trinityfont), 'ABC Repro', sans-serif;
+  font-size: 12px; line-height: 12px; font-weight: var(--font-weight-text-medium);
+  color: var(--badge-display-brand-text);
+  background: var(--badge-dot-fill-default);
+  white-space: nowrap;
+}
+.tri-badge--type-data {
+  padding: var(--badge-display-data-top-bottom-padding) var(--badge-display-data-left-right-padding);
+  border-radius: var(--badge-display-data-radius);
+}
+.tri-badge--type-icon { border-radius: var(--radius-xxl); }
+.tri-badge--alternate { background: var(--badge-display-alternate-background); }
+.tri-badge--error { background: var(--badge-display-error-background); color: var(--badge-display-error-text); }
+.tri-badge--outline {
+  background: var(--badge-display-outline-background);
+  box-shadow: inset 0 0 0 var(--badge-display-default-border-weight) var(--badge-display-outline-border);
+}
+.tri-badge__icon { display: inline-flex; width: 12px; height: 12px; }
+
+/* dot — 8×8, 1px inside stroke badge/dot/stroke */
+.tri-badge--dot {
+  width: var(--badge-dot-width); height: var(--badge-dot-height); padding: 0;
+  border-radius: 50%;
+  background: var(--badge-dot-fill-default);
+  box-shadow: inset 0 0 0 1px var(--badge-dot-stroke);
+}
+.tri-badge--dot.tri-badge--alternate { background: var(--badge-dot-fill-information); }
+.tri-badge--dot.tri-badge--error { background: var(--badge-dot-fill-error); }

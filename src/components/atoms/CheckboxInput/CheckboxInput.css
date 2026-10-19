@@ -1,0 +1,28 @@
+/* Figma bindings: checkbox/width|height|padding|radius, input-* fills/strokes, hover-stroke, focus-*-stroke, icon-color* */
+.tri-cbi {
+  display: inline-flex; flex: none; box-sizing: border-box;
+  width: var(--checkbox-width); height: var(--checkbox-height); padding: var(--checkbox-padding);
+}
+.tri-cbi__container { display: flex; width: 16px; height: 16px; border-radius: var(--checkbox-radius); }
+.tri-cbi__input {
+  display: flex; align-items: center; justify-content: center; box-sizing: border-box;
+  width: 16px; height: 16px; border-radius: var(--checkbox-radius);
+  background: var(--checkbox-input-default-fill);
+  box-shadow: inset 0 0 0 1px var(--checkbox-input-stroke);
+  color: var(--checkbox-input-default-fill); /* check stroke = input-default-fill (invisible when unchecked) */
+}
+.tri-cbi__check { width: 7px; height: 5px; }
+.tri-cbi__indeterminate { width: 8px; height: 1px; border-radius: 2px; background: var(--checkbox-icon-color); }
+
+.tri-cbi.is-checked .tri-cbi__input,
+.tri-cbi.is-indeterminate .tri-cbi__input { background: var(--checkbox-input-selected-fill); }
+
+/* hover: 2px outside stroke on inputContainer */
+.tri-cbi.is-hover .tri-cbi__container { box-shadow: 0 0 0 2px var(--checkbox-hover-stroke); }
+/* focus: 2px outside outer stroke + 1px inside inner stroke */
+.tri-cbi.is-focus .tri-cbi__container { box-shadow: 0 0 0 2px var(--checkbox-focus-outer-stroke); }
+.tri-cbi.is-focus .tri-cbi__input { box-shadow: inset 0 0 0 1px var(--checkbox-focus-inner-stroke); }
+
+.tri-cbi.is-disabled .tri-cbi__input { background: var(--checkbox-input-fill-disabled); box-shadow: none; }
+.tri-cbi.is-disabled.is-checked .tri-cbi__input { color: var(--checkbox-icon-color-disabled); }
+.tri-cbi.is-disabled .tri-cbi__indeterminate { background: var(--checkbox-icon-color-disabled); }

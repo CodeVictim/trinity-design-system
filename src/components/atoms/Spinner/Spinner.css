@@ -1,0 +1,9 @@
+.tri-spinner { display: block; flex: none; color: var(--spinner-fill); }
+.tri-spinner--small  { width: var(--spinner-small-width);  height: var(--spinner-small-height); }
+.tri-spinner--medium { width: var(--spinner-medium-width); height: var(--spinner-medium-height); }
+.tri-spinner--large  { width: var(--spinner-large-width);  height: var(--spinner-large-height); }
+.tri-spinner-wrap { display: inline-flex; }
+.tri-visually-hidden {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}

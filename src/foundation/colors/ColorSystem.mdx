@@ -1,0 +1,76 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { ColorTable, SimpleTable, CodeBlock, Code, byCategory, sortSteps, contrast } from '../../shared/doc-kit';
+
+<Meta title="Trinity/Foundation/Colors/Color System" />
+
+export const brand = byCategory('color').filter(t => !t.figma.startsWith('data/'));
+export const fam = (g) => sortSteps(brand.filter(t => t.group === g));
+export const status = brand.filter(t => t.group === 'status');
+export const hexes = brand.filter(t => String(t.value).length === 7);
+
+# Color System
+
+Trinity uses a **tiered token architecture** for all color decisions. Components never use raw hex values or primitives — they reference their own Style tokens, which alias the primitives.
+
+<CodeBlock>{`Primitives (Brand Colors)     Raw hex values. The base palette.
+    └── Style tokens          Shared roles + component-scoped, Light / Dark:  --button-primary-fill
+            └── Component     Uses only its own Style tokens`}</CodeBlock>
+
+**Rule:** Components bind to their own Style tokens → which alias Brand Colors primitives. Never bind a component to a primitive directly.
+
+## Primary — Brand Blue
+
+Trinity's brand and interactive color: primary actions, links, selection and focus.
+
+<ColorTable list={fam('primary')} />
+
+## Secondary — Brand Chartreuse
+
+Brand accent. The bright steps are very light against white — never use them for text.
+
+<ColorTable list={fam('secondary')} />
+
+## Neutral — Structure, Text, Borders
+
+Warm grays for text, surfaces, borders and dividers. `0` = white → `1000` = black.
+
+<ColorTable list={fam('neutral')} />
+
+## Status — System Feedback Only
+
+Warning, success and error. Use only to communicate status — always with an icon or text, never color alone.
+
+<ColorTable list={sortSteps(status)} />
+
+## Accessibility Quick Reference
+
+### Minimum contrast ratios (WCAG 2.2 AA)
+
+<SimpleTable head={['Content', 'Minimum']} rows={[
+  ['Normal text', '4.5:1'],
+  ['Large text (≥ 24px, or ≥ 18.66px bold)', '3:1'],
+  ['UI components, borders, focus indicators, meaningful icons', '3:1'],
+]} />
+
+### Colors that FAIL for normal text on white
+
+<SimpleTable head={['Token', 'Hex', 'Contrast', 'Use instead for']} rows={
+  hexes.filter(t => contrast(t.value) < 4.5).map(t => [<Code>{t.css}</Code>, String(t.value).toUpperCase(), `${contrast(t.value).toFixed(1)}:1`, contrast(t.value) >= 3 ? 'Large text, icons, UI boundaries' : 'Backgrounds / fills only'])
+} />
+
+### WCAG 1.4.1 — color is never the only indicator
+
+Status, selection and errors always pair color with an icon, text or shape.
+
+## Color Rules
+
+<SimpleTable head={['Do', 'Don’t']} rows={[
+  ['Pick color through the component’s own Style token', 'Use a primitive (e.g. --neutral-700) inside a component'],
+  ['Use status colors only for status, with an icon or text', 'Use red / green / yellow as the only signal'],
+  ['Use data colors only in charts and maps', 'Reuse chart colors for UI states'],
+  ['Check text contrast on its real background (Light and Dark)', 'Put text on a bright secondary or light primary step'],
+]} />
+
+## Token Naming
+
+The Figma variable path becomes the CSS variable — lowercase, slashes become dashes: `primary/600` → `--primary-600`, `status/error/500` → `--status-error-500`.

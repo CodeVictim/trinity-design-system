@@ -1,0 +1,17 @@
+/* Figma: Icon Fonts/Icon XSmall–Large (TrinityIcons) and Brand XSmall–Large (TrinityBrandIcons); fill icon/default */
+.tri-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family-trinityicon), 'TrinityIcons';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--icon-default);
+  speak: never;
+}
+.tri-icon--brand { font-family: 'TrinityBrandIcons'; }
+.tri-icon--xsmall { font-size: 12px; width: 12px; height: 12px; }
+.tri-icon--small  { font-size: 16px; width: 16px; height: 16px; }
+.tri-icon--medium { font-size: 20px; width: 20px; height: 20px; }
+.tri-icon--large  { font-size: 24px; width: 24px; height: 24px; }

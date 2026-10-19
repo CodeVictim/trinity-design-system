@@ -1,0 +1,52 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { SimpleTable, CodeBlock, Code, byCategory } from '../../shared/doc-kit';
+
+<Meta title="Trinity/Foundation/Spacing/Spacing System" />
+
+export const sp = [...byCategory('spacing')].sort((a, b) => a.value - b.value);
+export const uses = (t) => (t.usedBy ?? []).slice(0, 4).join(', ') || '—';
+
+# Spacing System
+
+Trinity's spacing scale uses a **tiered naming convention** organized by size category — micro, small, medium, large. All values are pixels. Components never use spacing primitives directly; their **Layout** tokens alias them.
+
+<CodeBlock>{`Primitives          Raw values:  --spacing-micro-100 (4px), --spacing-medium-800 (32px)
+    └── Layout tokens   Component-scoped:  --button-padding, --checkbox-width, --card-radius`}</CodeBlock>
+
+## Spacing Decision Tree
+
+The most common question: "what spacing token do I use?" — here is where each step is used today (from the Layout collection in Figma):
+
+<SimpleTable head={['Token', 'Value', 'Used by (examples)', 'Uses']} rows={
+  sp.filter(t => t.value <= 64 && (t.usedBy ?? []).length).map(t => [<Code>{t.css}</Code>, t.out, uses(t), (t.usedBy ?? []).length])
+} />
+
+## Spacing Scale
+
+<SimpleTable head={['Tier', 'Range', 'Use for', 'Steps']} rows={[
+  ['Micro', '0–8px', 'Gaps inside a control: icon ↔ label, borders, hairlines', sp.filter(t => t.group === 'spacing/micro').length],
+  ['Small', '10–16px', 'Padding inside controls; gaps between related items', sp.filter(t => t.group === 'spacing/small').length],
+  ['Medium', '18–38px', 'Padding in cards and panels; gaps between groups', sp.filter(t => t.group === 'spacing/medium').length],
+  ['Large', '40–64px', 'Section spacing, gutters, control heights', sp.filter(t => t.group === 'spacing/large' && t.value <= 64).length],
+]} />
+
+See **Spacing Scale**, **Border Radius** and **Opacity** for every value.
+
+## Border Radius
+
+<SimpleTable head={['Token', 'Value', 'Used by (examples)']} rows={
+  [...byCategory('radius')].sort((a, b) => a.value - b.value).map(t => [<Code>{t.css}</Code>, t.out, uses(t)])
+} />
+
+## Opacity
+
+Figma stores opacity as 0–100; the CSS tokens are 0–1 (`opacity/040` → `--opacity-040: 0.4`).
+
+## Common Mistakes
+
+<SimpleTable head={['Don’t', 'Do']} rows={[
+  ['Use --spacing-* directly in a component', 'Use the component’s Layout token (which aliases the primitive)'],
+  ['Invent in-between values (13px, 27px)', 'Stay on the scale'],
+  ['Use spacing tokens for corner radius', 'Use --radius-* tokens for corners'],
+  ['Store component widths as spacing primitives', 'Keep component dimensions in Layout'],
+]} />
