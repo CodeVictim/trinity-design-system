@@ -27,8 +27,10 @@ jobs:
         with:
           node-version: 24
           cache: npm
+      # npm install (not npm ci): the lock file is generated on macOS and npm ci on Linux
+      # rejects it over optional platform packages (@emnapi/*) — a known npm bug.
       - name: Install dependencies
-        run: npm ci
+        run: npm install --no-audit --no-fund
       - name: Build Storybook
         run: npm run build-storybook
       - name: Setup Pages
