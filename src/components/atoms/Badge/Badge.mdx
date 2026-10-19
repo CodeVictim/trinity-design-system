@@ -1,0 +1,126 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { SimpleTable, Code, InfoCallout, ReviewCallout, NoteBox } from '../../../shared/doc-kit';
+import { TokenTable, Wcag, Checklist } from '../../../shared/component-docs';
+
+<Meta title="Trinity/Components/Atoms/Badge/Reference" />
+
+# Badge
+
+A small, static label for a count, a short status word, a dot, or an icon. It isn't interactive. Figma: *Badge* `7477:297479`, 23 authored variants.
+
+<InfoCallout>Accessibility pattern: <b>feedback-status</b> (Storybook A11y Library). Target: WCAG 2.2 AA.</InfoCallout>
+
+## Token Reference
+
+<TokenTable prefixes={['badge/']} />
+
+<NoteBox>As authored: Default number/text badges use <Code>--badge-dot-fill-default</Code> for their background; Outline and Alternate text use <Code>--badge-display-brand-text</Code>; the Icon type uses <Code>--radius-xxl</Code>.</NoteBox>
+
+## Variants
+
+<SimpleTable head={['content', 'type', 'states']} rows={[
+  ['number ("99+")', 'Default · Data', 'Default · Alternate · Outline · Error'],
+  ['text ("NEW")', 'Default · Data', 'Default · Alternate · Outline · Error'],
+  ['dot (8×8)', 'Default', 'Default · Alternate · Error'],
+  ['icon (12px, swap: u-database)', 'Icon', 'Default · Alternate · Outline · Error'],
+]} />
+
+**Type** changes the shape: Default = pill (16px radius), Data = 2px radius, Icon = 16px radius.
+
+## Visual States
+
+These are meanings, not interaction states. Badges have no hover or focus.
+
+## Dependencies
+
+- **u-database** icon (instance swap "Icon"), recolored to the badge text color.
+
+## When to use
+
+- A count on a nav item or tab ("12").
+- A short status next to an item ("NEW", "Error").
+- A dot for "something changed here", next to a label that says what.
+
+## When not to use
+
+<SimpleTable head={['Situation', 'Use instead']} rows={[
+  ['The user can click or remove it', 'A button or a removable chip'],
+  ['A message the user must notice now', 'Inline alert or toast'],
+  ['A long status sentence', 'Inline message'],
+]} />
+
+## Accessibility
+
+**Built in**
+- Plain `<span>`: no role and no live region (static badges must not announce themselves).
+- Number / text badges: the visible text is what screen readers read.
+- Dot and icon badges: include visually hidden text from `label`, because their meaning is visual only.
+
+**You must provide (consumer)**
+
+<SimpleTable head={['Prop', 'Required?', 'Why']} rows={[
+  [<Code>label</Code>, 'For dot and icon badges', 'Says what the dot or icon means ("Unread messages")'],
+  ['Context', 'For counts', 'Put the badge inside the element it describes, so "12" reads as "Messages 12"'],
+  ['Announcement', 'If the count changes live', 'Announce the change from a polite live region elsewhere, not on the badge'],
+]} />
+
+### Keyboard
+
+None. Badges aren't focusable.
+
+### Visual & pointer
+
+<SimpleTable head={['State', 'Text contrast Light', 'Dark']} rows={[
+  ['Default', '14.61:1', '14.61:1'],
+  ['Alternate', '13.66:1', '13.66:1'],
+  ['Outline', '18.08:1', '18.08:1'],
+  ['Error', '7.37:1', '9.68:1'],
+]} />
+
+<ReviewCallout><b>Dots in Light mode:</b> the Default (yellow #e3f200) and Alternate (blue #41a8f2) dots are 1.06:1 and 2.22:1 against the page, and the dot ring is 2.54:1. That's fine <b>only if</b> the dot's meaning is also given in text (the <Code>label</Code> and the label next to it). A dot that's the only signal would need ≥ 3:1 (1.4.11).</ReviewCallout>
+
+- **Not color-only:** Error badges carry a word or count. Don't rely on red alone.
+- Outline and Alternate backgrounds stay light in Dark mode (as authored), so text contrast is the same in both modes.
+
+### WCAG 2.2 AA mapping
+
+<Wcag rows={[
+  ['1.1.1 Non-text Content', 'Dot / icon badges get hidden text from label', 'consumer'],
+  ['1.3.1 Info and Relationships', 'The badge sits inside the element it describes', 'consumer'],
+  ['1.4.1 Use of Color', 'Meaning in text, not only in fill color', 'consumer'],
+  ['1.4.3 Contrast (Minimum)', 'All text ≥ 7.37:1'],
+  ['1.4.11 Non-text Contrast', 'Light-mode Default/Alternate dots < 3:1; OK only when paired with text', 'consumer'],
+  ['4.1.3 Status Messages', 'No live role on the badge; announce live changes elsewhere', 'consumer'],
+]} />
+
+**Pitfalls checked:** no `role="status"` on static badges. White text on a mid-grey fill isn't used (all text is ≥ 7:1).
+
+## Usage guidelines
+
+**Do**
+- Keep text short: a number or one word.
+- Cap large counts ("99+").
+
+**Don't**
+- Don't make a badge clickable.
+- Don't stack several badges on one item.
+
+## Content guidelines
+
+- Uppercase short words are fine ("NEW"). Avoid sentences.
+- Counts: use digits, cap at "99+".
+
+## Props
+
+<SimpleTable head={['Prop', 'Type', 'Default', 'Description']} rows={[
+  [<Code>content</Code>, <Code>'number' | 'text' | 'dot' | 'icon'</Code>, '—', 'Figma "content"'],
+  [<Code>state</Code>, <Code>'Default' | 'Alternate' | 'Outline' | 'Error'</Code>, <Code>'Default'</Code>, 'Figma "state" (dot has no Outline)'],
+  [<Code>type</Code>, <Code>'Default' | 'Data'</Code>, <Code>'Default'</Code>, 'Figma "type" for number/text (icon is always type Icon)'],
+  [<Code>value</Code>, <Code>string</Code>, '—', 'The text or count (number/text)'],
+  [<Code>label</Code>, <Code>string</Code>, '—', 'Hidden text for dot / icon (required for those)'],
+  [<Code>icon</Code>, <Code>ReactNode</Code>, 'u-database', 'Figma "Icon" swap (icon badge)'],
+]} />
+
+## Testing
+
+<Checklist items={['axe passes on every story ✓', 'Dot / icon badges have hidden text', 'Screen reader: a count reads together with the item it belongs to', 'Forced colors: Outline border and dot ring visible']} />

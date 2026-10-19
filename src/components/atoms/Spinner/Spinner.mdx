@@ -1,0 +1,50 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { SimpleTable, Code, InfoCallout, NoteBox } from '../../../shared/doc-kit';
+import { TokenTable, Wcag } from '../../../shared/component-docs';
+
+<Meta title="Trinity/Components/Atoms/Spinner/Reference" />
+
+# Spinner
+
+The loading mark: a 3/4 arc. Static, as authored in Figma (no rotation reaction exists). Figma: *Spinner* `10259:29263`, sizes 16 / 24 / 40.
+
+<InfoCallout>Accessibility pattern: <b>loading-progress</b> (Storybook A11y Library). Target: WCAG 2.2 AA.</InfoCallout>
+
+## Token Reference
+
+<TokenTable prefixes={['spinner/']} />
+
+<NoteBox>Inside Button, the arc color comes from <Code>--button-*-spinner</Code> instead of <Code>--spinner-fill</Code>, as bound in Figma.</NoteBox>
+
+## Variants
+
+<SimpleTable head={['size', 'Tokens', 'Used in']} rows={[
+  ['16', <Code>--spinner-small-*</Code>, 'Button small / medium'],
+  ['24', <Code>--spinner-medium-*</Code>, 'Button large / xlarge'],
+  ['40', <Code>--spinner-large-*</Code>, 'Page or panel loading'],
+]} />
+
+## Dependencies
+
+None. Raw layers only (Arc boolean).
+
+## Accessibility
+
+- **Decorative.** The spinner is `aria-hidden`; it has no label of its own (Figma has none).
+- **The component or page that is loading announces it.** Button does this with `aria-busy`. A page or panel should have a polite status message ("Loading results…") and set `aria-busy` on the region that's loading.
+- **Contrast:** the arc vs the page is 15.61:1 (Light) / 21:1 (Dark), well above 3:1.
+- **Motion:** static, so nothing to reduce for `prefers-reduced-motion`.
+
+<Wcag rows={[
+  ['1.1.1 Non-text Content', 'Hidden from AT; the loading region carries the text', 'consumer'],
+  ['1.4.11 Non-text Contrast', 'Arc ≥ 15:1 against the page'],
+  ['4.1.3 Status Messages', 'Loading region announces with role="status"', 'consumer'],
+]} />
+
+**Pitfalls checked:** a spinner with no text anywhere. These docs require the loading region to announce the state.
+
+## Props
+
+<SimpleTable head={['Prop', 'Type', 'Default', 'Description']} rows={[
+  [<Code>size</Code>, <Code>'16' | '24' | '40'</Code>, <Code>'40'</Code>, 'Figma "size"'],
+]} />

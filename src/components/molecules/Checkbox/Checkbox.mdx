@@ -1,0 +1,151 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { SimpleTable, Code, InfoCallout, NoteBox } from '../../../shared/doc-kit';
+import { TokenTable, Keyboard, Wcag, Checklist } from '../../../shared/component-docs';
+
+<Meta title="Trinity/Components/Molecules/Checkbox/Reference" />
+
+# Checkbox
+
+A native checkbox with a label, for choosing one or more independent options. Built from the **_checkboxInput** atom. Figma: *Checkbox* `30515:78521`, 12 authored variants.
+
+<InfoCallout>Accessibility pattern: <b>choice-controls</b> (Storybook A11y Library). Target: WCAG 2.2 AA.</InfoCallout>
+
+## Token Reference
+
+<TokenTable prefixes={['checkbox/']} exclude={['checkbox/large/']} />
+
+<NoteBox>Label text uses Body/sm (14px, 130% line height) with <Code>--font-weight-text-regular</Code>. The box itself is styled by <b>_checkboxInput</b>; see its Reference page.</NoteBox>
+
+## Variants
+
+<SimpleTable head={['Property', 'Options']} rows={[
+  ['value', 'false · true'],
+  ['indeterminate', 'false · true (shown as a dash; "mixed" to screen readers)'],
+  ['disabled', 'false · true'],
+  ['label', 'shown (default) · hidden (the text becomes the accessible name)'],
+]} />
+
+## Visual States
+
+<SimpleTable head={['State', 'How it shows']} rows={[
+  ['Default', '16px box, 1px border, white fill (Light) / neutral-900 (Dark)'],
+  ['Hover', '2px halo around the box'],
+  ['Focus (keyboard)', '2px outer ring + 1px inner stroke'],
+  ['Checked / indeterminate', 'Solid fill with a check or dash'],
+  ['Disabled', 'Grey fill, grey label'],
+]} />
+
+## Dependencies
+
+- **_checkboxInput** (atom): the 24×24 touch area, the box, and the check / dash.
+
+## When to use
+
+- Independent yes/no choices, including in a list where any number can be chosen.
+- A single opt-in ("I agree to the terms").
+- A "select all" parent over a list, using indeterminate when only some are chosen.
+
+## When not to use
+
+<SimpleTable head={['Situation', 'Use instead']} rows={[
+  ['Only one option can be chosen', 'Radio group'],
+  ['The change takes effect immediately (a setting)', 'Toggle'],
+  ['Choosing from a long list', 'Multi-select combobox'],
+]} />
+
+## Accessibility
+
+**Built in (the component handles it)**
+- Role: native `<input type="checkbox">` inside a `<label>`, so clicking the text toggles it and the label is the name.
+- States: checked / unchecked / mixed (`indeterminate` is set on the native input) / disabled. Screen readers get these from the browser.
+- Hidden from AT: the drawn box (`_checkboxInput`) is `aria-hidden`; the real input is invisible but sits over the 24×24 touch area.
+
+**You must provide (consumer)**
+
+<SimpleTable head={['Prop', 'Required?', 'Why']} rows={[
+  [<Code>label</Code>, 'Yes, always', 'It\'s the visible text, or the accessible name when showLabel={false}'],
+  ['A group label', 'For 2+ related checkboxes', 'Wrap them in <fieldset> with a <legend> ("Notify me by")'],
+  ['Error message', 'When required', 'Tie it with aria-describedby and set aria-invalid on the input (3.3.1)'],
+]} />
+
+### Keyboard
+
+<Keyboard rows={[
+  ['Tab / Shift+Tab', 'Moves to / away from the checkbox (each checkbox is its own tab stop)'],
+  ['Space', 'Toggles'],
+  ['Enter', 'Does not toggle. It submits the form, as native checkboxes do'],
+]} />
+
+### Focus
+
+- Indicator: 2px outer ring (`--checkbox-focus-outer-stroke`) plus a 1px inner stroke, shown on `:focus-visible`.
+- Ring vs page: 15.61:1 (Light) / 21:1 (Dark).
+
+### Visual & pointer
+
+<SimpleTable head={['Check', 'Light', 'Dark', 'Needs']} rows={[
+  ['Label text vs page', '15.61:1', '21.00:1', '4.5:1'],
+  ['Unchecked box border vs page', '15.61:1', '21.00:1', '3:1 (1.4.11)'],
+  ['Checked fill vs page', '14.19:1', '21.00:1', '3:1'],
+  ['Check mark vs checked fill', '16.44:1', '16.44:1', '3:1'],
+]} />
+
+- **Not color-only:** checked shows a check, indeterminate a dash, not just a fill change.
+- **Target size:** the touch area is 24×24 (meets 2.5.8), and the label adds to the clickable area.
+- **Disabled** is exempt from contrast requirements.
+
+### WCAG 2.2 AA mapping
+
+<Wcag rows={[
+  ['1.3.1 Info and Relationships', 'Label wraps the input; groups need fieldset/legend', 'consumer'],
+  ['1.4.1 Use of Color', 'Check / dash shapes, not color alone'],
+  ['1.4.3 Contrast (Minimum)', 'Label ≥ 15:1'],
+  ['1.4.11 Non-text Contrast', 'Box border, fill and check ≥ 14:1'],
+  ['2.1.1 Keyboard', 'Native input, Space toggles'],
+  ['2.4.7 Focus Visible', 'Outer ring + inner stroke'],
+  ['2.5.8 Target Size (Minimum)', '24×24 touch area'],
+  ['3.3.1 Error Identification', 'Consumer ties the error with aria-describedby + aria-invalid', 'consumer'],
+  ['4.1.2 Name, Role, Value', 'Native checkbox; mixed state via indeterminate'],
+]} />
+
+**Pitfalls checked:** Enter does not toggle (only Space). The unchecked border has stated contrast (15.61:1). 44px isn't treated as a requirement.
+
+## Usage guidelines
+
+**Do**
+- Phrase labels positively ("Send me updates", not "Don't send me updates").
+- Stack checkboxes vertically, one per line.
+- Use indeterminate only on a parent that controls a list.
+
+**Don't**
+- Don't use a checkbox to trigger an immediate action. Use a toggle or button.
+- Don't hide the label unless the context makes it obvious (e.g. table row selection), and even then keep `label` as the accessible name.
+
+## Content guidelines
+
+- Labels: sentence case, no trailing punctuation, and they should make sense on their own.
+- Group legends say what the group is for ("Notify me by").
+
+## Props
+
+<SimpleTable head={['Prop', 'Type', 'Default', 'Description']} rows={[
+  [<Code>label</Code>, <Code>string</Code>, '—', 'Visible label / accessible name (required)'],
+  [<Code>showLabel</Code>, <Code>boolean</Code>, <Code>true</Code>, 'Figma "label". false hides the text but keeps it as aria-label'],
+  [<Code>checked</Code>, <Code>boolean</Code>, '—', 'Controlled value'],
+  [<Code>defaultChecked</Code>, <Code>boolean</Code>, '—', 'Uncontrolled starting value'],
+  [<Code>indeterminate</Code>, <Code>boolean</Code>, <Code>false</Code>, 'Mixed state'],
+  [<Code>disabled</Code>, <Code>boolean</Code>, <Code>false</Code>, 'Native disabled'],
+  [<Code>name</Code> + <Code>value</Code>, <Code>string</Code>, '—', 'Form submission'],
+  [<Code>onChange</Code>, <Code>(e) =&gt; void</Code>, '—', 'Change handler'],
+  [<Code>state</Code>, <Code>'default' | 'hover' | 'focus'</Code>, <Code>'default'</Code>, 'Docs only: shows a state without interacting'],
+]} />
+
+## Testing
+
+**Automated**
+
+<Checklist items={['axe passes on every story ✓', 'Indeterminate checkbox reports aria-checked="mixed"', 'Hidden-label checkbox has an accessible name']} />
+
+**Manual**
+
+<Checklist items={['Keyboard: Space toggles, Enter doesn\'t', 'Screen reader: "Send me updates, checkbox, not checked"; mixed reads as "mixed"', 'Clicking the label toggles', '200% zoom / 320px: long labels wrap beside the box', 'Forced colors: box border and check visible']} />

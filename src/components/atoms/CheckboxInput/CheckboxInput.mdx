@@ -1,0 +1,61 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { SimpleTable, Code, InfoCallout, NoteBox } from '../../../shared/doc-kit';
+import { TokenTable, Wcag } from '../../../shared/component-docs';
+
+<Meta title="Trinity/Components/Atoms/_checkboxInput/Reference" />
+
+# _checkboxInput
+
+The drawn checkbox square: 24×24 touch area, 16×16 box, check or dash. It's the **private base of Checkbox**: it has no behavior and no accessible role of its own. Figma: *_checkboxInput* `30515:78570`, 12 authored variants.
+
+<InfoCallout>Don't use this on its own in product UI. Use <b>Checkbox</b>, which wraps it around a real input. Accessibility pattern: <b>choice-controls</b>.</InfoCallout>
+
+## Token Reference
+
+<TokenTable prefixes={['checkbox/width', 'checkbox/height', 'checkbox/padding', 'checkbox/radius', 'checkbox/input', 'checkbox/icon', 'checkbox/hover', 'checkbox/focus']} />
+
+## Variants
+
+<SimpleTable head={['Property', 'Options']} rows={[
+  ['state', 'default · hover · focus'],
+  ['value', 'false · true'],
+  ['indeterminate', 'false · true'],
+  ['disabled', 'false · true (default state only)'],
+]} />
+
+## Visual States
+
+<SimpleTable head={['State', 'Layers']} rows={[
+  ['Default', 'input: fill input-default-fill, 1px inside stroke input-stroke'],
+  ['Hover', 'inputContainer: 2px outside stroke hover-stroke'],
+  ['Focus', 'inputContainer: 2px outside focus-outer-stroke; input: 1px inside focus-inner-stroke'],
+  ['Checked / indeterminate', 'input fill input-selected-fill; check stroke input-default-fill / dash fill icon-color'],
+  ['Disabled', 'input fill input-fill-disabled; check / dash icon-color-disabled'],
+]} />
+
+## Dependencies
+
+None. Raw layers only (touchpoint → inputContainer → input → check / indeterminate).
+
+## Accessibility
+
+- Always `aria-hidden="true"`. The parent **Checkbox** supplies the native input, name, state and keyboard.
+- Hover and focus here are only *looks*; Checkbox drives them from real pointer and keyboard events.
+- Contrast is documented on **Checkbox** (border 15.61:1, check on fill 16.44:1).
+
+<NoteBox>Naming: this is the only base component in the file with a <Code>_</Code> prefix. That's an observation for a future naming pass, not a defect.</NoteBox>
+
+<Wcag rows={[
+  ['1.4.11 Non-text Contrast', 'Border, fill and check all ≥ 14:1 (see Checkbox)'],
+  ['2.5.8 Target Size (Minimum)', 'Provides the 24×24 touch area Checkbox uses'],
+  ['4.1.2 Name, Role, Value', 'Handled by Checkbox (this atom is hidden from AT)', 'consumer'],
+]} />
+
+## Props
+
+<SimpleTable head={['Prop', 'Type', 'Default', 'Description']} rows={[
+  [<Code>value</Code>, <Code>boolean</Code>, <Code>false</Code>, 'Checked look'],
+  [<Code>indeterminate</Code>, <Code>boolean</Code>, <Code>false</Code>, 'Dash look'],
+  [<Code>disabled</Code>, <Code>boolean</Code>, <Code>false</Code>, 'Disabled look'],
+  [<Code>state</Code>, <Code>'default' | 'hover' | 'focus'</Code>, <Code>'default'</Code>, 'Forced look, for docs'],
+]} />

@@ -1,0 +1,51 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { SimpleTable, Code, InfoCallout } from '../../../shared/doc-kit';
+import { TokenTable, Wcag } from '../../../shared/component-docs';
+
+<Meta title="Trinity/Components/Atoms/Icon/Reference" />
+
+# Icon
+
+One glyph from the **TrinityIcons** font (Default) or **TrinityBrandIcons** (Brand). Figma: *Icon* `60882:389`, 4 sizes × 2 fonts.
+
+<InfoCallout>Accessibility pattern: <b>layout-content</b> (Storybook A11y Library). Target: WCAG 2.2 AA.</InfoCallout>
+
+## Token Reference
+
+<TokenTable prefixes={['icon/']} />
+
+<SimpleTable head={['Size', 'Text style', 'px']} rows={[
+  ['XSmall', 'Icon Fonts/Icon XSmall · Brand XSmall', '12'],
+  ['Small', 'Icon Fonts/Icon Small · Brand Small', '16'],
+  ['Medium', 'Icon Fonts/Icon Medium · Brand Medium', '20'],
+  ['Large', 'Icon Fonts/Icon Large · Brand Large', '24'],
+]} />
+
+## Dependencies
+
+None. One text layer with a private-use glyph (e.g. <Code>U+E4D9</Code>).
+
+## Accessibility
+
+- **Decorative by default:** `aria-hidden="true"`. Most icons sit next to text that already says the same thing.
+- **Meaningful icons:** pass `label`. The icon then gets `role="img"` and that name. Use this only when the icon is the only way the meaning is shown.
+- **Icon-only buttons:** don't label the icon; put `aria-label` on the button.
+- **Contrast:** `--icon-default` is 15.61:1 (Light) / 21:1 (Dark) against the page. Meaningful icons need ≥ 3:1 (1.4.11).
+- **Icon fonts and forced colors:** glyphs follow the text color, so they stay visible in Windows High Contrast. If the font fails to load, a meaningful icon still has its `label`.
+
+<Wcag rows={[
+  ['1.1.1 Non-text Content', 'Decorative → hidden; meaningful → label', 'consumer'],
+  ['1.4.11 Non-text Contrast', 'icon/default ≥ 15:1'],
+  ['1.4.1 Use of Color', 'Don\'t rely on icon color alone for meaning', 'consumer'],
+]} />
+
+**Pitfalls checked:** icon-font glyphs aren't read as stray characters (always hidden or labeled).
+
+## Props
+
+<SimpleTable head={['Prop', 'Type', 'Default', 'Description']} rows={[
+  [<Code>glyph</Code>, <Code>string</Code>, '—', 'Character or hex code point ("e4d9")'],
+  [<Code>size</Code>, <Code>'XSmall' | 'Small' | 'Medium' | 'Large'</Code>, <Code>'XSmall'</Code>, 'Figma "Size"'],
+  [<Code>icon</Code>, <Code>'Default' | 'Brand'</Code>, <Code>'Default'</Code>, 'Figma "Icon": which font'],
+  [<Code>label</Code>, <Code>string</Code>, '—', 'Only for meaningful icons'],
+]} />

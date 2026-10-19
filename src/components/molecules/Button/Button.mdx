@@ -1,0 +1,175 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { SimpleTable, Code, InfoCallout, ReviewCallout, NoteBox } from '../../../shared/doc-kit';
+import { TokenTable, Keyboard, Wcag, Checklist } from '../../../shared/component-docs';
+
+<Meta title="Trinity/Components/Molecules/Button/Reference" />
+
+# Button
+
+A native `<button>` that starts an action. Built from the **Icon** and **Spinner** atoms. Figma: *Button* `30033:78562`, 144 authored variants (6 variants × 4 sizes × default / hover / focus / active / disabled / loading).
+
+<InfoCallout>Accessibility pattern: <b>actions-buttons</b> (Storybook A11y Library). Target: WCAG 2.2 AA.</InfoCallout>
+
+## Token Reference
+
+**Color (Style collection, Light / Dark)**
+
+<TokenTable prefixes={['button/primary/', 'button/secondary/', 'button/link/', 'button/destructive/', 'button/accent/', 'button/destructive-secondary/']} exclude={['button/primary/inner', 'button/secondary/inner', 'button/destructive/inner', 'button/accent/inner', 'button/destructive-secondary/inner']} />
+
+**Size + border (Layout collection)**
+
+<TokenTable prefixes={['button/small/', 'button/medium/', 'button/large/', 'button/xlarge/', 'button/primary/inner', 'button/secondary/inner', 'button/ghost/', 'button/destructive/inner', 'button/accent/inner', 'button/destructive-secondary/inner', 'border/focus']} />
+
+<NoteBox>As authored in Figma: every size uses <Code>--button-large-radius</Code>; small and medium both use <Code>--button-medium-max-height</Code> (so Small renders 32px tall); the root has a fixed <Code>min-width: 50px</Code>; the link variant's border width is <Code>--button-ghost-inner-border-width</Code>. The <Code>button/*/min-width</Code>, <Code>button/small/max-height</Code> and <Code>button/{'{small,medium,xlarge}'}/radius</Code> tokens exist but aren't bound.</NoteBox>
+
+## Variants
+
+<SimpleTable head={['Variant', 'Use for']} rows={[
+  [<Code>primary</Code>, 'The main action in a view. One per area.'],
+  [<Code>secondary</Code>, 'Supporting actions next to a primary (Cancel, Back).'],
+  [<Code>link</Code>, 'Low-emphasis actions that should read as text. Still a button: it does something, it doesn\'t navigate.'],
+  [<Code>accent</Code>, 'A highlighted, non-primary action that needs to stand out on the page.'],
+  [<Code>destructive</Code>, 'The confirming action for something that deletes or can\'t be undone.'],
+  [<Code>destructive-secondary</Code>, 'A destructive action that isn\'t the main action (e.g. "Remove" in a row).'],
+]} />
+
+**Sizes:** `xlarge` 52px (default) · `large` 40px · `medium` 32px · `small` 32px (as authored).
+
+## Visual States
+
+<SimpleTable head={['State', 'How it shows', 'Tokens']} rows={[
+  ['Default', 'Fill + label', <Code>--button-*-fill</Code>],
+  ['Hover', 'Hover fill + 1px outer halo', <span><Code>--button-*-hover</Code> <Code>--button-*-hover-outer-stroke</Code></span>],
+  ['Focus (keyboard)', 'Focus fill, inner stroke, and a 2px outer ring', <span><Code>--button-*-focus</Code> <Code>--button-*-focus-inner-stroke</Code> <Code>--button-*-focus-outer-stroke</Code> <Code>--border-focus</Code></span>],
+  ['Active (pressed)', 'Active fill + active label', <span><Code>--button-*-active</Code> <Code>--button-*-label-active</Code></span>],
+  ['Disabled', 'Disabled fill + label (+ border on outlined variants)', <span><Code>--button-*-disabled</Code> <Code>--button-*-label-disabled</Code></span>],
+  ['Loading', 'Spinner only; width fixed at 120px so the layout doesn\'t jump', <Code>--button-*-spinner</Code>],
+]} />
+
+## Dependencies
+
+- **Icon** (atom): prefix and suffix icons, size Small (16px).
+- **Spinner** (atom): loading state. 16px for small/medium, 24px for large/xlarge.
+
+## When to use
+
+- The user triggers an action on this page: save, submit, open a dialog, delete.
+
+## When not to use
+
+<SimpleTable head={['Situation', 'Use instead']} rows={[
+  ['Going to another page or URL', 'A link (<a href>). Links navigate; buttons act.'],
+  ['Choosing one option from a set', 'Radio group or segmented control'],
+  ['Turning a setting on or off', 'Toggle / checkbox'],
+]} />
+
+## Accessibility
+
+**Built in (the component handles it)**
+- Role: native `<button type="button">`. Pass `type="submit"` inside forms.
+- Name: the visible label (`children`). Icons are decorative (`aria-hidden`), so they're never read twice.
+- Disabled: native `disabled`. It's removed from the tab order, so don't put essential information only in a disabled button.
+- Loading: keeps its accessible name, sets `aria-busy="true"` and `aria-disabled="true"`, and ignores clicks. The spinner is hidden from screen readers. (Figma's prototype lets a loading button hover back to active; the code deliberately doesn't.)
+- Focus: shows only for keyboard (`:focus-visible`), never removed.
+
+**You must provide (consumer)**
+
+<SimpleTable head={['Prop', 'Required?', 'Why']} rows={[
+  [<Code>children</Code>, 'Yes', 'The visible label is the accessible name. Use a verb ("Save changes").'],
+  [<Code>aria-label</Code>, 'Only when showContent={false}', 'Icon-only buttons have no visible text, so they need a name.'],
+  [<Code>type="submit"</Code>, 'In forms', 'The default is "button" so it never submits by accident.'],
+  ['Status message', 'When loading finishes', 'Announce the result ("Saved") with a polite live region outside the button.'],
+]} />
+
+### Keyboard
+
+<Keyboard rows={[
+  ['Tab / Shift+Tab', 'Moves focus to / away from the button'],
+  ['Enter', 'Activates'],
+  ['Space', 'Activates (on key release)'],
+]} />
+
+### Focus
+
+- Indicator: inner stroke + a 2px outer ring (`--border-focus`), different for each variant. Measured against the page background, every ring is **≥ 3:1** (lowest: destructive in Dark, 3.89:1).
+- After an action, focus stays on the button unless the action moves the user (e.g. opens a dialog, which then takes focus).
+- Never hidden behind sticky headers or footers (2.4.11).
+
+### Visual & pointer
+
+**Label contrast, measured from the Trinity tokens** (Dark hover/active fills use opacity, so they were blended over the Dark page background):
+
+<SimpleTable head={['Variant', 'Light: default / hover / active', 'Dark: default / hover / active']} rows={[
+  ['primary', '4.83 / 4.52 / 7.39', '14.61 / 9.18 / 13.10'],
+  ['secondary', '15.61 / 13.46 / 14.98', '21.00 / 6.24 / ✗ 4.04'],
+  ['link', '15.61 / 13.46 / 14.98', '21.00 / 6.24 / ✗ 4.04'],
+  ['destructive', '5.39 / 7.37 / 9.56', '9.68 / 13.08 / 5.39'],
+  ['accent', '13.66 / 16.90 / 4.83', '17.64 / 11.00 / 14.08'],
+  ['destructive-secondary', '6.36 / 5.33 / 10.49', '6.43 / 9.72 / 15.03'],
+]} />
+
+<ReviewCallout><b>Secondary and link, Dark, active:</b> the label <Code>neutral/800</Code> #393632 on <Code>neutral/300</Code> #9b958a is <b>4.04:1</b>. 14px Medium text needs 4.5:1. Pointing the Dark <Code>label-active</Code> at <Code>neutral/900</Code> would give 5.53:1. It's only visible while the button is pressed, but it still counts.</ReviewCallout>
+
+- **Not color-only:** destructive buttons say what they do ("Delete project"). The red reinforces the label; it doesn't replace it.
+- **Target size:** every size is at least 32px tall and 50px wide, so all pass 2.5.8 (24×24).
+- **Disabled** labels are exempt from contrast requirements (1.4.3).
+- **Reduced motion:** the spinner is static (as in Figma), so there's nothing to reduce.
+
+### WCAG 2.2 AA mapping
+
+<Wcag rows={[
+  ['1.1.1 Non-text Content', 'Icons are aria-hidden; icon-only buttons need aria-label', 'consumer'],
+  ['1.4.1 Use of Color', 'State and intent are carried by the label and the focus ring, not only by color'],
+  ['1.4.3 Contrast (Minimum)', 'All labels ≥ 4.5:1 except secondary/link Dark active (4.04:1)', 'fail'],
+  ['1.4.11 Non-text Contrast', 'Focus rings ≥ 3:1 against the page; the label identifies the button, so the border isn\'t needed for that'],
+  ['2.1.1 Keyboard', 'Native button: Enter and Space'],
+  ['2.4.7 Focus Visible', 'Focus ring on :focus-visible for every variant'],
+  ['2.4.11 Focus Not Obscured', 'Keep sticky UI from covering focused buttons', 'consumer'],
+  ['2.5.3 Label in Name', 'The accessible name is the visible label'],
+  ['2.5.8 Target Size (Minimum)', '≥ 32×50px at every size'],
+  ['4.1.2 Name, Role, Value', 'Native role; aria-busy / aria-disabled while loading'],
+]} />
+
+**Pitfalls checked** (from the pattern library): no `:focus` + `outline: none`; no redundant `aria-label` that repeats the visible text; 44px targets aren't treated as a requirement (24px is AA); loading doesn't change the name.
+
+## Usage guidelines
+
+**Do**
+- Use one primary button per area. Put secondary actions beside it.
+- Start labels with a verb and keep them short: "Save", "Add user", "Delete project".
+- Keep the button where it is while loading. The fixed 120px loading width does this for you.
+
+**Don't**
+- Don't use a button to navigate to another page. Use a link.
+- Don't disable a submit button to signal errors. Let the user submit, then show what's wrong.
+- Don't put two destructive buttons side by side.
+
+## Content guidelines
+
+- Labels: sentence case, a verb first, no trailing punctuation.
+- Avoid vague labels ("OK", "Click here"). Say what will happen.
+- Destructive actions name the object: "Delete invoice", not "Delete".
+
+## Props
+
+<SimpleTable head={['Prop', 'Type', 'Default', 'Description']} rows={[
+  [<Code>children</Code>, <Code>string</Code>, '"Content"', 'Figma "content": the label and accessible name'],
+  [<Code>variant</Code>, <Code>'primary' | 'secondary' | 'link' | 'destructive' | 'accent' | 'destructive-secondary'</Code>, <Code>'primary'</Code>, 'Figma "variant"'],
+  [<Code>size</Code>, <Code>'small' | 'medium' | 'large' | 'xlarge'</Code>, <Code>'xlarge'</Code>, 'Figma "size"'],
+  [<Code>prefixIcon</Code>, <Code>string</Code>, '—', 'Glyph code point for the leading icon (Figma "prefixIcon")'],
+  [<Code>suffixIcon</Code>, <Code>string</Code>, '—', 'Glyph code point for the trailing icon (Figma "suffixIcon")'],
+  [<Code>showContent</Code>, <Code>boolean</Code>, <Code>true</Code>, 'Figma "Show content". false = icon-only, so aria-label is required'],
+  [<Code>loading</Code>, <Code>boolean</Code>, <Code>false</Code>, 'Shows the spinner and sets aria-busy'],
+  [<Code>disabled</Code>, <Code>boolean</Code>, <Code>false</Code>, 'Native disabled'],
+  [<Code>state</Code>, <Code>'default' | 'hover' | 'focus' | 'active'</Code>, <Code>'default'</Code>, 'Docs only: shows a state without interacting'],
+]} />
+
+## Testing
+
+**Automated**
+
+<Checklist items={['axe passes on every story (WCAG 2.2 A/AA tags) ✓', 'Loading button exposes aria-busy="true" and keeps its name', 'Icon-only button has an aria-label']} />
+
+**Manual**
+
+<Checklist items={['Keyboard only: Tab reaches every button; Enter and Space activate; the ring is visible on every variant', 'Screen reader (VoiceOver + NVDA): announces "Save changes, button"; loading announces busy', '200% zoom and 320px width: labels don\'t clip', 'Forced colors (Windows High Contrast): the button boundary and focus ring stay visible', 'Dark mode: re-check secondary/link active once the token is fixed']} />
