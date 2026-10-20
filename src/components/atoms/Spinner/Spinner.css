@@ -7,3 +7,13 @@
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
 }
+
+/* Motion — Spinner is the atom exception (integral motion: rotation is its purpose). Figma has it static (no
+   reaction possible for a loop); it rotates in code only. Motion collection spinner/duration (→ duration/gentle 800ms)
+   + spinner/easing (→ linear), one full turn, infinite. Smooth rotation, no flashing (WCAG 2.3.1). */
+@keyframes tri-spin { to { transform: rotate(360deg); } }
+.tri-spinner { animation: tri-spin var(--spinner-duration) var(--spinner-easing) infinite; transform-origin: 50% 50%; }
+@media (prefers-reduced-motion: reduce) {
+  /* Essential loading feedback, so it slows rather than stops: spinner/reduced/duration (→ duration/sustained 1500ms). */
+  .tri-spinner { animation-duration: var(--spinner-reduced-duration); }
+}

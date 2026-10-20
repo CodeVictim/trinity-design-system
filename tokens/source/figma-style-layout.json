@@ -4,7 +4,8 @@
   "fileKey": "Lx7MN3Ztd0qxhyF7rVAiOa",
   "pulled": "2026-10-19",
   "method": "Desktop Bridge, read-only",
-  "scope": "tokens bound by Badge, Button, Checkbox, _checkboxInput, Spinner, Icon"
+  "scope": "tokens bound by Badge, Button, Checkbox, _checkboxInput, Spinner, Icon",
+  "updated": "2026-10-20: button link/secondary Dark label-active → neutral/950; + button/link/focus-outer-width, button/link/inner-border-width-focus (read-only pull)"
  },
  "variables": [
   {
@@ -1762,9 +1763,9 @@
     },
     "Dark": {
      "chain": [
-      "Brand Colors:neutral/800"
+      "Brand Colors:neutral/950"
      ],
-     "value": "#393632"
+     "value": "#171614"
     }
    }
   },
@@ -2082,9 +2083,9 @@
     },
     "Dark": {
      "chain": [
-      "Brand Colors:neutral/800"
+      "Brand Colors:neutral/950"
      ],
-     "value": "#393632"
+     "value": "#171614"
     }
    }
   },
@@ -3381,6 +3382,34 @@
       "Primitives:spacing/micro/050"
      ],
      "value": 2
+    }
+   }
+  },
+  {
+   "name": "button/link/focus-outer-width",
+   "collection": "Layout",
+   "type": "FLOAT",
+   "scopes": [],
+   "modes": {
+    "Mode 1": {
+     "chain": [
+      "Primitives:spacing/micro/025"
+     ],
+     "value": 1
+    }
+   }
+  },
+  {
+   "name": "button/link/inner-border-width-focus",
+   "collection": "Layout",
+   "type": "FLOAT",
+   "scopes": [],
+   "modes": {
+    "Mode 1": {
+     "chain": [
+      "Primitives:spacing/micro/025"
+     ],
+     "value": 1
     }
    }
   }

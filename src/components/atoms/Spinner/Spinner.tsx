@@ -1,5 +1,6 @@
 // Trinity Spinner (atom) — Figma "Spinner" 10259:29263. Arc geometry exported from the Figma Arc layer.
-// Static, as authored in Figma (no rotation reaction exists). Fill `spinner/fill`; sizes `spinner/{small,medium,large}/*`.
+// Static in Figma (a loop can't be prototyped); rotates in code via Spinner.css using the Motion tokens spinner/*
+// (800ms linear; 1500ms under reduced motion). Fill `spinner/fill`; sizes `spinner/{small,medium,large}/*`.
 import './Spinner.css';
 
 export type SpinnerSize = '16' | '24' | '40';

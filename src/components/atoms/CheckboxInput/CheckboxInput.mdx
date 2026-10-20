@@ -37,6 +37,8 @@ The drawn checkbox square: 24×24 touch area, 16×16 box, check or dash. It's th
 
 None. Raw layers only (touchpoint → inputContainer → input → check / indeterminate).
 
+**Motion:** none of its own. This atom only defines the look; the **Checkbox** molecule animates its fill and strokes (`--checkbox-duration` / `--checkbox-easing`).
+
 ## Accessibility
 
 - Always `aria-hidden="true"`. The parent **Checkbox** supplies the native input, name, state and keyboard.

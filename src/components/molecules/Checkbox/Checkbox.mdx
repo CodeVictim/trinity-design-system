@@ -94,6 +94,8 @@ A native checkbox with a label, for choosing one or more independent options. Bu
 - **Target size:** the touch area is 24×24 (meets 2.5.8), and the label adds to the clickable area.
 - **Disabled** is exempt from contrast requirements.
 
+- **Motion:** the Checkbox molecule handles it (the _checkboxInput atom only defines the look): box fill, check colour and the hover stroke fade over `--checkbox-duration` (→ `duration/fast`, 150ms) with `--checkbox-easing` (→ `easing/ease-out`), matching the Figma prototype. The check mark appears with no draw or scale; focus strokes snap on. Reduced motion: colour fades only, so nothing changes.
+
 ### WCAG 2.2 AA mapping
 
 <Wcag rows={[

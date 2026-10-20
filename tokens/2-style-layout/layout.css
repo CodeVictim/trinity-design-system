@@ -16,6 +16,8 @@
   --button-destructive-inner-border-width: var(--spacing-micro-025);
   --button-destructive-inner-border-width-focus: var(--spacing-micro-050);
   --button-ghost-inner-border-width: var(--spacing-micro-025);
+  --button-link-focus-outer-width: var(--spacing-micro-025);
+  --button-link-inner-border-width-focus: var(--spacing-micro-025);
   --button-large-gap: var(--spacing-micro-100);
   --button-large-max-height: var(--spacing-large-1000);
   --button-large-min-width: var(--spacing-large-3000);

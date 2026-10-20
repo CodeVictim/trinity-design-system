@@ -172,7 +172,7 @@
   --button-link-focus-outer-stroke: var(--neutral-300);
   --button-link-hover: var(--neutral-500);
   --button-link-hover-outer-stroke: var(--neutral-150);
-  --button-link-label-active: var(--neutral-800);
+  --button-link-label-active: var(--neutral-950);
   --button-link-label-default: var(--neutral-0);
   --button-link-label-disabled: var(--neutral-400);
   --button-link-spinner: var(--neutral-0);
@@ -198,7 +198,7 @@
   --button-secondary-focus-outer-stroke: var(--neutral-300);
   --button-secondary-hover: var(--neutral-500);
   --button-secondary-hover-outer-stroke: var(--neutral-150);
-  --button-secondary-label-active: var(--neutral-800);
+  --button-secondary-label-active: var(--neutral-950);
   --button-secondary-label-default: var(--neutral-0);
   --button-secondary-label-disabled: var(--neutral-400);
   --button-secondary-spinner: var(--neutral-0);

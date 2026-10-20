@@ -33,7 +33,8 @@ None. Raw layers only (Arc boolean).
 - **Decorative.** The spinner is `aria-hidden`; it has no label of its own (Figma has none).
 - **The component or page that is loading announces it.** Button does this with `aria-busy`. A page or panel should have a polite status message ("Loading results…") and set `aria-busy` on the region that's loading.
 - **Contrast:** the arc vs the page is 15.61:1 (Light) / 21:1 (Dark), well above 3:1.
-- **Motion:** static, so nothing to reduce for `prefers-reduced-motion`.
+- **Motion:** rotates continuously — one turn every 800ms, linear (`--spinner-duration` → `duration/gentle`, `--spinner-easing` → `easing/linear`). Spinner is the atom exception: rotation is its purpose. It's static in Figma because a loop can't be prototyped.
+- **Reduced motion:** slows to one turn every 1500ms (`--spinner-reduced-duration` → `duration/sustained`) instead of stopping, because it's essential loading feedback. Smooth rotation, no flashing (WCAG 2.3.1). The parent (e.g. a loading Button) carries the busy state; the spinner itself stays `aria-hidden`.
 
 <Wcag rows={[
   ['1.1.1 Non-text Content', 'Hidden from AT; the loading region carries the text', 'consumer'],

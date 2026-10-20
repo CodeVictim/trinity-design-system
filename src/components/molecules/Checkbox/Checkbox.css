@@ -19,3 +19,21 @@
 .tri-checkbox:not(.is-disabled):hover .tri-cbi__container { box-shadow: 0 0 0 2px var(--checkbox-hover-stroke); }
 .tri-checkbox__native:focus-visible + .tri-cbi .tri-cbi__container { box-shadow: 0 0 0 2px var(--checkbox-focus-outer-stroke); }
 .tri-checkbox__native:focus-visible + .tri-cbi .tri-cbi__input { box-shadow: inset 0 0 0 1px var(--checkbox-focus-inner-stroke); }
+
+/* Motion — handled here by the Checkbox molecule (the _checkboxInput atom only defines the look).
+   Motion collection checkbox/duration (→ duration/fast 150ms) + checkbox/easing (→ ease-out), matching the Figma
+   prototype (hover + click: Smart Animate 150ms ease-out). Colour only: box fill, check colour, strokes.
+   The check mark appears with no draw or scale; focus strokes snap on (no transition). */
+.tri-checkbox .tri-cbi__input {
+  transition: background-color var(--checkbox-duration) var(--checkbox-easing),
+              color var(--checkbox-duration) var(--checkbox-easing),
+              box-shadow var(--checkbox-duration) var(--checkbox-easing);
+}
+.tri-checkbox .tri-cbi__container { transition: box-shadow var(--checkbox-duration) var(--checkbox-easing); }
+.tri-checkbox__native:focus-visible + .tri-cbi .tri-cbi__container,
+.tri-checkbox__native:focus-visible + .tri-cbi .tri-cbi__input,
+.tri-checkbox .tri-cbi.is-focus .tri-cbi__container,
+.tri-checkbox .tri-cbi.is-focus .tri-cbi__input { transition: none; }
+@media (prefers-reduced-motion: reduce) {
+  /* Colour fades only — nothing moves, so nothing is reduced. */
+}

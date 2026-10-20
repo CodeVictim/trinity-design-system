@@ -43,12 +43,12 @@ Every state exists for all 6 variants and all 4 sizes in Figma. See the **Button
   ['Default', 'At rest', 'Fill + label + icons; outlined variants (secondary, destructive, destructive-secondary) also have a border', <Code>--button-*-fill</Code>],
   ['Hover', 'Pointer over it — On hover, from Default and from Loading', <span>Hover fill + 1px halo inside the edge. <b>Link: fill only, no halo.</b></span>, <span><Code>--button-*-hover</Code> <Code>--button-*-hover-outer-stroke</Code></span>],
   ['Active (pressed)', 'While pressed — On press, from Hover', 'Active fill + active label; no halo', <span><Code>--button-*-active</Code> <Code>--button-*-label-active</Code></span>],
-  ['Focus (keyboard)', 'Keyboard focus — its own variant (no prototype reaction)', <span>Focus fill, 2px inner stroke and a 2px outer ring. <b>Link: fill only, no stroke or ring.</b></span>, <span><Code>--button-*-focus</Code> <Code>--button-*-focus-inner-stroke</Code> <Code>--button-*-focus-outer-stroke</Code> <Code>--border-focus</Code></span>],
+  ['Focus (keyboard)', 'Keyboard focus — its own variant (no prototype reaction)', <span>Focus fill, 2px inner stroke and a 2px outer ring. <b>Link: 1px inner stroke and a 1px outer ring</b> (<Code>--button-link-inner-border-width-focus</Code>, <Code>--button-link-focus-outer-width</Code>).</span>, <span><Code>--button-*-focus</Code> <Code>--button-*-focus-inner-stroke</Code> <Code>--button-*-focus-outer-stroke</Code> <Code>--border-focus</Code></span>],
   ['Disabled', 'Action unavailable — no reactions', 'Disabled fill + label (+ disabled border on outlined variants)', <span><Code>--button-*-disabled</Code> <Code>--button-*-label-disabled</Code></span>],
   ['Loading', 'Action running — in the prototype, hover goes to Hover; in code it stays busy', 'Spinner only; width fixed at 120px so the layout doesn\'t jump', <Code>--button-*-spinner</Code>],
 ]} />
 
-<ReviewCallout><b>Link focus</b> is fill-only as authored — a keyboard user sees only a colour change, no ring (possible WCAG 2.4.7 gap). Matching Figma for now; to be filled in later.</ReviewCallout>
+<NoteBox>2026-10-20: <b>Link focus</b> updated in Figma — it now has a 1px inner stroke and a 1px outer ring (new Layout tokens <Code>button/link/inner-border-width-focus</Code> and <Code>button/link/focus-outer-width</Code>). Ring vs page: 11.87:1 Light, 7.06:1 Dark.</NoteBox>
 <ReviewCallout><b>Destructive focus</b>: the inner stroke is bound to <Code>button/accent/focus-inner-stroke</Code> in Figma (other variants use their own). Left as is for now; the code uses <Code>--button-destructive-focus-inner-stroke</Code>.</ReviewCallout>
 <NoteBox>2026-10-20: <b>destructive-secondary</b> now has the same prototype reactions as the other variants (On hover → Hover from Default and Loading; On press → Active from Hover; Smart Animate 150ms ease-out).</NoteBox>
 
@@ -98,7 +98,7 @@ Every state exists for all 6 variants and all 4 sizes in Figma. See the **Button
 ### Focus
 
 - Indicator: inner stroke + a 2px outer ring (`--border-focus`), different for each variant. Measured against the page background, every ring is **≥ 3:1** (lowest: destructive in Dark, 3.89:1).
-- **Link is the exception:** as authored in Figma its focus state changes the fill only — no inner stroke, no ring. Logged above as a review item (WCAG 2.4.7); matching Figma until it's updated there.
+- **Link** uses a thinner indicator: a 1px inner stroke and a 1px outer ring (Figma, updated 2026-10-20). The ring is 11.87:1 against the page in Light and 7.06:1 in Dark.
 - After an action, focus stays on the button unless the action moves the user (e.g. opens a dialog, which then takes focus).
 - Never hidden behind sticky headers or footers (2.4.11).
 
@@ -108,26 +108,27 @@ Every state exists for all 6 variants and all 4 sizes in Figma. See the **Button
 
 <SimpleTable head={['Variant', 'Light: default / hover / active', 'Dark: default / hover / active']} rows={[
   ['primary', '4.83 / 4.52 / 7.39', '14.61 / 9.18 / 13.10'],
-  ['secondary', '15.61 / 13.46 / 14.98', '21.00 / 6.24 / ✗ 4.04'],
-  ['link', '15.61 / 13.46 / 14.98', '21.00 / 6.24 / ✗ 4.04'],
+  ['secondary', '15.61 / 13.46 / 14.98', '21.00 / 6.24 / 6.08'],
+  ['link', '15.61 / 13.46 / 14.98', '21.00 / 6.24 / 6.08'],
   ['destructive', '5.39 / 7.37 / 9.56', '9.68 / 13.08 / 5.39'],
   ['accent', '13.66 / 16.90 / 4.83', '17.64 / 11.00 / 14.08'],
   ['destructive-secondary', '6.36 / 5.33 / 10.49', '6.43 / 9.72 / 15.03'],
 ]} />
 
-<ReviewCallout><b>Secondary and link, Dark, active:</b> the label <Code>neutral/800</Code> #393632 on <Code>neutral/300</Code> #9b958a is <b>4.04:1</b>. 14px Medium text needs 4.5:1. Pointing the Dark <Code>label-active</Code> at <Code>neutral/900</Code> would give 5.53:1. It's only visible while the button is pressed, but it still counts.</ReviewCallout>
+<NoteBox>2026-10-20: <b>Secondary and link, Dark, active</b> fixed in Figma — <Code>label-active</Code> now points at <Code>neutral/950</Code> #171614 (was <Code>neutral/800</Code>, 4.04:1). On <Code>neutral/300</Code> #9b958a that's <b>6.08:1</b>.</NoteBox>
 
 - **Not color-only:** destructive buttons say what they do ("Delete project"). The red reinforces the label; it doesn't replace it.
 - **Target size:** every size is at least 32px tall and 50px wide, so all pass 2.5.8 (24×24).
 - **Disabled** labels are exempt from contrast requirements (1.4.3).
-- **Reduced motion:** the spinner is static (as in Figma), so there's nothing to reduce.
+- **Motion:** fill, label/icon colour, border and hover halo fade over `--button-duration` (→ `duration/fast`, 150ms) with `--button-easing` (→ `easing/ease-out`) — the same timing as the Figma prototype (hover and press: Smart Animate 150ms ease-out). The focus ring snaps on with no transition; the loading width never animates.
+- **Reduced motion:** colour fades only — nothing moves, so nothing changes. The loading Spinner keeps rotating but slows to 1500ms (see Spinner).
 
 ### WCAG 2.2 AA mapping
 
 <Wcag rows={[
   ['1.1.1 Non-text Content', 'Icons are aria-hidden; icon-only buttons need aria-label', 'consumer'],
   ['1.4.1 Use of Color', 'State and intent are carried by the label and the focus ring, not only by color'],
-  ['1.4.3 Contrast (Minimum)', 'All labels ≥ 4.5:1 except secondary/link Dark active (4.04:1)', 'fail'],
+  ['1.4.3 Contrast (Minimum)', 'All labels ≥ 4.5:1 in Light and Dark (lowest: primary hover, 4.52:1)'],
   ['1.4.11 Non-text Contrast', 'Focus rings ≥ 3:1 against the page; the label identifies the button, so the border isn\'t needed for that'],
   ['2.1.1 Keyboard', 'Native button: Enter and Space'],
   ['2.4.7 Focus Visible', 'Focus ring on :focus-visible for every variant'],
