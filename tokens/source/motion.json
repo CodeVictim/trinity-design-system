@@ -1,0 +1,1032 @@
+{
+ "meta": {
+  "file": "Trinity Design System (for review)",
+  "fileKey": "Lx7MN3Ztd0qxhyF7rVAiOa",
+  "collection": "Motion",
+  "mode": "Mode 1",
+  "pulled": "2026-10-20",
+  "method": "Desktop Bridge, read-only",
+  "count": 94
+ },
+ "scale": [
+  {
+   "figma": "duration/instant",
+   "css": "--duration-instant",
+   "kind": "duration",
+   "type": "FLOAT",
+   "value": 0,
+   "out": "0ms",
+   "description": "Duration in ms. Exported as 0ms.",
+   "usedBy": [
+    "progress bar/reduced/duration",
+    "toggle/reduced/duration",
+    "accordion/reduced/duration",
+    "table/reduced/duration",
+    "nav/section/reduced/duration",
+    "nav/topbar/reduced/duration"
+   ]
+  },
+  {
+   "figma": "duration/fast",
+   "css": "--duration-fast",
+   "kind": "duration",
+   "type": "FLOAT",
+   "value": 150,
+   "out": "150ms",
+   "description": "Duration in ms. Exported as 150ms.",
+   "usedBy": [
+    "button/duration",
+    "checkbox/duration",
+    "chip/duration",
+    "nav/link/duration",
+    "tooltip/duration",
+    "radiobutton/duration",
+    "accordion/duration",
+    "nav/section/duration",
+    "nav/sidebar/duration",
+    "nav-accordion-header/duration",
+    "nav-button-option/duration",
+    "tabs/duration",
+    "alternate-button/duration",
+    "icon-only-button/duration",
+    "breadcrumb-item/duration",
+    "menu-item/duration",
+    "input/duration",
+    "input-field/duration",
+    "text-area/duration",
+    "banner/exit/duration"
+   ]
+  },
+  {
+   "figma": "duration/default",
+   "css": "--duration-default",
+   "kind": "duration",
+   "type": "FLOAT",
+   "value": 200,
+   "out": "200ms",
+   "description": "Duration in ms. Exported as 200ms.",
+   "usedBy": [
+    "toggle/duration",
+    "slider/duration",
+    "table/duration",
+    "card/duration",
+    "menu-container/duration",
+    "date-picker/duration",
+    "dropdown/duration",
+    "modal/duration"
+   ]
+  },
+  {
+   "figma": "duration/medium",
+   "css": "--duration-medium",
+   "kind": "duration",
+   "type": "FLOAT",
+   "value": 300,
+   "out": "300ms",
+   "description": "Duration in ms. Exported as 300ms.",
+   "usedBy": [
+    "progress bar/duration",
+    "accordion/expand/duration",
+    "table/expand/duration",
+    "nav/section/expand/duration",
+    "nav/topbar/expand/duration",
+    "modal/drawer/duration",
+    "notification/duration"
+   ]
+  },
+  {
+   "figma": "duration/gentle",
+   "css": "--duration-gentle",
+   "kind": "duration",
+   "type": "FLOAT",
+   "value": 800,
+   "out": "800ms",
+   "description": "Duration in ms. Exported as 800ms.",
+   "usedBy": [
+    "spinner/duration"
+   ]
+  },
+  {
+   "figma": "duration/sustained",
+   "css": "--duration-sustained",
+   "kind": "duration",
+   "type": "FLOAT",
+   "value": 1500,
+   "out": "1500ms",
+   "description": "Duration in ms. Exported as 1500ms.",
+   "usedBy": [
+    "spinner/reduced/duration"
+   ]
+  },
+  {
+   "figma": "easing/linear",
+   "css": "--easing-linear",
+   "kind": "easing",
+   "type": "STRING",
+   "value": "linear",
+   "out": "linear",
+   "description": "CSS easing keyword.",
+   "usedBy": [
+    "spinner/easing"
+   ]
+  },
+  {
+   "figma": "easing/ease-out",
+   "css": "--easing-ease-out",
+   "kind": "easing",
+   "type": "STRING",
+   "value": "ease-out",
+   "out": "ease-out",
+   "description": "CSS easing keyword.",
+   "usedBy": [
+    "button/easing",
+    "checkbox/easing",
+    "chip/easing",
+    "nav/link/easing",
+    "tooltip/enter/easing",
+    "progress bar/easing",
+    "radiobutton/easing",
+    "accordion/easing",
+    "accordion/expand/easing",
+    "slider/easing",
+    "table/easing",
+    "table/expand/easing",
+    "card/easing",
+    "nav/section/easing",
+    "nav/section/expand/easing",
+    "nav/sidebar/easing",
+    "nav/topbar/expand/easing",
+    "nav-accordion-header/easing",
+    "nav-button-option/easing",
+    "tabs/easing",
+    "alternate-button/easing",
+    "icon-only-button/easing",
+    "breadcrumb-item/easing",
+    "menu-item/easing",
+    "input/easing",
+    "input-field/easing",
+    "text-area/easing",
+    "menu-container/enter/easing",
+    "date-picker/enter/easing",
+    "dropdown/enter/easing",
+    "modal/enter/easing",
+    "notification/enter/easing"
+   ]
+  },
+  {
+   "figma": "easing/ease-in",
+   "css": "--easing-ease-in",
+   "kind": "easing",
+   "type": "STRING",
+   "value": "ease-in",
+   "out": "ease-in",
+   "description": "CSS easing keyword.",
+   "usedBy": [
+    "tooltip/exit/easing",
+    "menu-container/exit/easing",
+    "date-picker/exit/easing",
+    "dropdown/exit/easing",
+    "modal/exit/easing",
+    "notification/exit/easing",
+    "banner/exit/easing"
+   ]
+  },
+  {
+   "figma": "easing/ease-in-out",
+   "css": "--easing-ease-in-out",
+   "kind": "easing",
+   "type": "STRING",
+   "value": "ease-in-out",
+   "out": "ease-in-out",
+   "description": "CSS easing keyword.",
+   "usedBy": [
+    "toggle/easing"
+   ]
+  }
+ ],
+ "groups": [
+  {
+   "group": "button",
+   "owners": "Button",
+   "level": "molecule",
+   "tokens": [
+    {
+     "figma": "button/duration",
+     "css": "--button-duration",
+     "alias": "duration/fast",
+     "aliasCss": "--duration-fast",
+     "out": "150ms"
+    },
+    {
+     "figma": "button/easing",
+     "css": "--button-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    }
+   ]
+  },
+  {
+   "group": "checkbox",
+   "owners": "Checkbox",
+   "level": "molecule",
+   "look": "_checkboxInput",
+   "tokens": [
+    {
+     "figma": "checkbox/duration",
+     "css": "--checkbox-duration",
+     "alias": "duration/fast",
+     "aliasCss": "--duration-fast",
+     "out": "150ms"
+    },
+    {
+     "figma": "checkbox/easing",
+     "css": "--checkbox-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    }
+   ]
+  },
+  {
+   "group": "spinner",
+   "owners": "Spinner",
+   "level": "atom",
+   "exception": true,
+   "tokens": [
+    {
+     "figma": "spinner/duration",
+     "css": "--spinner-duration",
+     "alias": "duration/gentle",
+     "aliasCss": "--duration-gentle",
+     "out": "800ms"
+    },
+    {
+     "figma": "spinner/easing",
+     "css": "--spinner-easing",
+     "alias": "easing/linear",
+     "aliasCss": "--easing-linear",
+     "out": "linear"
+    },
+    {
+     "figma": "spinner/reduced/duration",
+     "css": "--spinner-reduced-duration",
+     "alias": "duration/sustained",
+     "aliasCss": "--duration-sustained",
+     "out": "1500ms"
+    }
+   ]
+  },
+  {
+   "group": "chip",
+   "owners": "Chip",
+   "level": "atom",
+   "exception": true,
+   "tokens": [
+    {
+     "figma": "chip/duration",
+     "css": "--chip-duration",
+     "alias": "duration/fast",
+     "aliasCss": "--duration-fast",
+     "out": "150ms"
+    },
+    {
+     "figma": "chip/easing",
+     "css": "--chip-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    }
+   ]
+  },
+  {
+   "group": "nav/link",
+   "owners": "Nav Link Item",
+   "level": "atom",
+   "exception": true,
+   "tokens": [
+    {
+     "figma": "nav/link/duration",
+     "css": "--nav-link-duration",
+     "alias": "duration/fast",
+     "aliasCss": "--duration-fast",
+     "out": "150ms"
+    },
+    {
+     "figma": "nav/link/easing",
+     "css": "--nav-link-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    }
+   ]
+  },
+  {
+   "group": "tooltip",
+   "owners": "Tooltip",
+   "level": "atom",
+   "exception": true,
+   "tokens": [
+    {
+     "figma": "tooltip/duration",
+     "css": "--tooltip-duration",
+     "alias": "duration/fast",
+     "aliasCss": "--duration-fast",
+     "out": "150ms"
+    },
+    {
+     "figma": "tooltip/enter/easing",
+     "css": "--tooltip-enter-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    },
+    {
+     "figma": "tooltip/exit/easing",
+     "css": "--tooltip-exit-easing",
+     "alias": "easing/ease-in",
+     "aliasCss": "--easing-ease-in",
+     "out": "ease-in"
+    }
+   ]
+  },
+  {
+   "group": "progress bar",
+   "owners": "Progress Bar",
+   "level": "atom",
+   "exception": true,
+   "tokens": [
+    {
+     "figma": "progress bar/duration",
+     "css": "--progress-bar-duration",
+     "alias": "duration/medium",
+     "aliasCss": "--duration-medium",
+     "out": "300ms"
+    },
+    {
+     "figma": "progress bar/easing",
+     "css": "--progress-bar-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    },
+    {
+     "figma": "progress bar/reduced/duration",
+     "css": "--progress-bar-reduced-duration",
+     "alias": "duration/instant",
+     "aliasCss": "--duration-instant",
+     "out": "0ms"
+    }
+   ]
+  },
+  {
+   "group": "radiobutton",
+   "owners": "Radio Button Item",
+   "level": "molecule",
+   "look": "Radio Button Input",
+   "tokens": [
+    {
+     "figma": "radiobutton/duration",
+     "css": "--radiobutton-duration",
+     "alias": "duration/fast",
+     "aliasCss": "--duration-fast",
+     "out": "150ms"
+    },
+    {
+     "figma": "radiobutton/easing",
+     "css": "--radiobutton-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    }
+   ]
+  },
+  {
+   "group": "toggle",
+   "owners": "Toggle, Toggle Item",
+   "level": "molecule",
+   "tokens": [
+    {
+     "figma": "toggle/duration",
+     "css": "--toggle-duration",
+     "alias": "duration/default",
+     "aliasCss": "--duration-default",
+     "out": "200ms"
+    },
+    {
+     "figma": "toggle/easing",
+     "css": "--toggle-easing",
+     "alias": "easing/ease-in-out",
+     "aliasCss": "--easing-ease-in-out",
+     "out": "ease-in-out"
+    },
+    {
+     "figma": "toggle/reduced/duration",
+     "css": "--toggle-reduced-duration",
+     "alias": "duration/instant",
+     "aliasCss": "--duration-instant",
+     "out": "0ms"
+    }
+   ]
+  },
+  {
+   "group": "accordion",
+   "owners": "Accordion, Accordion Header",
+   "level": "molecule",
+   "tokens": [
+    {
+     "figma": "accordion/duration",
+     "css": "--accordion-duration",
+     "alias": "duration/fast",
+     "aliasCss": "--duration-fast",
+     "out": "150ms"
+    },
+    {
+     "figma": "accordion/easing",
+     "css": "--accordion-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    },
+    {
+     "figma": "accordion/expand/duration",
+     "css": "--accordion-expand-duration",
+     "alias": "duration/medium",
+     "aliasCss": "--duration-medium",
+     "out": "300ms"
+    },
+    {
+     "figma": "accordion/expand/easing",
+     "css": "--accordion-expand-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    },
+    {
+     "figma": "accordion/reduced/duration",
+     "css": "--accordion-reduced-duration",
+     "alias": "duration/instant",
+     "aliasCss": "--duration-instant",
+     "out": "0ms"
+    }
+   ]
+  },
+  {
+   "group": "slider",
+   "owners": "Slider, Slider-Range, Slider Thumb",
+   "level": "molecule",
+   "tokens": [
+    {
+     "figma": "slider/duration",
+     "css": "--slider-duration",
+     "alias": "duration/default",
+     "aliasCss": "--duration-default",
+     "out": "200ms"
+    },
+    {
+     "figma": "slider/easing",
+     "css": "--slider-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    }
+   ]
+  },
+  {
+   "group": "table",
+   "owners": "Table Row, Table_Cell",
+   "level": "molecule",
+   "tokens": [
+    {
+     "figma": "table/duration",
+     "css": "--table-duration",
+     "alias": "duration/default",
+     "aliasCss": "--duration-default",
+     "out": "200ms"
+    },
+    {
+     "figma": "table/easing",
+     "css": "--table-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    },
+    {
+     "figma": "table/expand/duration",
+     "css": "--table-expand-duration",
+     "alias": "duration/medium",
+     "aliasCss": "--duration-medium",
+     "out": "300ms"
+    },
+    {
+     "figma": "table/expand/easing",
+     "css": "--table-expand-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    },
+    {
+     "figma": "table/reduced/duration",
+     "css": "--table-reduced-duration",
+     "alias": "duration/instant",
+     "aliasCss": "--duration-instant",
+     "out": "0ms"
+    }
+   ]
+  },
+  {
+   "group": "card",
+   "owners": "Card, Status Card, Input Card Header",
+   "level": "organism",
+   "look": "card content",
+   "tokens": [
+    {
+     "figma": "card/duration",
+     "css": "--card-duration",
+     "alias": "duration/default",
+     "aliasCss": "--duration-default",
+     "out": "200ms"
+    },
+    {
+     "figma": "card/easing",
+     "css": "--card-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    }
+   ]
+  },
+  {
+   "group": "nav/section",
+   "owners": "Nav Accordion Section",
+   "level": "molecule",
+   "tokens": [
+    {
+     "figma": "nav/section/duration",
+     "css": "--nav-section-duration",
+     "alias": "duration/fast",
+     "aliasCss": "--duration-fast",
+     "out": "150ms"
+    },
+    {
+     "figma": "nav/section/easing",
+     "css": "--nav-section-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    },
+    {
+     "figma": "nav/section/expand/duration",
+     "css": "--nav-section-expand-duration",
+     "alias": "duration/medium",
+     "aliasCss": "--duration-medium",
+     "out": "300ms"
+    },
+    {
+     "figma": "nav/section/expand/easing",
+     "css": "--nav-section-expand-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    },
+    {
+     "figma": "nav/section/reduced/duration",
+     "css": "--nav-section-reduced-duration",
+     "alias": "duration/instant",
+     "aliasCss": "--duration-instant",
+     "out": "0ms"
+    }
+   ]
+  },
+  {
+   "group": "nav/sidebar",
+   "owners": "Side Navigation",
+   "level": "organism",
+   "tokens": [
+    {
+     "figma": "nav/sidebar/duration",
+     "css": "--nav-sidebar-duration",
+     "alias": "duration/fast",
+     "aliasCss": "--duration-fast",
+     "out": "150ms"
+    },
+    {
+     "figma": "nav/sidebar/easing",
+     "css": "--nav-sidebar-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    }
+   ]
+  },
+  {
+   "group": "nav/topbar",
+   "owners": "Top Navigation Mobile",
+   "level": "organism",
+   "tokens": [
+    {
+     "figma": "nav/topbar/expand/duration",
+     "css": "--nav-topbar-expand-duration",
+     "alias": "duration/medium",
+     "aliasCss": "--duration-medium",
+     "out": "300ms"
+    },
+    {
+     "figma": "nav/topbar/expand/easing",
+     "css": "--nav-topbar-expand-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    },
+    {
+     "figma": "nav/topbar/reduced/duration",
+     "css": "--nav-topbar-reduced-duration",
+     "alias": "duration/instant",
+     "aliasCss": "--duration-instant",
+     "out": "0ms"
+    }
+   ]
+  },
+  {
+   "group": "nav-accordion-header",
+   "owners": "NavAccordionHeader",
+   "level": "molecule",
+   "tokens": [
+    {
+     "figma": "nav-accordion-header/duration",
+     "css": "--nav-accordion-header-duration",
+     "alias": "duration/fast",
+     "aliasCss": "--duration-fast",
+     "out": "150ms"
+    },
+    {
+     "figma": "nav-accordion-header/easing",
+     "css": "--nav-accordion-header-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    }
+   ]
+  },
+  {
+   "group": "nav-button-option",
+   "owners": "NavButtonOption",
+   "level": "molecule",
+   "tokens": [
+    {
+     "figma": "nav-button-option/duration",
+     "css": "--nav-button-option-duration",
+     "alias": "duration/fast",
+     "aliasCss": "--duration-fast",
+     "out": "150ms"
+    },
+    {
+     "figma": "nav-button-option/easing",
+     "css": "--nav-button-option-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    }
+   ]
+  },
+  {
+   "group": "tabs",
+   "owners": "Tabs",
+   "level": "organism",
+   "look": "_tabItem",
+   "tokens": [
+    {
+     "figma": "tabs/duration",
+     "css": "--tabs-duration",
+     "alias": "duration/fast",
+     "aliasCss": "--duration-fast",
+     "out": "150ms"
+    },
+    {
+     "figma": "tabs/easing",
+     "css": "--tabs-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    }
+   ]
+  },
+  {
+   "group": "alternate-button",
+   "owners": "Alternate Button",
+   "level": "molecule",
+   "tokens": [
+    {
+     "figma": "alternate-button/duration",
+     "css": "--alternate-button-duration",
+     "alias": "duration/fast",
+     "aliasCss": "--duration-fast",
+     "out": "150ms"
+    },
+    {
+     "figma": "alternate-button/easing",
+     "css": "--alternate-button-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    }
+   ]
+  },
+  {
+   "group": "icon-only-button",
+   "owners": "Icon Only Button",
+   "level": "molecule",
+   "tokens": [
+    {
+     "figma": "icon-only-button/duration",
+     "css": "--icon-only-button-duration",
+     "alias": "duration/fast",
+     "aliasCss": "--duration-fast",
+     "out": "150ms"
+    },
+    {
+     "figma": "icon-only-button/easing",
+     "css": "--icon-only-button-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    }
+   ]
+  },
+  {
+   "group": "breadcrumb-item",
+   "owners": "Hub BreadcrumbItem",
+   "level": "molecule",
+   "tokens": [
+    {
+     "figma": "breadcrumb-item/duration",
+     "css": "--breadcrumb-item-duration",
+     "alias": "duration/fast",
+     "aliasCss": "--duration-fast",
+     "out": "150ms"
+    },
+    {
+     "figma": "breadcrumb-item/easing",
+     "css": "--breadcrumb-item-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    }
+   ]
+  },
+  {
+   "group": "menu-item",
+   "owners": "Menu Item",
+   "level": "organism",
+   "tokens": [
+    {
+     "figma": "menu-item/duration",
+     "css": "--menu-item-duration",
+     "alias": "duration/fast",
+     "aliasCss": "--duration-fast",
+     "out": "150ms"
+    },
+    {
+     "figma": "menu-item/easing",
+     "css": "--menu-item-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    }
+   ]
+  },
+  {
+   "group": "input",
+   "owners": "Input, Select, Search",
+   "level": "molecule",
+   "tokens": [
+    {
+     "figma": "input/duration",
+     "css": "--input-duration",
+     "alias": "duration/fast",
+     "aliasCss": "--duration-fast",
+     "out": "150ms"
+    },
+    {
+     "figma": "input/easing",
+     "css": "--input-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    }
+   ]
+  },
+  {
+   "group": "input-field",
+   "owners": "Input Field",
+   "level": "molecule",
+   "tokens": [
+    {
+     "figma": "input-field/duration",
+     "css": "--input-field-duration",
+     "alias": "duration/fast",
+     "aliasCss": "--duration-fast",
+     "out": "150ms"
+    },
+    {
+     "figma": "input-field/easing",
+     "css": "--input-field-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    }
+   ]
+  },
+  {
+   "group": "text-area",
+   "owners": "Text Area",
+   "level": "molecule",
+   "tokens": [
+    {
+     "figma": "text-area/duration",
+     "css": "--text-area-duration",
+     "alias": "duration/fast",
+     "aliasCss": "--duration-fast",
+     "out": "150ms"
+    },
+    {
+     "figma": "text-area/easing",
+     "css": "--text-area-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    }
+   ]
+  },
+  {
+   "group": "menu-container",
+   "owners": "Menu Container",
+   "level": "organism",
+   "tokens": [
+    {
+     "figma": "menu-container/duration",
+     "css": "--menu-container-duration",
+     "alias": "duration/default",
+     "aliasCss": "--duration-default",
+     "out": "200ms"
+    },
+    {
+     "figma": "menu-container/enter/easing",
+     "css": "--menu-container-enter-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    },
+    {
+     "figma": "menu-container/exit/easing",
+     "css": "--menu-container-exit-easing",
+     "alias": "easing/ease-in",
+     "aliasCss": "--easing-ease-in",
+     "out": "ease-in"
+    }
+   ]
+  },
+  {
+   "group": "date-picker",
+   "owners": "Date Picker, Date Time Field",
+   "level": "molecule",
+   "look": "Calendar Day",
+   "tokens": [
+    {
+     "figma": "date-picker/duration",
+     "css": "--date-picker-duration",
+     "alias": "duration/default",
+     "aliasCss": "--duration-default",
+     "out": "200ms"
+    },
+    {
+     "figma": "date-picker/enter/easing",
+     "css": "--date-picker-enter-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    },
+    {
+     "figma": "date-picker/exit/easing",
+     "css": "--date-picker-exit-easing",
+     "alias": "easing/ease-in",
+     "aliasCss": "--easing-ease-in",
+     "out": "ease-in"
+    }
+   ]
+  },
+  {
+   "group": "dropdown",
+   "owners": "Select Field, Multi-Select Field, Dropdown Button",
+   "level": "molecule",
+   "tokens": [
+    {
+     "figma": "dropdown/duration",
+     "css": "--dropdown-duration",
+     "alias": "duration/default",
+     "aliasCss": "--duration-default",
+     "out": "200ms"
+    },
+    {
+     "figma": "dropdown/enter/easing",
+     "css": "--dropdown-enter-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    },
+    {
+     "figma": "dropdown/exit/easing",
+     "css": "--dropdown-exit-easing",
+     "alias": "easing/ease-in",
+     "aliasCss": "--easing-ease-in",
+     "out": "ease-in"
+    }
+   ]
+  },
+  {
+   "group": "modal",
+   "owners": "Modal / Drawer",
+   "level": "organism",
+   "look": "Modal Footer, _Modal Content Light",
+   "tokens": [
+    {
+     "figma": "modal/duration",
+     "css": "--modal-duration",
+     "alias": "duration/default",
+     "aliasCss": "--duration-default",
+     "out": "200ms"
+    },
+    {
+     "figma": "modal/enter/easing",
+     "css": "--modal-enter-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    },
+    {
+     "figma": "modal/exit/easing",
+     "css": "--modal-exit-easing",
+     "alias": "easing/ease-in",
+     "aliasCss": "--easing-ease-in",
+     "out": "ease-in"
+    },
+    {
+     "figma": "modal/drawer/duration",
+     "css": "--modal-drawer-duration",
+     "alias": "duration/medium",
+     "aliasCss": "--duration-medium",
+     "out": "300ms"
+    }
+   ]
+  },
+  {
+   "group": "notification",
+   "owners": "Notification",
+   "level": "organism",
+   "tokens": [
+    {
+     "figma": "notification/duration",
+     "css": "--notification-duration",
+     "alias": "duration/medium",
+     "aliasCss": "--duration-medium",
+     "out": "300ms"
+    },
+    {
+     "figma": "notification/enter/easing",
+     "css": "--notification-enter-easing",
+     "alias": "easing/ease-out",
+     "aliasCss": "--easing-ease-out",
+     "out": "ease-out"
+    },
+    {
+     "figma": "notification/exit/easing",
+     "css": "--notification-exit-easing",
+     "alias": "easing/ease-in",
+     "aliasCss": "--easing-ease-in",
+     "out": "ease-in"
+    }
+   ]
+  },
+  {
+   "group": "banner",
+   "owners": "Banner",
+   "level": "molecule",
+   "tokens": [
+    {
+     "figma": "banner/exit/duration",
+     "css": "--banner-exit-duration",
+     "alias": "duration/fast",
+     "aliasCss": "--duration-fast",
+     "out": "150ms"
+    },
+    {
+     "figma": "banner/exit/easing",
+     "css": "--banner-exit-easing",
+     "alias": "easing/ease-in",
+     "aliasCss": "--easing-ease-in",
+     "out": "ease-in"
+    }
+   ]
+  }
+ ]
+}

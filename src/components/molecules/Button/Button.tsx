@@ -15,7 +15,7 @@ export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
   children?: string;
   variant?: ButtonVariant;
   size?: ButtonSize;
-  /** Glyph code point for Figma "prefixIcon" / "suffixIcon" (Icon atom, size Small). Omit to hide. */
+  /** Glyph code point for Figma "prefixIcon" / "suffixIcon" (Icon atom: XSmall on size small, Small otherwise). Omit to hide. */
   prefixIcon?: string;
   suffixIcon?: string;
   /** Figma "Show content" = false → icon-only. Then `aria-label` is required. */
@@ -27,6 +27,8 @@ export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
 
 export function Button({ children = 'Content', variant = 'primary', size = 'xlarge', prefixIcon, suffixIcon, showContent = true,
   loading = false, disabled = false, state = 'default', className, onClick, ...rest }: ButtonProps) {
+  // Figma: size=small uses the XSmall icon (12px); every other size uses Small (16px).
+  const iconSize = size === 'small' ? 'XSmall' : 'Small';
   const cls = ['tri-btn', `tri-btn--${variant}`, `tri-btn--${size}`, loading && 'is-loading', state !== 'default' && `is-${state}`, className]
     .filter(Boolean).join(' ');
   return (
@@ -38,9 +40,9 @@ export function Button({ children = 'Content', variant = 'primary', size = 'xlar
         {loading
           ? <Spinner size={size === 'small' || size === 'medium' ? '16' : '24'} />
           : <>
-              {prefixIcon && <Icon glyph={prefixIcon} size="Small" />}
+              {prefixIcon && <Icon glyph={prefixIcon} size={iconSize} />}
               {showContent && <span className="tri-btn__text">{children}</span>}
-              {suffixIcon && <Icon glyph={suffixIcon} size="Small" />}
+              {suffixIcon && <Icon glyph={suffixIcon} size={iconSize} />}
             </>}
       </span>
     </button>

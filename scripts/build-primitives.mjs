@@ -139,6 +139,7 @@ writeFileSync(OUT + 'index.css', `/* Trinity primitives — import order: raw va
 @import './primitives-opacity.css';
 @import './primitives-typography.css';
 @import './primitives-shadow.css';
+@import './primitives-motion.css'; /* written by scripts/build-motion.mjs */
 @import './text-styles.css';
 `);
 for (const t of tokens) t.usedBy = usage[t.figma] ?? [];

@@ -1,0 +1,61 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { SimpleTable, CodeBlock, Code } from '../../shared/doc-kit';
+import { durations, easings, groups, componentTokenCount, motionMeta } from './motion-data';
+
+<Meta title="Trinity/Foundation/Motion/Motion System" />
+
+# Motion System
+
+Trinity's motion lives in its own Figma collection, **Motion** — not in Primitives or Layout, because motion isn't layout. It has one mode (motion doesn't change between light and dark) and two tiers, the same shape as the rest of the system: a small **scale** of raw values, and **component groups** that alias it.
+
+<CodeBlock>{`Motion collection
+  Scale           duration/fast = 150 (ms)     →  --duration-fast: 150ms
+                  easing/ease-out = "ease-out"  →  --easing-ease-out: ease-out
+    └── Component groups (aliases)
+                  button/duration → duration/fast   →  --button-duration: var(--duration-fast)
+                  spinner/reduced/duration → duration/sustained`}</CodeBlock>
+
+<SimpleTable head={['Tier', 'Groups', 'Tokens', 'CSS file']} rows={[
+  ['Scale', <><Code>duration</Code> · <Code>easing</Code></>, durations.length + easings.length, <Code>tokens/1-primitives/primitives-motion.css</Code>],
+  ['Component groups', `${groups.length} groups (named as in Layout / Style)`, componentTokenCount, <Code>tokens/2-style-layout/motion.css</Code>],
+]} />
+
+See **Duration Scale**, **Easing**, **Component Motion** and **Reduced Motion** for every value.
+
+## How it's stored
+
+- **Durations** are Figma number variables holding whole **milliseconds** → exported with `ms` (never `px`).
+- **Easings** are Figma string variables holding a CSS keyword → exported **unquoted**.
+- **Scopes are off** on every motion variable, so they never show up in Figma's property pickers.
+- **Figma can't bind variables to prototype transitions.** The prototype reactions on each component set were set by hand to match these tokens (2026-10-19), and each component's description says so. If a token changes, its reactions need updating too.
+
+## Who handles motion
+
+<SimpleTable head={['Rule', 'Example']} rows={[
+  ['Atoms define how something looks — they don’t animate', '_checkboxInput, Radio Button Input, _tabItem, Calendar Day'],
+  ['The molecule or organism that contains them handles the motion', 'Checkbox animates _checkboxInput’s fill and stroke'],
+  ['Exceptions: atoms whose motion is their purpose, or that are used on their own with states', 'Spinner, Chip, Nav Link Item, Tooltip, Progress Bar'],
+]} />
+
+## Rules
+
+<SimpleTable head={['Rule', 'Why']} rows={[
+  ['Use the component’s own motion token, never the scale directly', 'Retuning one component then never affects another'],
+  ['Name the properties that change — never transition: all', '“all” also animates the focus ring and layout changes'],
+  ['Focus rings snap on — transition: none', 'Keyboard users move fast; a fading ring lags (WCAG 2.4.7)'],
+  ['Every animating component has its own reduced-motion block', 'Reduce, don’t remove — see Reduced Motion'],
+  ['Nothing flashes more than 3 times a second', 'WCAG 2.3.1'],
+  ['ease-out for entering and hover; ease-in for leaving', 'Things arrive quickly and settle; they leave without lingering'],
+]} />
+
+## Common Mistakes
+
+<SimpleTable head={['Don’t', 'Do']} rows={[
+  ['transition: all 0.2s', 'transition: background-color var(--button-duration) var(--button-easing)'],
+  ['Hard-code 150ms or ease-out in component CSS', 'Use the component’s motion token'],
+  ['Animate the thumb’s position while a slider is dragged', 'Only animate its hover / press styling'],
+  ['Remove all motion under reduced motion', 'Keep fades; make movement instant; slow essential loops (Spinner)'],
+  ['Change a prototype reaction without changing the token (or the other way round)', 'Keep the two in step — the token is the source'],
+]} />
+
+<p style={{ fontSize: 12, color: '#45413a' }}>Pulled from Figma “{motionMeta.file}” · collection Motion · {motionMeta.count} variables · {motionMeta.pulled}.</p>

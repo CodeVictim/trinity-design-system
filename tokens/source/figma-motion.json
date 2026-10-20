@@ -1,0 +1,765 @@
+{
+ "meta": {
+  "file": "Trinity Design System (for review)",
+  "fileKey": "Lx7MN3Ztd0qxhyF7rVAiOa",
+  "collection": "Motion",
+  "mode": "Mode 1",
+  "pulled": "2026-10-20",
+  "method": "Desktop Bridge, read-only",
+  "count": 94
+ },
+ "variables": [
+  {
+   "name": "duration/instant",
+   "type": "FLOAT",
+   "alias": null,
+   "value": 0,
+   "description": "Duration in ms. Exported as 0ms.",
+   "scopes": []
+  },
+  {
+   "name": "duration/fast",
+   "type": "FLOAT",
+   "alias": null,
+   "value": 150,
+   "description": "Duration in ms. Exported as 150ms.",
+   "scopes": []
+  },
+  {
+   "name": "duration/default",
+   "type": "FLOAT",
+   "alias": null,
+   "value": 200,
+   "description": "Duration in ms. Exported as 200ms.",
+   "scopes": []
+  },
+  {
+   "name": "duration/medium",
+   "type": "FLOAT",
+   "alias": null,
+   "value": 300,
+   "description": "Duration in ms. Exported as 300ms.",
+   "scopes": []
+  },
+  {
+   "name": "duration/gentle",
+   "type": "FLOAT",
+   "alias": null,
+   "value": 800,
+   "description": "Duration in ms. Exported as 800ms.",
+   "scopes": []
+  },
+  {
+   "name": "duration/sustained",
+   "type": "FLOAT",
+   "alias": null,
+   "value": 1500,
+   "description": "Duration in ms. Exported as 1500ms.",
+   "scopes": []
+  },
+  {
+   "name": "easing/linear",
+   "type": "STRING",
+   "alias": null,
+   "value": "linear",
+   "description": "CSS easing keyword.",
+   "scopes": []
+  },
+  {
+   "name": "easing/ease-out",
+   "type": "STRING",
+   "alias": null,
+   "value": "ease-out",
+   "description": "CSS easing keyword.",
+   "scopes": []
+  },
+  {
+   "name": "easing/ease-in",
+   "type": "STRING",
+   "alias": null,
+   "value": "ease-in",
+   "description": "CSS easing keyword.",
+   "scopes": []
+  },
+  {
+   "name": "easing/ease-in-out",
+   "type": "STRING",
+   "alias": null,
+   "value": "ease-in-out",
+   "description": "CSS easing keyword.",
+   "scopes": []
+  },
+  {
+   "name": "button/duration",
+   "type": "FLOAT",
+   "alias": "duration/fast",
+   "value": 150,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "button/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "checkbox/duration",
+   "type": "FLOAT",
+   "alias": "duration/fast",
+   "value": 150,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "checkbox/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "spinner/duration",
+   "type": "FLOAT",
+   "alias": "duration/gentle",
+   "value": 800,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "spinner/easing",
+   "type": "STRING",
+   "alias": "easing/linear",
+   "value": "linear",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "spinner/reduced/duration",
+   "type": "FLOAT",
+   "alias": "duration/sustained",
+   "value": 1500,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "chip/duration",
+   "type": "FLOAT",
+   "alias": "duration/fast",
+   "value": 150,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "chip/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "nav/link/duration",
+   "type": "FLOAT",
+   "alias": "duration/fast",
+   "value": 150,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "nav/link/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "tooltip/duration",
+   "type": "FLOAT",
+   "alias": "duration/fast",
+   "value": 150,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "tooltip/enter/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "tooltip/exit/easing",
+   "type": "STRING",
+   "alias": "easing/ease-in",
+   "value": "ease-in",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "progress bar/duration",
+   "type": "FLOAT",
+   "alias": "duration/medium",
+   "value": 300,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "progress bar/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "progress bar/reduced/duration",
+   "type": "FLOAT",
+   "alias": "duration/instant",
+   "value": 0,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "radiobutton/duration",
+   "type": "FLOAT",
+   "alias": "duration/fast",
+   "value": 150,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "radiobutton/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "toggle/duration",
+   "type": "FLOAT",
+   "alias": "duration/default",
+   "value": 200,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "toggle/easing",
+   "type": "STRING",
+   "alias": "easing/ease-in-out",
+   "value": "ease-in-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "toggle/reduced/duration",
+   "type": "FLOAT",
+   "alias": "duration/instant",
+   "value": 0,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "accordion/duration",
+   "type": "FLOAT",
+   "alias": "duration/fast",
+   "value": 150,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "accordion/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "accordion/expand/duration",
+   "type": "FLOAT",
+   "alias": "duration/medium",
+   "value": 300,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "accordion/expand/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "accordion/reduced/duration",
+   "type": "FLOAT",
+   "alias": "duration/instant",
+   "value": 0,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "slider/duration",
+   "type": "FLOAT",
+   "alias": "duration/default",
+   "value": 200,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "slider/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "table/duration",
+   "type": "FLOAT",
+   "alias": "duration/default",
+   "value": 200,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "table/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "table/expand/duration",
+   "type": "FLOAT",
+   "alias": "duration/medium",
+   "value": 300,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "table/expand/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "table/reduced/duration",
+   "type": "FLOAT",
+   "alias": "duration/instant",
+   "value": 0,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "card/duration",
+   "type": "FLOAT",
+   "alias": "duration/default",
+   "value": 200,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "card/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "nav/section/duration",
+   "type": "FLOAT",
+   "alias": "duration/fast",
+   "value": 150,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "nav/section/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "nav/section/expand/duration",
+   "type": "FLOAT",
+   "alias": "duration/medium",
+   "value": 300,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "nav/section/expand/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "nav/section/reduced/duration",
+   "type": "FLOAT",
+   "alias": "duration/instant",
+   "value": 0,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "nav/sidebar/duration",
+   "type": "FLOAT",
+   "alias": "duration/fast",
+   "value": 150,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "nav/sidebar/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "nav/topbar/expand/duration",
+   "type": "FLOAT",
+   "alias": "duration/medium",
+   "value": 300,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "nav/topbar/expand/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "nav/topbar/reduced/duration",
+   "type": "FLOAT",
+   "alias": "duration/instant",
+   "value": 0,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "nav-accordion-header/duration",
+   "type": "FLOAT",
+   "alias": "duration/fast",
+   "value": 150,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "nav-accordion-header/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "nav-button-option/duration",
+   "type": "FLOAT",
+   "alias": "duration/fast",
+   "value": 150,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "nav-button-option/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "tabs/duration",
+   "type": "FLOAT",
+   "alias": "duration/fast",
+   "value": 150,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "tabs/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "alternate-button/duration",
+   "type": "FLOAT",
+   "alias": "duration/fast",
+   "value": 150,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "alternate-button/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "icon-only-button/duration",
+   "type": "FLOAT",
+   "alias": "duration/fast",
+   "value": 150,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "icon-only-button/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "breadcrumb-item/duration",
+   "type": "FLOAT",
+   "alias": "duration/fast",
+   "value": 150,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "breadcrumb-item/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "menu-item/duration",
+   "type": "FLOAT",
+   "alias": "duration/fast",
+   "value": 150,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "menu-item/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "input/duration",
+   "type": "FLOAT",
+   "alias": "duration/fast",
+   "value": 150,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "input/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "input-field/duration",
+   "type": "FLOAT",
+   "alias": "duration/fast",
+   "value": 150,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "input-field/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "text-area/duration",
+   "type": "FLOAT",
+   "alias": "duration/fast",
+   "value": 150,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "text-area/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "menu-container/duration",
+   "type": "FLOAT",
+   "alias": "duration/default",
+   "value": 200,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "menu-container/enter/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "menu-container/exit/easing",
+   "type": "STRING",
+   "alias": "easing/ease-in",
+   "value": "ease-in",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "date-picker/duration",
+   "type": "FLOAT",
+   "alias": "duration/default",
+   "value": 200,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "date-picker/enter/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "date-picker/exit/easing",
+   "type": "STRING",
+   "alias": "easing/ease-in",
+   "value": "ease-in",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "dropdown/duration",
+   "type": "FLOAT",
+   "alias": "duration/default",
+   "value": 200,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "dropdown/enter/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "dropdown/exit/easing",
+   "type": "STRING",
+   "alias": "easing/ease-in",
+   "value": "ease-in",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "modal/duration",
+   "type": "FLOAT",
+   "alias": "duration/default",
+   "value": 200,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "modal/enter/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "modal/exit/easing",
+   "type": "STRING",
+   "alias": "easing/ease-in",
+   "value": "ease-in",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "modal/drawer/duration",
+   "type": "FLOAT",
+   "alias": "duration/medium",
+   "value": 300,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "notification/duration",
+   "type": "FLOAT",
+   "alias": "duration/medium",
+   "value": 300,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "notification/enter/easing",
+   "type": "STRING",
+   "alias": "easing/ease-out",
+   "value": "ease-out",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "notification/exit/easing",
+   "type": "STRING",
+   "alias": "easing/ease-in",
+   "value": "ease-in",
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "banner/exit/duration",
+   "type": "FLOAT",
+   "alias": "duration/fast",
+   "value": 150,
+   "description": "",
+   "scopes": []
+  },
+  {
+   "name": "banner/exit/easing",
+   "type": "STRING",
+   "alias": "easing/ease-in",
+   "value": "ease-in",
+   "description": "",
+   "scopes": []
+  }
+ ]
+}

@@ -37,18 +37,24 @@ A native `<button>` that starts an action. Built from the **Icon** and **Spinner
 
 ## Visual States
 
-<SimpleTable head={['State', 'How it shows', 'Tokens']} rows={[
-  ['Default', 'Fill + label', <Code>--button-*-fill</Code>],
-  ['Hover', 'Hover fill + 1px outer halo', <span><Code>--button-*-hover</Code> <Code>--button-*-hover-outer-stroke</Code></span>],
-  ['Focus (keyboard)', 'Focus fill, inner stroke, and a 2px outer ring', <span><Code>--button-*-focus</Code> <Code>--button-*-focus-inner-stroke</Code> <Code>--button-*-focus-outer-stroke</Code> <Code>--border-focus</Code></span>],
-  ['Active (pressed)', 'Active fill + active label', <span><Code>--button-*-active</Code> <Code>--button-*-label-active</Code></span>],
-  ['Disabled', 'Disabled fill + label (+ border on outlined variants)', <span><Code>--button-*-disabled</Code> <Code>--button-*-label-disabled</Code></span>],
-  ['Loading', 'Spinner only; width fixed at 120px so the layout doesn\'t jump', <Code>--button-*-spinner</Code>],
+Every state exists for all 6 variants and all 4 sizes in Figma. See the **Buttons Light Mode** and **Buttons Dark Mode** stories — they follow the Figma frames of the same names.
+
+<SimpleTable head={['State', 'When it happens (Figma prototype)', 'How it shows', 'Tokens']} rows={[
+  ['Default', 'At rest', 'Fill + label + icons; outlined variants (secondary, destructive, destructive-secondary) also have a border', <Code>--button-*-fill</Code>],
+  ['Hover', 'Pointer over it — On hover, from Default and from Loading', <span>Hover fill + 1px halo inside the edge. <b>Link: fill only, no halo.</b></span>, <span><Code>--button-*-hover</Code> <Code>--button-*-hover-outer-stroke</Code></span>],
+  ['Active (pressed)', 'While pressed — On press, from Hover', 'Active fill + active label; no halo', <span><Code>--button-*-active</Code> <Code>--button-*-label-active</Code></span>],
+  ['Focus (keyboard)', 'Keyboard focus — its own variant (no prototype reaction)', <span>Focus fill, 2px inner stroke and a 2px outer ring. <b>Link: fill only, no stroke or ring.</b></span>, <span><Code>--button-*-focus</Code> <Code>--button-*-focus-inner-stroke</Code> <Code>--button-*-focus-outer-stroke</Code> <Code>--border-focus</Code></span>],
+  ['Disabled', 'Action unavailable — no reactions', 'Disabled fill + label (+ disabled border on outlined variants)', <span><Code>--button-*-disabled</Code> <Code>--button-*-label-disabled</Code></span>],
+  ['Loading', 'Action running — in the prototype, hover goes to Hover; in code it stays busy', 'Spinner only; width fixed at 120px so the layout doesn\'t jump', <Code>--button-*-spinner</Code>],
 ]} />
+
+<ReviewCallout><b>Link focus</b> is fill-only as authored — a keyboard user sees only a colour change, no ring (possible WCAG 2.4.7 gap). Matching Figma for now; to be filled in later.</ReviewCallout>
+<ReviewCallout><b>Destructive focus</b>: the inner stroke is bound to <Code>button/accent/focus-inner-stroke</Code> in Figma (other variants use their own). Left as is for now; the code uses <Code>--button-destructive-focus-inner-stroke</Code>.</ReviewCallout>
+<NoteBox>2026-10-20: <b>destructive-secondary</b> now has the same prototype reactions as the other variants (On hover → Hover from Default and Loading; On press → Active from Hover; Smart Animate 150ms ease-out).</NoteBox>
 
 ## Dependencies
 
-- **Icon** (atom): prefix and suffix icons, size Small (16px).
+- **Icon** (atom): prefix and suffix icons — size Small (16px) on xlarge / large / medium, **XSmall (12px) on small**, as authored.
 - **Spinner** (atom): loading state. 16px for small/medium, 24px for large/xlarge.
 
 ## When to use
@@ -92,6 +98,7 @@ A native `<button>` that starts an action. Built from the **Icon** and **Spinner
 ### Focus
 
 - Indicator: inner stroke + a 2px outer ring (`--border-focus`), different for each variant. Measured against the page background, every ring is **≥ 3:1** (lowest: destructive in Dark, 3.89:1).
+- **Link is the exception:** as authored in Figma its focus state changes the fill only — no inner stroke, no ring. Logged above as a review item (WCAG 2.4.7); matching Figma until it's updated there.
 - After an action, focus stays on the button unless the action moves the user (e.g. opens a dialog, which then takes focus).
 - Never hidden behind sticky headers or footers (2.4.11).
 

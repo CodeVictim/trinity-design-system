@@ -51,6 +51,7 @@ const preview: Preview = {
               'Typography', ['Type System', 'Type Scale', 'Type Styles'],
               'Spacing', ['Spacing System', 'Spacing Scale', 'Border Radius', 'Opacity'],
               'Shadows',
+              'Motion', ['Motion System', 'Duration Scale', 'Easing', 'Component Motion', 'Reduced Motion'],
             ],
             'Components', ['Atoms', ['Icon', 'Spinner', 'Badge', '_checkboxInput'], 'Molecules', ['Checkbox', 'Button']],
           ],
