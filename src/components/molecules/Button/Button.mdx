@@ -129,7 +129,7 @@ Every state exists for all 6 variants and all 4 sizes in Figma. See the **Button
   ['1.1.1 Non-text Content', 'Icons are aria-hidden; icon-only buttons need aria-label', 'consumer'],
   ['1.4.1 Use of Color', 'State and intent are carried by the label and the focus ring, not only by color'],
   ['1.4.3 Contrast (Minimum)', 'All labels ≥ 4.5:1 in Light and Dark (lowest: primary hover, 4.52:1)'],
-  ['1.4.11 Non-text Contrast', 'Focus rings ≥ 3:1 against the page; the label identifies the button, so the border isn\'t needed for that'],
+  ['1.4.11 Non-text Contrast', 'Focus rings ≥ 3:1 against the page. The visible label identifies the button, so its border is not subject to 1.4.11 (W3C — see note below). Icon-only buttons rely on the icon, which is ≥ 3:1.'],
   ['2.1.1 Keyboard', 'Native button: Enter and Space'],
   ['2.4.7 Focus Visible', 'Focus ring on :focus-visible for every variant'],
   ['2.4.11 Focus Not Obscured', 'Keep sticky UI from covering focused buttons', 'consumer'],
@@ -137,6 +137,8 @@ Every state exists for all 6 variants and all 4 sizes in Figma. See the **Button
   ['2.5.8 Target Size (Minimum)', '≥ 32×50px at every size'],
   ['4.1.2 Name, Role, Value', 'Native role; aria-busy / aria-disabled while loading'],
 ]} />
+
+<NoteBox><b>Source for 1.4.11 (W3C, Understanding WCAG 2.2 — Non-text Contrast):</b> “If a control has visible content (such as text or a sufficiently contrasting icon), which helps users identify the presence of the control, then a border or other indication of the overall boundary of the hit area is not required, as is therefore not subject to non-text contrast requirements.” A button without a visual boundary is listed as a <b>pass</b>. So the Secondary border in Light (1.36:1 against the page) is <b>not</b> a failure. It would be required — at 3:1 — only if the border were the only thing showing the control (e.g. a faint icon with no label). <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html">w3.org/WAI/WCAG22/Understanding/non-text-contrast</a></NoteBox>
 
 **Pitfalls checked** (from the pattern library): no `:focus` + `outline: none`; no redundant `aria-label` that repeats the visible text; 44px targets aren't treated as a requirement (24px is AA); loading doesn't change the name.
 

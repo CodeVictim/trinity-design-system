@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import { SimpleTable, Code, InfoCallout, NoteBox } from '../../../shared/doc-kit';
-import { TokenTable, Wcag } from '../../../shared/component-docs';
+import { TokenTable, Wcag, Checklist } from '../../../shared/component-docs';
 
 <Meta title="Trinity/Components/Atoms/Spinner/Reference" />
 
@@ -49,3 +49,13 @@ None. Raw layers only (Arc boolean).
 <SimpleTable head={['Prop', 'Type', 'Default', 'Description']} rows={[
   [<Code>size</Code>, <Code>'16' | '24' | '40'</Code>, <Code>'40'</Code>, 'Figma "size"'],
 ]} />
+
+## Testing
+
+**Automated**
+
+<Checklist items={['axe passes on every story (WCAG 2.2 A/AA tags) ✓', 'The spinner SVG renders aria-hidden="true" and focusable="false"']} />
+
+**Manual**
+
+<Checklist items={['Screen reader: the spinner itself is silent; the loading parent announces it (e.g. Button with aria-busy, or a polite status message)', 'Reduced motion on: rotation slows to 1500ms and does not stop', 'No flashing — smooth rotation only (2.3.1)', 'Forced colors (Windows High Contrast): the arc stays visible']} />

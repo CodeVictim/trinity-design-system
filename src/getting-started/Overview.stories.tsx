@@ -38,8 +38,9 @@ export const Overview: Story = {
 
       <DocSection title="Accessibility">
         <ul style={{ paddingLeft: 20, margin: 0 }}>
-          <li style={li}>Target: <b>WCAG 2.2 Level AA</b>.</li>
-          <li style={li}>Every page runs automated accessibility checks — see the <b>Accessibility</b> panel.</li>
+          <li style={li}>Target: <b>WCAG 2.2 Level AA</b>. That covers the standards accessibility is actually judged against: <b>WCAG 2.1 AA</b> (the US Department of Justice’s ADA rule for state and local government, most ADA lawsuits, and the EU’s European Accessibility Act / EN 301 549) and <b>WCAG 2.0 AA</b> (US federal Section 508). WCAG 2.2 AA includes everything in both.</li>
+          <li style={li}>Every page runs automated accessibility checks — see the <b>Accessibility</b> panel. <b>Automated checks only catch part of WCAG</b> (they can’t judge focus order, keyboard use or what a screen reader says), so each component’s <b>Testing</b> section also lists the manual checks. Both are needed to claim conformance.</li>
+          <li style={li}>Where a rule is open to interpretation, the component page quotes the W3C’s own <i>Understanding WCAG 2.2</i> guidance as the source.</li>
           <li style={li}>Contrast is shown on every color swatch.</li>
         </ul>
       </DocSection>

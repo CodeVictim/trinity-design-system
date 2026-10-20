@@ -94,6 +94,7 @@ A native checkbox with a label, for choosing one or more independent options. Bu
 - **Target size:** the touch area is 24×24 (meets 2.5.8), and the label adds to the clickable area.
 - **Disabled** is exempt from contrast requirements.
 
+- **Hover ring:** 1.36:1 against the page in Light (<Code>neutral/150</Code> on <Code>neutral/50</Code>), 9.82:1 in Dark. That's not a failure: the pointer itself shows hover, so an added hover outline is supplemental and doesn't need 3:1 (W3C, <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html">Understanding Non-text Contrast</a>). The cue that must be visible — the focus ring — is 15.61:1 (Light) / 21:1 (Dark).
 - **Motion:** the Checkbox molecule handles it (the _checkboxInput atom only defines the look): box fill, check colour and the hover stroke fade over `--checkbox-duration` (→ `duration/fast`, 150ms) with `--checkbox-easing` (→ `easing/ease-out`), matching the Figma prototype. The check mark appears with no draw or scale; focus strokes snap on. Reduced motion: colour fades only, so nothing changes.
 
 ### WCAG 2.2 AA mapping

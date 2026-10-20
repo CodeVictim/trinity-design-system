@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import { SimpleTable, Code, InfoCallout, NoteBox } from '../../../shared/doc-kit';
-import { TokenTable, Wcag } from '../../../shared/component-docs';
+import { TokenTable, Wcag, Checklist } from '../../../shared/component-docs';
 
 <Meta title="Trinity/Components/Atoms/_checkboxInput/Reference" />
 
@@ -61,3 +61,13 @@ None. Raw layers only (touchpoint → inputContainer → input → check / indet
   [<Code>disabled</Code>, <Code>boolean</Code>, <Code>false</Code>, 'Disabled look'],
   [<Code>state</Code>, <Code>'default' | 'hover' | 'focus'</Code>, <Code>'default'</Code>, 'Forced look, for docs'],
 ]} />
+
+## Testing
+
+**Automated**
+
+<Checklist items={['axe passes on every story (WCAG 2.2 A/AA tags) ✓', 'The atom renders aria-hidden="true" (Checkbox supplies the native input)']} />
+
+**Manual**
+
+<Checklist items={['Screen reader: nothing is announced from the atom itself — test through Checkbox', 'Forced colors (Windows High Contrast): border and check stay visible', 'Touch area is 24×24 (2.5.8)']} />

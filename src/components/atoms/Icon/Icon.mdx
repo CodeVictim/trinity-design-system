@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import { SimpleTable, Code, InfoCallout } from '../../../shared/doc-kit';
-import { TokenTable, Wcag } from '../../../shared/component-docs';
+import { TokenTable, Wcag, Checklist } from '../../../shared/component-docs';
 
 <Meta title="Trinity/Components/Atoms/Icon/Reference" />
 
@@ -51,3 +51,13 @@ None. One text layer with a private-use glyph (e.g. <Code>U+E4D9</Code>).
   [<Code>icon</Code>, <Code>'Default' | 'Brand'</Code>, <Code>'Default'</Code>, 'Figma "Icon": which font'],
   [<Code>label</Code>, <Code>string</Code>, '—', 'Only for meaningful icons'],
 ]} />
+
+## Testing
+
+**Automated**
+
+<Checklist items={['axe passes on every story (WCAG 2.2 A/AA tags) ✓', 'Decorative icon renders aria-hidden="true"', 'Icon with a label renders role="img" and that name']} />
+
+**Manual**
+
+<Checklist items={['Screen reader (VoiceOver + NVDA): decorative icons are silent; a labelled icon reads its name once', 'Forced colors (Windows High Contrast): glyphs stay visible', 'Icon font blocked: a meaningful icon still has its label', '200% zoom: glyphs scale with the text']} />
