@@ -14,16 +14,26 @@ const ROWS: [string, string, string, string][] = [
   ['Typography', 'Text styles', 'Not bound to line-height / font-size primitives; Data/lg 60px has no primitive', 'Typography › Type Styles'],
   ['Typography', 'TrinityBrandIcons', 'Used by text styles but has no font-family primitive', 'Typography › Type Scale'],
   ['Shadows', 'Effect style “Focus Shadow”', 'Empty — “Focus Dropshadow” is the one in use', 'Shadows › Elevation Scale'],
-  ['Missing', 'Motion · breakpoints · z-index', 'No primitives yet — nothing for components to alias', '—'],
+  ['Missing', 'Breakpoints · z-index', 'No primitives yet — nothing for components to alias', '—'],
+  ['Motion', 'Motion collection (94 variables)', '✅ Done 2026-10-19 — its own collection: a duration / easing scale plus component groups that alias it', 'Motion › Motion System'],
+];
+
+// Found while building components. Nothing was changed in Figma for these — they're for the owners to decide.
+const COMPONENT_ROWS: [string, string, string, string][] = [
+  ['Table_Cell', 'IconButton (library component)', 'Its hover reactions (200ms ease-in-out) don’t match the Motion tokens. It comes from another library file, so it’s left for that library’s owner.', '—'],
+  ['Button', 'destructive · focus inner stroke', 'Bound to button/accent/focus-inner-stroke — the other variants use their own focus-inner-stroke. Left as is for now.', 'Button › Reference'],
 ];
 
 export const OpenReviewItems: Story = {
   name: 'Open Review Items',
   render: () => (
     <Doc title="Open Review Items"
-      lead="Found in the primitives during the read-only pull from Figma. Nothing was changed in Figma — these are for you and the team to decide.">
+      lead="Found during the read-only pulls from Figma and while building components. Nothing was changed in Figma for these — they are for you and the team to decide.">
       <DocSection title="Primitives">
         <SimpleTable head={['Area', 'Where', 'Observation', 'See page']} rows={ROWS.map(([a, w, o, p]) => [a, <Code>{w}</Code>, o, p])} />
+      </DocSection>
+      <DocSection title="Components">
+        <SimpleTable head={['Component', 'Where', 'Observation', 'See page']} rows={COMPONENT_ROWS.map(([a, w, o, p]) => [a, <Code>{w}</Code>, o, p])} />
       </DocSection>
     </Doc>
   ),

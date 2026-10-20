@@ -15,15 +15,15 @@ export const Overview: Story = {
       <DocSection title="What’s Here">
         <ul style={{ paddingLeft: 20, margin: 0 }}>
           <li style={li}><b>Getting Started</b>: this overview, how the design tokens work, and open review items.</li>
-          <li style={li}><b>Foundation</b>: Colors, Typography, Spacing and Shadows — each with a <i>System</i> page (how to use it) and reference pages (every value, with swatches and samples).</li>
-          <li style={li}><b>Components</b>: added atom → molecule → organism, after the Style and Layout tokens are in place.</li>
+          <li style={li}><b>Foundation</b>: Colors, Typography, Spacing, Shadows and Motion — each with a <i>System</i> page (how to use it) and reference pages (every value, with swatches and samples).</li>
+          <li style={li}><b>Components</b>: built atom → molecule → organism from Figma — so far Icon, Spinner, Badge and _checkboxInput (atoms), Checkbox and Button (molecules).</li>
         </ul>
       </DocSection>
 
       <DocSection title="System Architecture">
         <p style={{ margin: '0 0 8px', fontWeight: 500 }}>Design Tokens (Foundation Layer)</p>
         <ul style={{ paddingLeft: 20, margin: 0 }}>
-          <li style={li}><b>Primitives</b>: raw values — colors (<Code>--primary-600</Code>, <Code>--neutral-700</Code>), type scale, spacing, radius, opacity, shadows. {tokens.length} primitives today.</li>
+          <li style={li}><b>Primitives</b>: raw values — colors (<Code>--primary-600</Code>, <Code>--neutral-700</Code>), type scale, spacing, radius, opacity, shadows. {tokens.length} primitives today, plus the Motion collection’s duration / easing scale.</li>
           <li style={li}><b>Style + Layout</b>: a small set of shared roles plus component-scoped tokens (e.g. <Code>--button-primary-fill</Code>), Light / Dark on Style.</li>
           <li style={li}><b>Components</b>: use only their own Style / Layout tokens — never primitives.</li>
         </ul>
@@ -47,8 +47,9 @@ export const Overview: Story = {
       <DocSection title="Build Status">
         <ul style={{ paddingLeft: 20, margin: 0 }}>
           <li style={li}><b>Foundation / primitives</b> — in review (see <b>3. Open Review Items</b>).</li>
-          <li style={li}><b>Style + Layout tokens</b> — next.</li>
-          <li style={li}><b>Components</b> — after Style + Layout, starting with atoms.</li>
+          <li style={li}><b>Motion</b> — done: its own Figma collection, Foundation › Motion pages, and motion on Button, Checkbox and Spinner.</li>
+          <li style={li}><b>Style + Layout tokens</b> — in place for the components built so far.</li>
+          <li style={li}><b>Components</b> — 6 built (4 atoms, 2 molecules); more to follow, one at a time from Figma.</li>
         </ul>
       </DocSection>
     </Doc>
