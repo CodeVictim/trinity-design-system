@@ -1,0 +1,133 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { SimpleTable, Code, InfoCallout, ReviewCallout, NoteBox } from '../../../shared/doc-kit';
+import { TokenTable, Wcag, Checklist } from '../../../shared/component-docs';
+
+<Meta title="Trinity/Components/Atoms/Progress Bar/Reference" />
+
+# Progress Bar
+
+A determinate progress indicator: a track with a fill whose width shows how much of a task is complete. Figma: *Progress Bar* `51692:17330`, 8 authored variants.
+
+<InfoCallout>Accessibility pattern: <b>loading-progress</b> (Storybook A11y Library). Target: WCAG 2.2 AA.</InfoCallout>
+
+## Token Reference
+
+<TokenTable prefixes={['progress bar/']} />
+
+<NoteBox>As authored in Figma: the bar is 279×8 with a 4px radius; there's no width token, so the code defaults to 279px — override it with <Code>className</Code> / <Code>style</Code> to fill a container. Motion uses <Code>--progress-bar-duration</Code> / <Code>--progress-bar-easing</Code> / <Code>--progress-bar-reduced-duration</Code> from the Motion collection.</NoteBox>
+
+## Variants
+
+<SimpleTable head={['Property', 'Options']} rows={[
+  ['progress', '0% · 5% · 10% · 25% · 50% · 75% · 90% · 100% — sample values; the code takes any value 0–100'],
+]} />
+
+<ReviewCallout><b>100% binds different tokens:</b> its track is bound to <Code>size/1</Code> and <Code>radius/sm</Code>, while the other seven use <Code>progress bar/height</Code> and <Code>progress bar/radius</Code> (same values, 8 and 4). The code uses the progress bar tokens throughout. Also, <Code>progress bar/track stroke</Code> exists but no variant uses it.</ReviewCallout>
+
+<ReviewCallout><b>Drawn fill widths:</b> some variants' fills aren't drawn at their labelled percentage of the 279px track — 10% is 34.8px (12.5%), 90% is 246px (88.2%), 5% is 15px (5.4%); 25 / 50 / 75 / 100% are within half a pixel. The code draws the true percentage (<Code>value=&#123;10&#125;</Code> is exactly 10%).</ReviewCallout>
+
+## Visual States
+
+<SimpleTable head={['Part', 'How it shows', 'Tokens']} rows={[
+  ['Track', 'Full width, 8px high, 4px radius', <Code>--progress-bar-track-fill</Code>],
+  ['Fill', 'Starts at the left; width = the value; same height and radius', <Code>--progress-bar-progress-fill</Code>],
+  ['0%', 'Track only — no fill', '—'],
+  ['Value change', 'The fill eases to the new width over 300ms (instant under reduced motion)', <Code>--progress-bar-duration</Code>],
+]} />
+
+## Dependencies
+
+None. Raw layers only (track → fill).
+
+## When to use
+
+- A task with known, measurable progress: an upload, an import, a multi-step job.
+- When the user benefits from knowing how much is left.
+
+## When not to use
+
+<SimpleTable head={['Situation', 'Use instead']} rows={[
+  ['Progress is unknown', 'Spinner (with a specific label)'],
+  ['A whole region is loading its first content', 'Skeleton'],
+  ['Steps in a flow the user moves through', 'A stepper / task progress list'],
+  ['Showing a measurement, not progress (storage used, a score)', 'A meter or a chart'],
+]} />
+
+## Accessibility
+
+**Built in (the component handles it)**
+- Role: `role="progressbar"` with `aria-valuemin="0"`, `aria-valuemax="100"` and `aria-valuenow` (the rounded value). `valueText` sets `aria-valuetext` (e.g. "Step 2 of 4").
+- Hidden from AT: the fill is `aria-hidden`; the role carries the value.
+
+**You must provide (consumer)**
+
+<SimpleTable head={['Prop', 'Required?', 'Why']} rows={[
+  [<><Code>label</Code> or <Code>labelledBy</Code></>, 'Yes, always', 'Every progressbar needs a name ("Uploading 3 files"). Prefer labelledBy when the label is visible on screen'],
+  ['Visible label + percentage text', 'Strongly recommended', 'Says what is progressing, and makes the value readable without relying on the bar (see contrast below)'],
+  ['A status message', 'For milestones / completion', 'Value changes aren\'t reliably announced — announce "Upload complete" (not every percent) in a role="status" region (4.1.3)'],
+]} />
+
+### Keyboard
+
+Not focusable — a progress bar isn't interactive. Nothing to operate (2.1.1 doesn't apply to it).
+
+### Visual & pointer
+
+<SimpleTable head={['Check', 'Light', 'Dark', 'Needs']} rows={[
+  ['Fill vs track', '8.46:1', '6.24:1', '3:1 (1.4.11) when no value text is shown'],
+  ['Fill vs page', '15.61:1', '21.00:1', '3:1'],
+  ['Track vs page', '1.85:1', '3.37:1', 'see note'],
+]} />
+
+<ReviewCallout><b>Track in Light (1.85:1 against the page):</b> the fill — the value itself — passes easily against the track. But the track's end is what marks 100%, and it's faint on the Light page, so on its own the bar's proportion is hard to judge. The fix from the pattern, without changing the design: <b>show the percentage as text</b> next to the bar. Then the graphic isn't the only way to read the value and 1.4.11 doesn't apply to it (W3C, <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html">Understanding Non-text Contrast</a>).</ReviewCallout>
+
+- **Not color-only:** progress is shown by the fill's length, not its colour.
+- **Motion:** Progress Bar is one of the atoms that handles its own motion: the fill eases to a new value over `--progress-bar-duration` (→ `duration/medium`, 300ms) with `--progress-bar-easing` (→ `easing/ease-out`). No flashing. Figma can't prototype a value change, so there are no reactions to match. **Reduced motion:** the value jumps (`--progress-bar-reduced-duration` → 0ms).
+
+### WCAG 2.2 AA mapping
+
+<Wcag rows={[
+  ['1.1.1 Non-text Content', 'The value is exposed via role="progressbar" + aria-valuenow'],
+  ['1.4.1 Use of Color', 'Progress is shown by length, not colour'],
+  ['1.4.11 Non-text Contrast', 'Fill ≥ 6:1 against the track; show value text to cover the faint Light track', 'consumer'],
+  ['2.3.1 Three Flashes', 'Smooth width change only'],
+  ['4.1.2 Name, Role, Value', 'progressbar role + value; name supplied via label / labelledBy', 'consumer'],
+  ['4.1.3 Status Messages', 'Consumer announces milestones / completion in a status region', 'consumer'],
+]} />
+
+**Pitfalls checked:** every progressbar has a name (required prop). A determinate bar never spins or loops. Value changes aren't relied on for announcements. The fill's contrast is stated for the case with no visible value text.
+
+## Usage guidelines
+
+**Do**
+- Name the task in a visible label ("Uploading 3 files") and show the percentage.
+- Announce completion (and maybe halfway) — not every percent.
+
+**Don't**
+- Don't use it for unknown durations — use a spinner.
+- Don't make the bar loop or animate on its own; it only moves when the value changes.
+
+## Content guidelines
+
+- Labels name the task in the present participle ("Importing tickets"), ≤ 50 characters.
+- Show the value as a whole-number percentage ("45%").
+
+## Props
+
+<SimpleTable head={['Prop', 'Type', 'Default', 'Description']} rows={[
+  [<Code>value</Code>, <Code>number</Code>, '—', 'Figma "progress": a percentage, 0–100 (clamped, rounded)'],
+  [<Code>label</Code>, <Code>string</Code>, '—', 'Accessible name (required unless labelledBy is set)'],
+  [<Code>labelledBy</Code>, <Code>string</Code>, '—', 'id of a visible label that names the bar'],
+  [<Code>valueText</Code>, <Code>string</Code>, '—', 'Read out instead of the number (aria-valuetext)'],
+  [<><Code>className</Code> / <Code>style</Code></>, '—', '—', 'Override the 279px width to fit a container'],
+]} />
+
+## Testing
+
+**Automated**
+
+<Checklist items={['axe passes on every story (WCAG 2.2 A/AA tags) ✓', 'Renders role="progressbar" with aria-valuenow / min / max and an accessible name', '0% renders no fill']} />
+
+**Manual**
+
+<Checklist items={['Screen reader (VoiceOver + NVDA): reads the name and "50%"', 'Reduced motion on: the fill jumps to a new value instead of easing', 'Forced colors (Windows High Contrast): the fill stays visible against the track', 'Used in context with a visible label and percentage text']} />

@@ -72,12 +72,12 @@ export const Playground: S = {};
 
 export const ButtonsLightMode: S = {
   name: 'Buttons Light Mode',
-  parameters: { layout: 'fullscreen', docs: { description: { story: 'Matches the Figma frame “Buttons Light Mode” (62643:13798).' } } },
+  parameters: { layout: 'fullscreen', controls: { disable: true }, docs: { description: { story: 'Matches the Figma frame “Buttons Light Mode” (62643:13798).' } } },
   render: () => <Matrix mode="light" />,
 };
 
 export const ButtonsDarkMode: S = {
   name: 'Buttons Dark Mode',
-  parameters: { layout: 'fullscreen', docs: { description: { story: 'Matches the Figma frame “Buttons Dark Mode” (62643:14375) — the same matrix with the Dark mode tokens.' } } },
+  parameters: { layout: 'fullscreen', controls: { disable: true }, docs: { description: { story: 'Matches the Figma frame “Buttons Dark Mode” (62643:14375) — the same matrix with the Dark mode tokens.' } } },
   render: () => <Matrix mode="dark" />,
 };

@@ -1,0 +1,35 @@
+/* Radio Button Input (atom) — Figma 30173:78572. Bindings as authored:
+   touchpoint: radiobutton/width · height · padding   inputContainer: radiobutton/padding · radius, hover-fill (hover),
+   input-default-fill + 2px outside focus-outer-stroke (focus)   input: radiobutton/radius, input-default-fill,
+   1px inside input-stroke (4px when selected); disabled: input-fill-disabled; disabled + selected: label-disabled fill
+   + 4px focus-inner-stroke (bound that way in Figma — logged on the Reference page). Looks only: motion lives in the Field. */
+.tri-rbi {
+  display: inline-flex; flex: none; box-sizing: border-box;
+  width: var(--radiobutton-width); height: var(--radiobutton-height); padding: var(--radiobutton-padding);
+}
+.tri-rbi__container {
+  display: flex; box-sizing: border-box; width: 100%; height: 100%;
+  padding: var(--radiobutton-padding); border-radius: var(--radiobutton-radius);
+}
+.tri-rbi__input {
+  display: block; box-sizing: border-box; width: 100%; height: 100%; border-radius: var(--radiobutton-radius);
+  background: var(--radiobutton-input-default-fill);
+  box-shadow: inset 0 0 0 1px var(--radiobutton-input-stroke);
+}
+.tri-rbi.is-selected .tri-rbi__input { box-shadow: inset 0 0 0 4px var(--radiobutton-input-stroke); }
+
+/* hover: the container behind the circle fills */
+.tri-rbi.is-hover .tri-rbi__container { background: var(--radiobutton-hover-fill); }
+/* focus: container takes the input fill + a 2px outside ring */
+.tri-rbi.is-focus .tri-rbi__container { background: var(--radiobutton-input-default-fill); box-shadow: 0 0 0 2px var(--radiobutton-focus-outer-stroke); }
+
+.tri-rbi.is-disabled .tri-rbi__input { background: var(--radiobutton-input-fill-disabled); box-shadow: inset 0 0 0 1px var(--radiobutton-input-fill-disabled); }
+.tri-rbi.is-disabled.is-selected .tri-rbi__input { background: var(--radiobutton-label-disabled); box-shadow: inset 0 0 0 4px var(--radiobutton-focus-inner-stroke); }
+
+@media (forced-colors: active) {
+  /* Windows High Contrast drops box-shadows — draw the circle, selected ring and focus ring with real borders/outlines. */
+  .tri-rbi__input { box-shadow: none; border: 1px solid CanvasText; }
+  .tri-rbi.is-selected .tri-rbi__input { border-width: 4px; }
+  .tri-rbi.is-disabled .tri-rbi__input { border-color: GrayText; }
+  .tri-rbi.is-focus .tri-rbi__container { box-shadow: none; outline: 2px solid CanvasText; }
+}

@@ -78,3 +78,11 @@
 @media (prefers-reduced-motion: reduce) {
   /* Colour fades only — nothing moves, so nothing is reduced (house rule: reduce movement, keep fades). */
 }
+@media (forced-colors: active) {
+  /* Windows High Contrast drops box-shadows — give every button a real boundary and focus ring, and keep the spinner visible. */
+  .tri-btn__container { box-shadow: none; border: 1px solid ButtonText; }
+  .tri-btn:disabled .tri-btn__container { border-color: GrayText; }
+  .tri-btn::after { box-shadow: none; }
+  .tri-btn:focus-visible::after, .tri-btn.is-focus::after { outline: 2px solid Highlight; outline-offset: 2px; }
+  .tri-btn .tri-spinner { forced-color-adjust: none; color: ButtonText; }
+}

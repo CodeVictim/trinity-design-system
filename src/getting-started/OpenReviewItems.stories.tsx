@@ -22,6 +22,12 @@ const ROWS: [string, string, string, string][] = [
 // Found while building components. Nothing was changed in Figma for these — they're for the owners to decide.
 const COMPONENT_ROWS: [string, string, string, string][] = [
   ['Table_Cell', 'IconButton (library component)', 'Its hover reactions (200ms ease-in-out) don’t match the Motion tokens. It comes from another library file, so it’s left for that library’s owner.', '—'],
+  ['Radio Button Input', 'disabled + selected', 'Bound to radiobutton/label-disabled (fill) and radiobutton/focus-inner-stroke (ring) — every other state uses the input-* tokens. Built as bound.', 'Radio Button Input › Reference'],
+  ['Radio Button Field', 'prototype: click on a selected radio', 'Unselects it in the prototype. Real radios can’t be unselected by clicking; the code follows standard radio behaviour (agreed 2026-10-22).', 'Radio Button Field › Reference'],
+  ['Radio Button', 'unused tokens (5)', 'radiobutton/icon-color, icon-color-disabled, input-selected-fill and radiobutton/large/track/width|height aren’t used by any radio variant (the track sizes look like Toggle tokens).', '—'],
+  ['Progress Bar', '100% variant · track stroke token', 'The 100% track binds size/1 + radius/sm (others: progress bar/height + radius, same values). progress bar/track stroke isn’t used by any variant.', 'Progress Bar › Reference'],
+  ['Progress Bar', 'drawn fill widths', 'Not drawn at their labelled % of the 279px track: 10% = 12.5%, 90% = 88.2%, 5% = 5.4%. The code draws the true percentage.', 'Progress Bar › Reference'],
+  ['Progress Bar', 'track vs page, Light', '1.85:1 — the fill passes against the track (8.46:1), but the faint track end marks 100%. Pattern fix without a design change: show the percentage as text.', 'Progress Bar › Reference'],
   ['Button', 'destructive · focus inner stroke', 'Bound to button/accent/focus-inner-stroke — the other variants use their own focus-inner-stroke. Left as is for now.', 'Button › Reference'],
 ];
 

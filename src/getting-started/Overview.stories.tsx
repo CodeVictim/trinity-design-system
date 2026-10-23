@@ -16,7 +16,7 @@ export const Overview: Story = {
         <ul style={{ paddingLeft: 20, margin: 0 }}>
           <li style={li}><b>Getting Started</b>: this overview, how the design tokens work, and open review items.</li>
           <li style={li}><b>Foundation</b>: Colors, Typography, Spacing, Shadows and Motion — each with a <i>System</i> page (how to use it) and reference pages (every value, with swatches and samples).</li>
-          <li style={li}><b>Components</b>: built atom → molecule → organism from Figma — so far Icon, Spinner, Badge and _checkboxInput (atoms), Checkbox and Button (molecules).</li>
+          <li style={li}><b>Components</b>: built atom → molecule → organism from Figma — so far Icon, Spinner, Badge, _checkboxInput, Radio Button Input and Progress Bar (atoms), Checkbox, Radio Button Field and Button (molecules).</li>
         </ul>
       </DocSection>
 
@@ -50,7 +50,7 @@ export const Overview: Story = {
           <li style={li}><b>Foundation / primitives</b> — in review (see <b>3. Open Review Items</b>).</li>
           <li style={li}><b>Motion</b> — done: its own Figma collection, Foundation › Motion pages, and motion on Button, Checkbox and Spinner.</li>
           <li style={li}><b>Style + Layout tokens</b> — in place for the components built so far.</li>
-          <li style={li}><b>Components</b> — 6 built (4 atoms, 2 molecules); more to follow, one at a time from Figma.</li>
+          <li style={li}><b>Components</b> — 9 built (6 atoms, 3 molecules); more to follow, one at a time from Figma.</li>
         </ul>
       </DocSection>
     </Doc>

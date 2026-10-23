@@ -28,7 +28,7 @@ const OWNERS = {
   'nav/link': { owners: 'Nav Link Item', level: 'atom', exception: true },
   tooltip: { owners: 'Tooltip', level: 'atom', exception: true },
   'progress bar': { owners: 'Progress Bar', level: 'atom', exception: true },
-  radiobutton: { owners: 'Radio Button Item', level: 'molecule', look: 'Radio Button Input' },
+  radiobutton: { owners: 'Radio Button Field', level: 'molecule', look: 'Radio Button Input' },
   toggle: { owners: 'Toggle, Toggle Item', level: 'molecule' },
   accordion: { owners: 'Accordion, Accordion Header', level: 'molecule' },
   slider: { owners: 'Slider, Slider-Range, Slider Thumb', level: 'molecule' },

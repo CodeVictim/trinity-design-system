@@ -53,7 +53,7 @@ const preview: Preview = {
               'Shadows',
               'Motion', ['Motion System', 'Duration Scale', 'Easing', 'Component Motion', 'Reduced Motion'],
             ],
-            'Components', ['Atoms', ['Icon', 'Spinner', 'Badge', '_checkboxInput'], 'Molecules', ['Checkbox', 'Button']],
+            'Components', ['Atoms', ['Icon', 'Spinner', 'Badge', '_checkboxInput', 'Radio Button Input', 'Progress Bar'], 'Molecules', ['Checkbox', 'Radio Button Field', 'Button']],
           ],
         ],
       },

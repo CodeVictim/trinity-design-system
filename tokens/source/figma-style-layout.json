@@ -4,7 +4,7 @@
   "fileKey": "Lx7MN3Ztd0qxhyF7rVAiOa",
   "pulled": "2026-10-19",
   "method": "Desktop Bridge, read-only",
-  "scope": "tokens bound by Badge, Button, Checkbox, _checkboxInput, Spinner, Icon",
+  "scope": "tokens bound by Badge, Button, Checkbox, _checkboxInput, Spinner, Icon + Radio Button Input, Radio Button Field (2026-10-22) + Progress Bar (2026-10-22)",
   "updated": "2026-10-20: button link/secondary Dark label-active → neutral/950; + button/link/focus-outer-width, button/link/inner-border-width-focus (read-only pull)"
  },
  "variables": [
@@ -3410,6 +3410,412 @@
       "Primitives:spacing/micro/025"
      ],
      "value": 1
+    }
+   }
+  },
+  {
+   "name": "radiobutton/input-stroke",
+   "collection": "Style",
+   "type": "COLOR",
+   "scopes": [],
+   "modes": {
+    "Light": {
+     "chain": [
+      "Brand Colors:neutral/950"
+     ],
+     "value": "#171614"
+    },
+    "Dark": {
+     "chain": [
+      "Brand Colors:neutral/0"
+     ],
+     "value": "#ffffff"
+    }
+   }
+  },
+  {
+   "name": "radiobutton/input-default-fill",
+   "collection": "Style",
+   "type": "COLOR",
+   "scopes": [],
+   "modes": {
+    "Light": {
+     "chain": [
+      "Brand Colors:neutral/0"
+     ],
+     "value": "#ffffff"
+    },
+    "Dark": {
+     "chain": [
+      "Brand Colors:neutral/900"
+     ],
+     "value": "#211f1c"
+    }
+   }
+  },
+  {
+   "name": "radiobutton/input-selected-fill",
+   "collection": "Style",
+   "type": "COLOR",
+   "scopes": [],
+   "modes": {
+    "Light": {
+     "chain": [
+      "Brand Colors:neutral/900"
+     ],
+     "value": "#211f1c"
+    },
+    "Dark": {
+     "chain": [
+      "Brand Colors:neutral/0"
+     ],
+     "value": "#ffffff"
+    }
+   }
+  },
+  {
+   "name": "radiobutton/hover-fill",
+   "collection": "Style",
+   "type": "COLOR",
+   "scopes": [],
+   "modes": {
+    "Light": {
+     "chain": [
+      "Brand Colors:neutral/200"
+     ],
+     "value": "#b6b1a5"
+    },
+    "Dark": {
+     "chain": [
+      "Brand Colors:neutral/300"
+     ],
+     "value": "#9b958a"
+    }
+   }
+  },
+  {
+   "name": "radiobutton/focus-inner-stroke",
+   "collection": "Style",
+   "type": "COLOR",
+   "scopes": [],
+   "modes": {
+    "Light": {
+     "chain": [
+      "Brand Colors:neutral/150"
+     ],
+     "value": "#d0cec8"
+    },
+    "Dark": {
+     "chain": [
+      "Brand Colors:neutral/200"
+     ],
+     "value": "#b6b1a5"
+    }
+   }
+  },
+  {
+   "name": "radiobutton/focus-outer-stroke",
+   "collection": "Style",
+   "type": "COLOR",
+   "scopes": [],
+   "modes": {
+    "Light": {
+     "chain": [
+      "Brand Colors:neutral/950"
+     ],
+     "value": "#171614"
+    },
+    "Dark": {
+     "chain": [
+      "Brand Colors:neutral/0"
+     ],
+     "value": "#ffffff"
+    }
+   }
+  },
+  {
+   "name": "radiobutton/icon-color",
+   "collection": "Style",
+   "type": "COLOR",
+   "scopes": [],
+   "modes": {
+    "Light": {
+     "chain": [
+      "Brand Colors:neutral/0"
+     ],
+     "value": "#ffffff"
+    },
+    "Dark": {
+     "chain": [
+      "Brand Colors:neutral/900"
+     ],
+     "value": "#211f1c"
+    }
+   }
+  },
+  {
+   "name": "radiobutton/icon-color-disabled",
+   "collection": "Style",
+   "type": "COLOR",
+   "scopes": [],
+   "modes": {
+    "Light": {
+     "chain": [
+      "Brand Colors:neutral/100"
+     ],
+     "value": "#dfdedd"
+    },
+    "Dark": {
+     "chain": [
+      "Brand Colors:neutral/150"
+     ],
+     "value": "#d0cec8"
+    }
+   }
+  },
+  {
+   "name": "radiobutton/input-fill-disabled",
+   "collection": "Style",
+   "type": "COLOR",
+   "scopes": [],
+   "modes": {
+    "Light": {
+     "chain": [
+      "Brand Colors:neutral/200"
+     ],
+     "value": "#b6b1a5"
+    },
+    "Dark": {
+     "chain": [
+      "Brand Colors:neutral/200"
+     ],
+     "value": "#b6b1a5"
+    }
+   }
+  },
+  {
+   "name": "radiobutton/label-disabled",
+   "collection": "Style",
+   "type": "COLOR",
+   "scopes": [],
+   "modes": {
+    "Light": {
+     "chain": [
+      "Brand Colors:neutral/200"
+     ],
+     "value": "#b6b1a5"
+    },
+    "Dark": {
+     "chain": [
+      "Brand Colors:neutral/200"
+     ],
+     "value": "#b6b1a5"
+    }
+   }
+  },
+  {
+   "name": "radiobutton/label-default",
+   "collection": "Style",
+   "type": "COLOR",
+   "scopes": [],
+   "modes": {
+    "Light": {
+     "chain": [
+      "Brand Colors:neutral/950"
+     ],
+     "value": "#171614"
+    },
+    "Dark": {
+     "chain": [
+      "Brand Colors:neutral/0"
+     ],
+     "value": "#ffffff"
+    }
+   }
+  },
+  {
+   "name": "radiobutton/height",
+   "collection": "Layout",
+   "type": "FLOAT",
+   "scopes": [],
+   "modes": {
+    "Mode 1": {
+     "chain": [
+      "Primitives:spacing/medium/600"
+     ],
+     "value": 24
+    }
+   }
+  },
+  {
+   "name": "radiobutton/width",
+   "collection": "Layout",
+   "type": "FLOAT",
+   "scopes": [],
+   "modes": {
+    "Mode 1": {
+     "chain": [
+      "Primitives:spacing/medium/600"
+     ],
+     "value": 24
+    }
+   }
+  },
+  {
+   "name": "radiobutton/padding",
+   "collection": "Layout",
+   "type": "FLOAT",
+   "scopes": [],
+   "modes": {
+    "Mode 1": {
+     "chain": [
+      "Primitives:spacing/micro/050"
+     ],
+     "value": 2
+    }
+   }
+  },
+  {
+   "name": "radiobutton/gap",
+   "collection": "Layout",
+   "type": "FLOAT",
+   "scopes": [],
+   "modes": {
+    "Mode 1": {
+     "chain": [
+      "Primitives:spacing/micro/100"
+     ],
+     "value": 4
+    }
+   }
+  },
+  {
+   "name": "radiobutton/radius",
+   "collection": "Layout",
+   "type": "FLOAT",
+   "scopes": [],
+   "modes": {
+    "Mode 1": {
+     "chain": [
+      "Primitives:radius/circle"
+     ],
+     "value": 9999
+    }
+   }
+  },
+  {
+   "name": "radiobutton/large/track/height",
+   "collection": "Layout",
+   "type": "FLOAT",
+   "scopes": [],
+   "modes": {
+    "Mode 1": {
+     "chain": [
+      "Primitives:spacing/medium/600"
+     ],
+     "value": 24
+    }
+   }
+  },
+  {
+   "name": "radiobutton/large/track/width",
+   "collection": "Layout",
+   "type": "FLOAT",
+   "scopes": [],
+   "modes": {
+    "Mode 1": {
+     "chain": [
+      "Primitives:spacing/large/1000"
+     ],
+     "value": 40
+    }
+   }
+  },
+  {
+   "name": "progress bar/progress fill",
+   "collection": "Style",
+   "type": "COLOR",
+   "scopes": [],
+   "modes": {
+    "Light": {
+     "chain": [
+      "Brand Colors:neutral/950"
+     ],
+     "value": "#171614"
+    },
+    "Dark": {
+     "chain": [
+      "Brand Colors:neutral/0"
+     ],
+     "value": "#ffffff"
+    }
+   }
+  },
+  {
+   "name": "progress bar/track fill",
+   "collection": "Style",
+   "type": "COLOR",
+   "scopes": [],
+   "modes": {
+    "Light": {
+     "chain": [
+      "Brand Colors:neutral/200"
+     ],
+     "value": "#b6b1a5"
+    },
+    "Dark": {
+     "chain": [
+      "Brand Colors:neutral/500"
+     ],
+     "value": "#666054"
+    }
+   }
+  },
+  {
+   "name": "progress bar/track stroke",
+   "collection": "Style",
+   "type": "COLOR",
+   "scopes": [],
+   "modes": {
+    "Light": {
+     "chain": [
+      "Brand Colors:neutral/400"
+     ],
+     "value": "#7f796c"
+    },
+    "Dark": {
+     "chain": [
+      "Brand Colors:neutral/400"
+     ],
+     "value": "#7f796c"
+    }
+   }
+  },
+  {
+   "name": "progress bar/height",
+   "collection": "Layout",
+   "type": "FLOAT",
+   "scopes": [],
+   "modes": {
+    "Mode 1": {
+     "chain": [
+      "Primitives:spacing/micro/200"
+     ],
+     "value": 8
+    }
+   }
+  },
+  {
+   "name": "progress bar/radius",
+   "collection": "Layout",
+   "type": "FLOAT",
+   "scopes": [],
+   "modes": {
+    "Mode 1": {
+     "chain": [
+      "Primitives:radius/sm"
+     ],
+     "value": 4
     }
    }
   }

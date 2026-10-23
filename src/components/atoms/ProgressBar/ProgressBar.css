@@ -1,0 +1,22 @@
+/* Progress Bar (atom) — Figma 51692:17330. Bindings as authored: track progress bar/height · radius · track fill;
+   fill progress bar/radius · progress fill, full height, width = the value. Width 279px as authored (Figma fixes it; there's
+   no width token) — override with className/style to fill a container. progress bar/track stroke exists but no variant uses it. */
+.tri-progress {
+  display: block; box-sizing: border-box; position: relative; overflow: hidden;
+  width: 279px; max-width: 100%; height: var(--progress-bar-height);
+  border-radius: var(--progress-bar-radius); background: var(--progress-bar-track-fill);
+}
+.tri-progress__fill {
+  height: 100%; border-radius: var(--progress-bar-radius); background: var(--progress-bar-progress-fill);
+  /* Motion exception: the bar animates its own value change. */
+  transition: width var(--progress-bar-duration) var(--progress-bar-easing);
+}
+@media (prefers-reduced-motion: reduce) {
+  /* Movement → instant: the value jumps. */
+  .tri-progress__fill { transition-duration: var(--progress-bar-reduced-duration); }
+}
+@media (forced-colors: active) {
+  /* Windows High Contrast drops background colours — draw the track outline and keep the fill in a system colour. */
+  .tri-progress { border: 1px solid CanvasText; }
+  .tri-progress__fill { forced-color-adjust: none; background: Highlight; }
+}

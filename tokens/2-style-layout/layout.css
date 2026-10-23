@@ -62,4 +62,13 @@
   --spinner-medium-width: var(--spacing-medium-600);
   --spinner-small-height: var(--spacing-small-400);
   --spinner-small-width: var(--spacing-small-400);
+  --radiobutton-gap: var(--spacing-micro-100);
+  --radiobutton-height: var(--spacing-medium-600);
+  --radiobutton-large-track-height: var(--spacing-medium-600);
+  --radiobutton-large-track-width: var(--spacing-large-1000);
+  --radiobutton-padding: var(--spacing-micro-050);
+  --radiobutton-radius: var(--radius-circle);
+  --radiobutton-width: var(--spacing-medium-600);
+  --progress-bar-height: var(--spacing-micro-200);
+  --progress-bar-radius: var(--radius-sm);
 }

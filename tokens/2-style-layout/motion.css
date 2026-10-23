@@ -39,7 +39,7 @@
   --progress-bar-easing: var(--easing-ease-out);
   --progress-bar-reduced-duration: var(--duration-instant);
 
-  /* ---- radiobutton — Radio Button Item (molecule) · look only: Radio Button Input ---- */
+  /* ---- radiobutton — Radio Button Field (molecule) · look only: Radio Button Input ---- */
   --radiobutton-duration: var(--duration-fast);
   --radiobutton-easing: var(--easing-ease-out);
 

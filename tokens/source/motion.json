@@ -381,7 +381,7 @@
   },
   {
    "group": "radiobutton",
-   "owners": "Radio Button Item",
+   "owners": "Radio Button Field",
    "level": "molecule",
    "look": "Radio Button Input",
    "tokens": [

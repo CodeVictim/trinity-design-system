@@ -1,0 +1,42 @@
+/* Figma bindings: radiobutton/gap, radiobutton/label-default|label-disabled, text style Body/sm (font-weight/text/Regular) */
+.tri-radio {
+  position: relative; display: inline-flex; align-items: center;
+  gap: var(--radiobutton-gap); cursor: pointer;
+}
+.tri-radio__native {
+  position: absolute; inset: 0 auto 0 0; width: var(--radiobutton-width); height: var(--radiobutton-height);
+  margin: 0; opacity: 0; cursor: inherit;
+}
+.tri-radio__label {
+  font-family: var(--font-family-trinityfont), 'ABC Repro', sans-serif;
+  font-size: 14px; line-height: 1.3; font-weight: var(--font-weight-text-regular);
+  color: var(--radiobutton-label-default);
+}
+.tri-radio.is-disabled { cursor: not-allowed; }
+.tri-radio.is-disabled .tri-radio__label { color: var(--radiobutton-label-disabled); }
+
+/* Live states drive the atom's authored hover / focus / selected looks */
+.tri-radio:not(.is-disabled):hover .tri-rbi__container { background: var(--radiobutton-hover-fill); }
+.tri-radio__native:focus-visible + .tri-rbi .tri-rbi__container { background: var(--radiobutton-input-default-fill); box-shadow: 0 0 0 2px var(--radiobutton-focus-outer-stroke); }
+.tri-radio__native:checked + .tri-rbi .tri-rbi__input { box-shadow: inset 0 0 0 4px var(--radiobutton-input-stroke); }
+.tri-radio__native:checked:disabled + .tri-rbi .tri-rbi__input { background: var(--radiobutton-label-disabled); box-shadow: inset 0 0 0 4px var(--radiobutton-focus-inner-stroke); }
+.tri-radio__native:not(:checked) + .tri-rbi:not(.is-disabled) .tri-rbi__input { box-shadow: inset 0 0 0 1px var(--radiobutton-input-stroke); }
+
+/* Motion — handled here by the Field (Radio Button Input only defines the look).
+   Motion collection radiobutton/duration (→ duration/fast 150ms) + radiobutton/easing (→ ease-out), matching the
+   Figma prototype (hover + click: Smart Animate 150ms ease-out). The hover fill fades; the selected ring grows 1px → 4px.
+   Focus snaps on (no transition). */
+.tri-radio .tri-rbi__container { transition: background-color var(--radiobutton-duration) var(--radiobutton-easing), box-shadow var(--radiobutton-duration) var(--radiobutton-easing); }
+.tri-radio .tri-rbi__input { transition: background-color var(--radiobutton-duration) var(--radiobutton-easing), box-shadow var(--radiobutton-duration) var(--radiobutton-easing); }
+.tri-radio__native:focus-visible + .tri-rbi .tri-rbi__container,
+.tri-radio .tri-rbi.is-focus .tri-rbi__container { transition: none; }
+@media (prefers-reduced-motion: reduce) {
+  /* The growing ring is movement → instant. The hover colour fade stays. */
+  .tri-radio .tri-rbi__input { transition: background-color var(--radiobutton-duration) var(--radiobutton-easing); }
+}
+@media (forced-colors: active) {
+  .tri-radio__native:checked + .tri-rbi .tri-rbi__input,
+  .tri-radio__native:checked:disabled + .tri-rbi .tri-rbi__input { box-shadow: none; border-width: 4px; }
+  .tri-radio__native:not(:checked) + .tri-rbi:not(.is-disabled) .tri-rbi__input { box-shadow: none; border-width: 1px; }
+  .tri-radio__native:focus-visible + .tri-rbi .tri-rbi__container { box-shadow: none; outline: 2px solid CanvasText; }
+}

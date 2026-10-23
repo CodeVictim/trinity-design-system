@@ -1,0 +1,73 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { SimpleTable, Code, InfoCallout, ReviewCallout } from '../../../shared/doc-kit';
+import { TokenTable, Wcag, Checklist } from '../../../shared/component-docs';
+
+<Meta title="Trinity/Components/Atoms/Radio Button Input/Reference" />
+
+# Radio Button Input
+
+The drawn radio circle: 24×24 touch area, 20px container, 16px circle. It's the **base of Radio Button Field**: it has no behavior and no accessible role of its own. Figma: *Radio Button Input* `30173:78572`, 8 authored variants.
+
+<InfoCallout>Don't use this on its own in product UI. Use <b>Radio Button Field</b>, which wraps it around a real radio input. Accessibility pattern: <b>choice-controls</b>.</InfoCallout>
+
+## Token Reference
+
+<TokenTable prefixes={['radiobutton/width', 'radiobutton/height', 'radiobutton/padding', 'radiobutton/radius', 'radiobutton/input', 'radiobutton/hover', 'radiobutton/focus', 'radiobutton/label-disabled']} />
+
+## Variants
+
+<SimpleTable head={['Property', 'Options']} rows={[
+  ['state', 'default · hover · focus'],
+  ['isSelected', 'false · true'],
+  ['isDisabled', 'false · true (default state only)'],
+]} />
+
+## Visual States
+
+<SimpleTable head={['State', 'Layers']} rows={[
+  ['Default', 'input: fill input-default-fill, 1px inside stroke input-stroke'],
+  ['Selected', 'input: the same stroke, 4px inside — a thick ring with the fill showing in the centre'],
+  ['Hover', 'inputContainer (behind the circle): fill hover-fill'],
+  ['Focus', 'inputContainer: fill input-default-fill + 2px outside stroke focus-outer-stroke'],
+  ['Disabled', 'input: fill + 1px stroke input-fill-disabled'],
+  ['Disabled, selected', 'input: fill label-disabled + 4px stroke focus-inner-stroke'],
+]} />
+
+<ReviewCallout><b>Disabled, selected</b> is bound to <Code>radiobutton/label-disabled</Code> (fill) and <Code>radiobutton/focus-inner-stroke</Code> (ring) in Figma — every other state uses the <Code>input-*</Code> tokens. Built as bound; logged for the owner to decide.</ReviewCallout>
+
+## Dependencies
+
+None. Raw layers only (touchpoint → inputContainer → input).
+
+**Motion:** none of its own. This atom only defines the look; the **Radio Button Field** molecule animates its hover fill and selected ring (`--radiobutton-duration` / `--radiobutton-easing`).
+
+## Accessibility
+
+- Always `aria-hidden="true"`. The parent **Radio Button Field** supplies the native radio input, name, state and keyboard.
+- Hover and focus here are only *looks*; Radio Button Field drives them from real pointer and keyboard events.
+- Contrast is documented on **Radio Button Field** (circle 15.61:1 Light / 21:1 Dark).
+
+<Wcag rows={[
+  ['1.4.1 Use of Color', 'Selected changes shape (1px → 4px ring), not just colour'],
+  ['1.4.11 Non-text Contrast', 'Circle stroke ≥ 15:1 (see Radio Button Field)'],
+  ['2.5.8 Target Size (Minimum)', 'Provides the 24×24 touch area Radio Button Field uses'],
+  ['4.1.2 Name, Role, Value', 'Handled by Radio Button Field (this atom is hidden from AT)', 'consumer'],
+]} />
+
+## Props
+
+<SimpleTable head={['Prop', 'Type', 'Default', 'Description']} rows={[
+  [<Code>selected</Code>, <Code>boolean</Code>, <Code>false</Code>, 'Figma "isSelected" look'],
+  [<Code>disabled</Code>, <Code>boolean</Code>, <Code>false</Code>, 'Figma "isDisabled" look'],
+  [<Code>state</Code>, <Code>'default' | 'hover' | 'focus'</Code>, <Code>'default'</Code>, 'Figma "state" — forced look, for docs'],
+]} />
+
+## Testing
+
+**Automated**
+
+<Checklist items={['axe passes on every story (WCAG 2.2 A/AA tags) ✓', 'The atom renders aria-hidden="true" (Radio Button Field supplies the native input)']} />
+
+**Manual**
+
+<Checklist items={['Screen reader: nothing is announced from the atom itself — test through Radio Button Field', 'Forced colors (Windows High Contrast): circle and selected ring stay visible', 'Touch area is 24×24 (2.5.8)']} />

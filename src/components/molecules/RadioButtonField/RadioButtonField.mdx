@@ -1,0 +1,158 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { SimpleTable, Code, InfoCallout, ReviewCallout, NoteBox } from '../../../shared/doc-kit';
+import { TokenTable, Keyboard, Wcag, Checklist } from '../../../shared/component-docs';
+
+<Meta title="Trinity/Components/Molecules/Radio Button Field/Reference" />
+
+# Radio Button Field
+
+A native radio button with a label, for choosing exactly one option from a small set. Built from the **Radio Button Input** atom. Figma: *Radio Button Field* `30173:78607`, 8 authored variants.
+
+<InfoCallout>Accessibility pattern: <b>choice-controls</b> (Storybook A11y Library). Target: WCAG 2.2 AA.</InfoCallout>
+
+## Token Reference
+
+<TokenTable prefixes={['radiobutton/gap', 'radiobutton/label']} />
+
+<NoteBox>Label text uses Body/sm (14px, 130% line height) with <Code>--font-weight-text-regular</Code>. The circle itself is styled by <b>Radio Button Input</b>; see its Reference page. Motion uses <Code>--radiobutton-duration</Code> / <Code>--radiobutton-easing</Code> from the Motion collection.</NoteBox>
+
+## Variants
+
+<SimpleTable head={['Property', 'Options']} rows={[
+  ['isSelected', 'false · true'],
+  ['isDisabled', 'false · true (default state only)'],
+  ['show label', 'true (default) · false (the text becomes the accessible name)'],
+]} />
+
+## Visual States
+
+<SimpleTable head={['State', 'When it happens (Figma prototype)', 'How it shows']} rows={[
+  ['Default', 'At rest', '16px circle, 1px ring; label in label-default'],
+  ['Selected', 'Click on an unselected radio', '4px ring with the fill showing in the centre'],
+  ['Hover', 'Pointer over it — On hover, Smart Animate 150ms ease-out', 'The container behind the circle fills'],
+  ['Focus (keyboard)', 'Keyboard focus — its own variant', '2px outer ring around the circle'],
+  ['Disabled', 'Option not available', 'Grey circle, grey label'],
+]} />
+
+<ReviewCallout><b>Prototype vs standard behaviour:</b> in the Figma prototype, clicking an already-selected radio unselects it. Real radio buttons can't be unselected by clicking — you choose another option instead. The code follows standard radio behaviour (agreed 2026-10-22); the prototype difference is logged here.</ReviewCallout>
+
+## Dependencies
+
+- **Radio Button Input** (atom): the 24×24 touch area and the circle.
+
+## When to use
+
+- Exactly one choice from 2–7 mutually exclusive options that should all be visible.
+- When the options need to be compared side by side before choosing.
+
+## When not to use
+
+<SimpleTable head={['Situation', 'Use instead']} rows={[
+  ['Any number of options can be chosen', 'Checkbox'],
+  ['A single yes/no or "I agree"', 'Checkbox'],
+  ['The change takes effect immediately (a setting)', 'Toggle'],
+  ['More than about 7 options', 'Select'],
+  ['"None" must be possible', 'Add a "None" option, or use checkboxes'],
+]} />
+
+## Accessibility
+
+**Built in (the component handles it)**
+- Role: native `<input type="radio">` inside a `<label>`, so clicking the text selects it and the label is the name.
+- States: selected / not selected / disabled. Screen readers get these from the browser, plus the position ("2 of 3") when radios share a `name`.
+- Keyboard: arrow keys and roving focus come from the browser for native radios — no JavaScript handlers (pattern pitfall).
+- Hidden from AT: the drawn circle (Radio Button Input) is `aria-hidden`; the real input is invisible but sits over the 24×24 touch area.
+
+**You must provide (consumer)**
+
+<SimpleTable head={['Prop', 'Required?', 'Why']} rows={[
+  [<Code>label</Code>, 'Yes, always', 'It\'s the visible text, or the accessible name when showLabel={false}'],
+  [<Code>name</Code>, 'Yes — the same on every radio in the group', 'That\'s what makes arrow keys, "1 of N" and one-at-a-time selection work'],
+  ['A group label', 'Yes, always', 'Wrap the radios in <fieldset> with a <legend> ("Delivery method"), or role="radiogroup" + aria-labelledby'],
+  ['Group error message', 'When a choice is required', 'Tie it to the fieldset with aria-describedby and set aria-invalid on the inputs (3.3.1)'],
+]} />
+
+### Keyboard
+
+<Keyboard rows={[
+  ['Tab / Shift+Tab', 'Moves into / out of the group — once. Lands on the selected radio, or the first if none is selected'],
+  ['↑ ↓ / ← →', 'Moves focus and selection to the previous / next radio, wrapping'],
+  ['Space', 'Selects the focused radio'],
+  ['Enter', 'Submits the form, as native radios do'],
+]} />
+
+### Focus
+
+- Indicator: 2px outer ring (`--radiobutton-focus-outer-stroke`) around the circle, shown on `:focus-visible`. It snaps on — no transition.
+- Ring vs page: 15.61:1 (Light) / 21:1 (Dark).
+
+### Visual & pointer
+
+<SimpleTable head={['Check', 'Light', 'Dark', 'Needs']} rows={[
+  ['Label text vs page', '15.61:1', '21.00:1', '4.5:1'],
+  ['Circle ring vs page (unselected)', '15.61:1', '21.00:1', '3:1 (1.4.11)'],
+  ['Circle ring vs circle fill', '18.08:1', '16.44:1', '3:1'],
+  ['Focus ring vs page', '15.61:1', '21.00:1', '3:1'],
+]} />
+
+- **Not color-only:** selected changes shape (the ring grows from 1px to 4px), not just colour.
+- **Hover fill:** 1.85:1 against the page in Light, 7.06:1 in Dark; in Dark the white ring sits on it at 2.97:1. That's not a failure: the pointer itself shows hover, so an added hover treatment is supplemental and doesn't need 3:1 (W3C, <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html">Understanding Non-text Contrast</a>). The ring still reads 16.44:1 against the circle's own fill, and the focus ring is the cue that must pass.
+- **Target size:** the touch area is 24×24 (meets 2.5.8), and the label adds to the clickable area.
+- **Disabled** is exempt from contrast requirements (1.4.3).
+- **Motion:** the Field handles it (Radio Button Input only defines the look): the hover fill fades and the selected ring grows over `--radiobutton-duration` (→ `duration/fast`, 150ms) with `--radiobutton-easing` (→ `easing/ease-out`), matching the Figma prototype. Focus snaps on. **Reduced motion:** the growing ring becomes instant; the colour fade stays.
+
+### WCAG 2.2 AA mapping
+
+<Wcag rows={[
+  ['1.3.1 Info and Relationships', 'Label wraps the input; the group needs fieldset/legend', 'consumer'],
+  ['1.4.1 Use of Color', 'Selected changes the ring width, not colour alone'],
+  ['1.4.3 Contrast (Minimum)', 'Label ≥ 15:1'],
+  ['1.4.11 Non-text Contrast', 'Circle ring ≥ 15:1 against the page and its fill'],
+  ['2.1.1 Keyboard', 'Native radio: Tab into the group, arrows move, Space selects'],
+  ['2.4.7 Focus Visible', '2px outer ring'],
+  ['2.5.8 Target Size (Minimum)', '24×24 touch area'],
+  ['3.3.1 Error Identification', 'Consumer ties a group error with aria-describedby + aria-invalid', 'consumer'],
+  ['4.1.2 Name, Role, Value', 'Native radio; position "N of M" via a shared name'],
+]} />
+
+**Pitfalls checked:** no JavaScript arrow-key handlers on native radios. The unselected ring has stated contrast (15.61:1 / 21:1). A group-level error state is listed as a consumer requirement. 44px isn't treated as a requirement.
+
+## Usage guidelines
+
+**Do**
+- Always put radios in a group with a legend that asks the question.
+- Stack them vertically, one per line.
+- Pre-select the most likely option when there's a safe default.
+
+**Don't**
+- Don't use a single radio on its own — use a checkbox.
+- Don't use radios for choices that take effect immediately — use a toggle.
+- Don't hide the label unless the context makes it obvious, and even then keep `label` as the accessible name.
+
+## Content guidelines
+
+- Labels: sentence case, no trailing punctuation, short and parallel in form.
+- The legend is the question ("How should we contact you?"); the labels are the answers.
+
+## Props
+
+<SimpleTable head={['Prop', 'Type', 'Default', 'Description']} rows={[
+  [<Code>label</Code>, <Code>string</Code>, '—', 'Visible label / accessible name (required)'],
+  [<Code>showLabel</Code>, <Code>boolean</Code>, <Code>true</Code>, 'Figma "show label". false hides the text but keeps it as aria-label'],
+  [<Code>checked</Code>, <Code>boolean</Code>, '—', 'Controlled value'],
+  [<Code>defaultChecked</Code>, <Code>boolean</Code>, '—', 'Uncontrolled starting value'],
+  [<Code>disabled</Code>, <Code>boolean</Code>, <Code>false</Code>, 'Figma "isDisabled" — native disabled'],
+  [<Code>name</Code> + <Code>value</Code>, <Code>string</Code>, '—', 'Group name (shared by every radio in the group) and submitted value'],
+  [<Code>onChange</Code>, <Code>(e) =&gt; void</Code>, '—', 'Change handler'],
+  [<Code>state</Code>, <Code>'default' | 'hover' | 'focus'</Code>, <Code>'default'</Code>, 'Docs only: shows a state without interacting'],
+]} />
+
+## Testing
+
+**Automated**
+
+<Checklist items={['axe passes on every story (WCAG 2.2 A/AA tags) ✓', 'Each radio has an accessible name (visible label or aria-label)', 'Disabled radio is not focusable']} />
+
+**Manual**
+
+<Checklist items={['Keyboard: Tab enters the group once; arrows move the selection and wrap; Tab leaves', 'Clicking a selected radio keeps it selected', 'Screen reader (VoiceOver + NVDA): announces the group legend, the option, "selected / not selected" and "2 of 3"', 'Clicking the label selects', '200% zoom / 320px: long labels wrap beside the circle', 'Forced colors (Windows High Contrast): circle and selected ring visible', 'Reduced motion on: the selected ring appears instantly']} />
