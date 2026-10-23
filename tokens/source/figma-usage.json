@@ -30,7 +30,7 @@
  "neutral/1000": [
   "elevation/base (Dark)",
   "elements/default (Light)",
-  "elevation/base\u2013inverse (Light)",
+  "elevation/base–inverse (Light)",
   "interaction/hover (Dark)",
   "interaction/expanded-inverse (Light)",
   "layout/base (Dark)",
@@ -134,7 +134,7 @@
   "elevation/layer 1 (Light)",
   "elevation/layer 3 (Light)",
   "text/default (Dark)",
-  "elevation/base\u2013inverse (Dark)",
+  "elevation/base–inverse (Dark)",
   "elevation/layer 2 inverse (Dark)",
   "elevation/top (Light)",
   "elevation/top inverse (Dark)",
@@ -150,8 +150,9 @@
   "truck phases/Returning to plant/label (Light)",
   "icon/default (Dark)",
   "avatar/default (Light)",
+  "badge/display/alternate/text (Dark)",
   "badge/display/outline/background (Light)",
-  "badge/display/outline/background (Dark)",
+  "badge/display/outline/text (Dark)",
   "layout/layer 2 (Light)",
   "badge/display/error/text (Light)",
   "progress bar/progress fill (Dark)",
@@ -319,9 +320,8 @@
   "badge/display/brand/text (Light)",
   "badge/display/brand/text (Dark)",
   "badge/display/alternate/text (Light)",
-  "badge/display/alternate/text (Dark)",
+  "badge/display/outline/background (Dark)",
   "badge/display/outline/text (Light)",
-  "badge/display/outline/text (Dark)",
   "badge/display/error/text (Dark)",
   "progress bar/progress fill (Light)",
   "spinner/fill (Light)",
@@ -343,7 +343,9 @@
   "button/accent/label-default (Dark)",
   "button/accent/label-active (Dark)",
   "button/secondary/label-default (Light)",
+  "button/secondary/label-active (Dark)",
   "button/link/label-default (Light)",
+  "button/link/label-active (Dark)",
   "button/link/border-default (Light)",
   "button/destructive/label-default (Dark)",
   "button/destructive/spinner (Dark)",
@@ -568,6 +570,7 @@
   "button/link/hover (Light)",
   "button/link/focus-inner-stroke (Dark)",
   "slider/icon-color-disabled (Light)",
+  "card/border-default (Light)",
   "table/row/background-disabled (Light)",
   "accordion/fill-hover (Light)",
   "accordion/fill-focus (Light)",
@@ -839,10 +842,9 @@
   "solid/800 (Light)",
   "interaction/expanded (Dark)",
   "button/secondary/focus (Dark)",
-  "button/secondary/label-active (Dark)",
   "button/secondary/border-disabled (Dark)",
   "button/link/focus (Dark)",
-  "button/link/label-active (Dark)",
+  "card/border-default (Dark)",
   "accordion/fill-default (Dark)",
   "accordion/container-fill (Dark)",
   "icon-only-button/icon-active (Dark)",
@@ -863,13 +865,13 @@
  "primary/900": [
   "interaction/accent/primary (Light)",
   "table/row/background-selected (Dark)",
+  "card/background-selected (Dark)",
   "suggestion-row/text-match (Light)",
   "suggestion-row/text-match (Dark)"
  ],
  "primary/100": [
   "interaction/accent/primary (Dark)",
   "badge/display/alternate/background (Light)",
-  "badge/display/alternate/background (Dark)",
   "button/accent/fill (Light)",
   "button/accent/focus (Light)",
   "chip/information/fill-default (Dark)",
@@ -1104,11 +1106,12 @@
   "button/destructive-secondary/inner-border-width",
   "nav-button-option/focus-spread",
   "icon-only-button/border-width",
-  "icon-only-button/border-focus-outer-width"
+  "icon-only-button/border-focus-outer-width",
+  "card/border-width-selected"
  ],
  "spacing/micro/100": [
   "padding/2",
-  "size/0,5",
+  "size/0-5",
   "gap/1",
   "badge/display/default/top bottom padding",
   "toggle/large/track/padding",
@@ -1210,6 +1213,7 @@
   "chip/information/stroke-border-default (Dark)",
   "chip/information/fill-focus (Light)",
   "chip/information/fill-focus (Dark)",
+  "card/border-selected (Dark)",
   "toast/icon/info (Dark)",
   "notification/status/info (Dark)",
   "notification/border/info (Dark)",
@@ -1217,6 +1221,7 @@
  ],
  "primary/700": [
   "link/link-hover (Light)",
+  "badge/display/alternate/background (Dark)",
   "button/primary/active (Light)",
   "chip/information/fill-selected-default (Light)",
   "chip/information/fill-selected-default (Dark)",
@@ -1260,7 +1265,9 @@
  ],
  "primary/500": [
   "link/link-hover (Dark)",
-  "tag/diagonal solid fill (Dark)"
+  "tag/diagonal solid fill (Dark)",
+  "card/border-hover (Light)",
+  "card/border-hover (Dark)"
  ],
  "primary/550": [
   "link/link-focus (Light)",
@@ -1371,7 +1378,10 @@
   "alternate-button/inner-border-width",
   "alternate-button/inner-border-width-focus",
   "button/destructive/inner-border-width",
-  "icon-only-button/border-hover-outer-width"
+  "icon-only-button/border-hover-outer-width",
+  "button/link/inner-border-width-focus",
+  "button/link/focus-outer-width",
+  "card/border-width-default"
  ],
  "neutral/25": [
   "layout/layer 1 (Light)",
@@ -1407,7 +1417,8 @@
   "notification/pattern/banner/radius",
   "notification/pattern/inline/radius",
   "input/field-radius",
-  "available-times/header-radius-top-right"
+  "available-times/header-radius-top-right",
+  "card/corner-radius"
  ],
  "radius/circle": [
   "avatar/circle radius",
@@ -1459,9 +1470,10 @@
  "primary/50": [
   "button/accent/hover (Light)",
   "segment-control/border (Light)",
+  "card/border-focus (Light)",
+  "card/border-focus (Dark)",
   "table/row/background-selected (Light)",
   "card/background-selected (Light)",
-  "card/background-selected (Dark)",
   "dropdown-item/background-selected (Light)",
   "dropdown-item/background-selected (Dark)",
   "dropdown-item/border-focus (Light)",
@@ -1493,7 +1505,8 @@
   "modal/header/padding-left-right",
   "modal/footer/padding",
   "nav-accordion-header/icon-size",
-  "nav-accordion-header/chevron-size"
+  "nav-accordion-header/chevron-size",
+  "card/padding-desktop"
  ],
  "spacing/large/2500": [
   "tag/max-width"
@@ -1547,6 +1560,11 @@
   "nav-button-option/radius",
   "banner/radius"
  ],
+ "primary/650": [
+  "card/border-selected (Light)",
+  "nav-accordion-header/focus-ring (Light)",
+  "nav-button-option/focus-ring (Light)"
+ ],
  "neutral/925": [
   "table/row/background-striped (Dark)",
   "nav/topbar/bg (Dark)"
@@ -1572,7 +1590,9 @@
   "nav/topbar/search-padding-vertical",
   "nav-accordion-header/gap",
   "nav/sidebar/primary-menu-gap",
-  "nav/sidebar/utility-menu-gap"
+  "nav/sidebar/utility-menu-gap",
+  "card/padding-mobile",
+  "card/input-content-gap"
  ],
  "radius/xxl": [
   "menu-container/radius",
@@ -1847,10 +1867,6 @@
  ],
  "spacing/large/6000": [
   "nav-accordion-header/width"
- ],
- "primary/650": [
-  "nav-accordion-header/focus-ring (Light)",
-  "nav-button-option/focus-ring (Light)"
  ],
  "radius/xxxl": [
   "nav/section/radius-round"

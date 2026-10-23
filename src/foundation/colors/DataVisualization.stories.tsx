@@ -14,6 +14,7 @@ export const DataVisualization: Story = {
       <InfoCallout>
         Data colors are for <b>charts, graphs and maps only</b> — never for UI states. Pair every series with a label,
         marker or pattern so color is never the only signal. The categorical and semantic sets are <b>pending team review</b>.
+        The six business-area chart colors (<code>data/charts/*</code>, approved 2026-10-22) have their own page: <b>Colors › Chart Colors</b>.
       </InfoCallout>
 
       <SectionTitle>Categorical — Series Order</SectionTitle>

@@ -47,7 +47,7 @@ const preview: Preview = {
           'Trinity', [
             'Getting Started', ['1. Overview', '2. Design Tokens', '3. Open Review Items'],
             'Foundation', [
-              'Colors', ['Color System', 'Palette', 'Data Visualization'],
+              'Colors', ['Color System', 'Palette', 'Data Visualization', 'Chart Colors'],
               'Typography', ['Type System', 'Type Scale', 'Type Styles'],
               'Spacing', ['Spacing System', 'Spacing Scale', 'Border Radius', 'Opacity'],
               'Shadows',

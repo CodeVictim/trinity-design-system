@@ -1,8 +1,8 @@
 {
  "meta": {
-  "file": "Trinity Design System (for review)",
+  "file": "Trinity Design System",
   "fileKey": "Lx7MN3Ztd0qxhyF7rVAiOa",
-  "pulled": "2026-10-18",
+  "pulled": "2026-10-22",
   "method": "Desktop Bridge, read-only"
  },
  "tokens": [
@@ -18,9 +18,10 @@
    "usedBy": [
     "button/accent/hover (Light)",
     "segment-control/border (Light)",
+    "card/border-focus (Light)",
+    "card/border-focus (Dark)",
     "table/row/background-selected (Light)",
     "card/background-selected (Light)",
-    "card/background-selected (Dark)",
     "dropdown-item/background-selected (Light)",
     "dropdown-item/background-selected (Dark)",
     "dropdown-item/border-focus (Light)",
@@ -50,7 +51,6 @@
    "usedBy": [
     "interaction/accent/primary (Dark)",
     "badge/display/alternate/background (Light)",
-    "badge/display/alternate/background (Dark)",
     "button/accent/fill (Light)",
     "button/accent/focus (Light)",
     "chip/information/fill-default (Dark)",
@@ -90,6 +90,7 @@
     "chip/information/stroke-border-default (Dark)",
     "chip/information/fill-focus (Light)",
     "chip/information/fill-focus (Dark)",
+    "card/border-selected (Dark)",
     "toast/icon/info (Dark)",
     "notification/status/info (Dark)",
     "notification/border/info (Dark)",
@@ -107,7 +108,9 @@
    "note": null,
    "usedBy": [
     "link/link-hover (Dark)",
-    "tag/diagonal solid fill (Dark)"
+    "tag/diagonal solid fill (Dark)",
+    "card/border-hover (Light)",
+    "card/border-hover (Dark)"
    ]
   },
   {
@@ -165,6 +168,7 @@
    "alias": null,
    "note": null,
    "usedBy": [
+    "card/border-selected (Light)",
     "nav-accordion-header/focus-ring (Light)",
     "nav-button-option/focus-ring (Light)"
    ]
@@ -180,6 +184,7 @@
    "note": null,
    "usedBy": [
     "link/link-hover (Light)",
+    "badge/display/alternate/background (Dark)",
     "button/primary/active (Light)",
     "chip/information/fill-selected-default (Light)",
     "chip/information/fill-selected-default (Dark)",
@@ -234,6 +239,7 @@
    "usedBy": [
     "interaction/accent/primary (Light)",
     "table/row/background-selected (Dark)",
+    "card/background-selected (Dark)",
     "suggestion-row/text-match (Light)",
     "suggestion-row/text-match (Dark)"
    ]
@@ -354,8 +360,9 @@
     "truck phases/Returning to plant/label (Light)",
     "icon/default (Dark)",
     "avatar/default (Light)",
+    "badge/display/alternate/text (Dark)",
     "badge/display/outline/background (Light)",
-    "badge/display/outline/background (Dark)",
+    "badge/display/outline/text (Dark)",
     "layout/layer 2 (Light)",
     "badge/display/error/text (Light)",
     "progress bar/progress fill (Dark)",
@@ -600,6 +607,7 @@
     "button/link/hover (Light)",
     "button/link/focus-inner-stroke (Dark)",
     "slider/icon-color-disabled (Light)",
+    "card/border-default (Light)",
     "table/row/background-disabled (Light)",
     "accordion/fill-hover (Light)",
     "accordion/fill-focus (Light)",
@@ -1017,10 +1025,9 @@
     "solid/800 (Light)",
     "interaction/expanded (Dark)",
     "button/secondary/focus (Dark)",
-    "button/secondary/label-active (Dark)",
     "button/secondary/border-disabled (Dark)",
     "button/link/focus (Dark)",
-    "button/link/label-active (Dark)",
+    "card/border-default (Dark)",
     "accordion/fill-default (Dark)",
     "accordion/container-fill (Dark)",
     "icon-only-button/icon-active (Dark)",
@@ -1166,9 +1173,8 @@
     "badge/display/brand/text (Light)",
     "badge/display/brand/text (Dark)",
     "badge/display/alternate/text (Light)",
-    "badge/display/alternate/text (Dark)",
+    "badge/display/outline/background (Dark)",
     "badge/display/outline/text (Light)",
-    "badge/display/outline/text (Dark)",
     "badge/display/error/text (Dark)",
     "progress bar/progress fill (Light)",
     "spinner/fill (Light)",
@@ -1190,7 +1196,9 @@
     "button/accent/label-default (Dark)",
     "button/accent/label-active (Dark)",
     "button/secondary/label-default (Light)",
+    "button/secondary/label-active (Dark)",
     "button/link/label-default (Light)",
+    "button/link/label-active (Dark)",
     "button/link/border-default (Light)",
     "button/destructive/label-default (Dark)",
     "button/destructive/spinner (Dark)",
@@ -1750,7 +1758,7 @@
    "css": "--data-semantic-danger",
    "value": "#d70100",
    "alias": "interaction/danger/default",
-   "note": "Style collection token (→ status/error/500)",
+   "note": null,
    "usedBy": []
   },
   {
@@ -2197,6 +2205,600 @@
    ]
   },
   {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/adoption/100",
+   "css": "--data-charts-adoption-100",
+   "value": "#e7dcf6",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/contractor-experience/100",
+   "css": "--data-charts-contractor-experience-100",
+   "value": "#f3d9e4",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/materials-mixes/100",
+   "css": "--data-charts-materials-mixes-100",
+   "value": "#fee195",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/operations/100",
+   "css": "--data-charts-operations-100",
+   "value": "#f5dbd2",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/quality/100",
+   "css": "--data-charts-quality-100",
+   "value": "#cfe4fc",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/sustainability/100",
+   "css": "--data-charts-sustainability-100",
+   "value": "#d2e7d9",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/adoption/200",
+   "css": "--data-charts-adoption-200",
+   "value": "#c9acfd",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/contractor-experience/200",
+   "css": "--data-charts-contractor-experience-200",
+   "value": "#ffcbe1",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/materials-mixes/200",
+   "css": "--data-charts-materials-mixes-200",
+   "value": "#ebe0cd",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/operations/200",
+   "css": "--data-charts-operations-200",
+   "value": "#feae95",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/quality/200",
+   "css": "--data-charts-quality-200",
+   "value": "#cfe4f9",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/sustainability/200",
+   "css": "--data-charts-sustainability-200",
+   "value": "#8deab7",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/adoption/300",
+   "css": "--data-charts-adoption-300",
+   "value": "#a98ddb",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/contractor-experience/300",
+   "css": "--data-charts-contractor-experience-300",
+   "value": "#f49dc5",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/materials-mixes/300",
+   "css": "--data-charts-materials-mixes-300",
+   "value": "#e1c067",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/operations/300",
+   "css": "--data-charts-operations-300",
+   "value": "#fc9c7e",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/quality/300",
+   "css": "--data-charts-quality-300",
+   "value": "#94c5fd",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/sustainability/300",
+   "css": "--data-charts-sustainability-300",
+   "value": "#6cc998",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/adoption/400",
+   "css": "--data-charts-adoption-400",
+   "value": "#a171d5",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/contractor-experience/400",
+   "css": "--data-charts-contractor-experience-400",
+   "value": "#dc81ae",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/materials-mixes/400",
+   "css": "--data-charts-materials-mixes-400",
+   "value": "#c59c51",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/operations/400",
+   "css": "--data-charts-operations-400",
+   "value": "#e38b6f",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/quality/400",
+   "css": "--data-charts-quality-400",
+   "value": "#52a9f6",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/sustainability/400",
+   "css": "--data-charts-sustainability-400",
+   "value": "#61b884",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/adoption/500",
+   "css": "--data-charts-adoption-500",
+   "value": "#8f73be",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/contractor-experience/500",
+   "css": "--data-charts-contractor-experience-500",
+   "value": "#c8759c",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/materials-mixes/500",
+   "css": "--data-charts-materials-mixes-500",
+   "value": "#b7973c",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/operations/500",
+   "css": "--data-charts-operations-500",
+   "value": "#d47355",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/quality/500",
+   "css": "--data-charts-quality-500",
+   "value": "#6c9cd1",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/sustainability/500",
+   "css": "--data-charts-sustainability-500",
+   "value": "#41a071",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/adoption/600",
+   "css": "--data-charts-adoption-600",
+   "value": "#8050b1",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/contractor-experience/600",
+   "css": "--data-charts-contractor-experience-600",
+   "value": "#b35887",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/materials-mixes/600",
+   "css": "--data-charts-materials-mixes-600",
+   "value": "#936a0d",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/operations/600",
+   "css": "--data-charts-operations-600",
+   "value": "#be6a4f",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/quality/600",
+   "css": "--data-charts-quality-600",
+   "value": "#0975c3",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/sustainability/600",
+   "css": "--data-charts-sustainability-600",
+   "value": "#087846",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/adoption/700",
+   "css": "--data-charts-adoption-700",
+   "value": "#4f3c6f",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/contractor-experience/700",
+   "css": "--data-charts-contractor-experience-700",
+   "value": "#893261",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/materials-mixes/700",
+   "css": "--data-charts-materials-mixes-700",
+   "value": "#654804",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/operations/700",
+   "css": "--data-charts-operations-700",
+   "value": "#b95b3d",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/quality/700",
+   "css": "--data-charts-quality-700",
+   "value": "#045087",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/sustainability/700",
+   "css": "--data-charts-sustainability-700",
+   "value": "#0d5536",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/adoption/800",
+   "css": "--data-charts-adoption-800",
+   "value": "#5b2987",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/contractor-experience/800",
+   "css": "--data-charts-contractor-experience-800",
+   "value": "#69324d",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/materials-mixes/800",
+   "css": "--data-charts-materials-mixes-800",
+   "value": "#594503",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/operations/800",
+   "css": "--data-charts-operations-800",
+   "value": "#a84c2f",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/quality/800",
+   "css": "--data-charts-quality-800",
+   "value": "#2a4a6d",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/sustainability/800",
+   "css": "--data-charts-sustainability-800",
+   "value": "#024e2c",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/contractor-experience/900",
+   "css": "--data-charts-contractor-experience-900",
+   "value": "#630940",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/materials-mixes/900",
+   "css": "--data-charts-materials-mixes-900",
+   "value": "#3e2a02",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/operations/900",
+   "css": "--data-charts-operations-900",
+   "value": "#812705",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/quality/900",
+   "css": "--data-charts-quality-900",
+   "value": "#043053",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/sustainability/900",
+   "css": "--data-charts-sustainability-900",
+   "value": "#012b16",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
+   "category": "color",
+   "file": "DATA COLOR",
+   "group": "data/charts",
+   "figma": "data/charts/operations/950",
+   "css": "--data-charts-operations-950",
+   "value": "#6e3523",
+   "alias": null,
+   "note": null,
+   "usedBy": []
+  },
+  {
    "category": "spacing",
    "file": "SPACING",
    "group": "spacing/micro",
@@ -2282,7 +2884,10 @@
     "alternate-button/inner-border-width",
     "alternate-button/inner-border-width-focus",
     "button/destructive/inner-border-width",
-    "icon-only-button/border-hover-outer-width"
+    "icon-only-button/border-hover-outer-width",
+    "button/link/inner-border-width-focus",
+    "button/link/focus-outer-width",
+    "card/border-width-default"
    ]
   },
   {
@@ -2323,7 +2928,8 @@
     "button/destructive-secondary/inner-border-width",
     "nav-button-option/focus-spread",
     "icon-only-button/border-width",
-    "icon-only-button/border-focus-outer-width"
+    "icon-only-button/border-focus-outer-width",
+    "card/border-width-selected"
    ]
   },
   {
@@ -2356,7 +2962,7 @@
    "note": null,
    "usedBy": [
     "padding/2",
-    "size/0,5",
+    "size/0-5",
     "gap/1",
     "badge/display/default/top bottom padding",
     "toggle/large/track/padding",
@@ -2530,7 +3136,9 @@
     "nav/topbar/search-padding-vertical",
     "nav-accordion-header/gap",
     "nav/sidebar/primary-menu-gap",
-    "nav/sidebar/utility-menu-gap"
+    "nav/sidebar/utility-menu-gap",
+    "card/padding-mobile",
+    "card/input-content-gap"
    ]
   },
   {
@@ -2679,7 +3287,8 @@
     "modal/header/padding-left-right",
     "modal/footer/padding",
     "nav-accordion-header/icon-size",
-    "nav-accordion-header/chevron-size"
+    "nav-accordion-header/chevron-size",
+    "card/padding-desktop"
    ]
   },
   {
@@ -3238,7 +3847,8 @@
     "notification/pattern/banner/radius",
     "notification/pattern/inline/radius",
     "input/field-radius",
-    "available-times/header-radius-top-right"
+    "available-times/header-radius-top-right",
+    "card/corner-radius"
    ]
   },
   {

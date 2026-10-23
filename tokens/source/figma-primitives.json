@@ -1,4 +1,10 @@
 {
+ "_meta": {
+  "file": "Trinity Design System",
+  "fileKey": "Lx7MN3Ztd0qxhyF7rVAiOa",
+  "pulled": "2026-10-22",
+  "method": "Desktop Bridge, read-only"
+ },
  "Primitives": [
   {
    "name": "font-family/TrinityFont",
@@ -1330,8 +1336,7 @@
    "scopes": [
     "ALL_SCOPES"
    ],
-   "desc": "",
-   "aliasNote": "Style collection token (\u2192 status/error/500)"
+   "desc": ""
   },
   {
    "name": "data/semantic/info",
@@ -1902,6 +1907,546 @@
     "ALL_SCOPES"
    ],
    "desc": "Exact existing light-mode focus ring for NavAccordionHeader."
+  },
+  {
+   "name": "data/charts/quality/100",
+   "type": "COLOR",
+   "value": "#cfe4fc",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/quality/200",
+   "type": "COLOR",
+   "value": "#cfe4f9",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/quality/300",
+   "type": "COLOR",
+   "value": "#94c5fd",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/quality/400",
+   "type": "COLOR",
+   "value": "#52a9f6",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/quality/500",
+   "type": "COLOR",
+   "value": "#6c9cd1",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/quality/600",
+   "type": "COLOR",
+   "value": "#0975c3",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/quality/700",
+   "type": "COLOR",
+   "value": "#045087",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/quality/800",
+   "type": "COLOR",
+   "value": "#2a4a6d",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/quality/900",
+   "type": "COLOR",
+   "value": "#043053",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/operations/100",
+   "type": "COLOR",
+   "value": "#f5dbd2",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/operations/200",
+   "type": "COLOR",
+   "value": "#feae95",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/operations/300",
+   "type": "COLOR",
+   "value": "#fc9c7e",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/operations/400",
+   "type": "COLOR",
+   "value": "#e38b6f",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/operations/500",
+   "type": "COLOR",
+   "value": "#d47355",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/operations/600",
+   "type": "COLOR",
+   "value": "#be6a4f",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/operations/700",
+   "type": "COLOR",
+   "value": "#b95b3d",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/operations/800",
+   "type": "COLOR",
+   "value": "#a84c2f",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/operations/900",
+   "type": "COLOR",
+   "value": "#812705",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/operations/950",
+   "type": "COLOR",
+   "value": "#6e3523",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/materials-mixes/100",
+   "type": "COLOR",
+   "value": "#fee195",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/materials-mixes/200",
+   "type": "COLOR",
+   "value": "#ebe0cd",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/materials-mixes/300",
+   "type": "COLOR",
+   "value": "#e1c067",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/materials-mixes/400",
+   "type": "COLOR",
+   "value": "#c59c51",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/materials-mixes/500",
+   "type": "COLOR",
+   "value": "#b7973c",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/materials-mixes/600",
+   "type": "COLOR",
+   "value": "#936a0d",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/materials-mixes/700",
+   "type": "COLOR",
+   "value": "#654804",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/materials-mixes/800",
+   "type": "COLOR",
+   "value": "#594503",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/materials-mixes/900",
+   "type": "COLOR",
+   "value": "#3e2a02",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/sustainability/100",
+   "type": "COLOR",
+   "value": "#d2e7d9",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/sustainability/200",
+   "type": "COLOR",
+   "value": "#8deab7",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/sustainability/300",
+   "type": "COLOR",
+   "value": "#6cc998",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/sustainability/400",
+   "type": "COLOR",
+   "value": "#61b884",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/sustainability/500",
+   "type": "COLOR",
+   "value": "#41a071",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/sustainability/600",
+   "type": "COLOR",
+   "value": "#087846",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/sustainability/700",
+   "type": "COLOR",
+   "value": "#0d5536",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/sustainability/800",
+   "type": "COLOR",
+   "value": "#024e2c",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/sustainability/900",
+   "type": "COLOR",
+   "value": "#012b16",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/adoption/100",
+   "type": "COLOR",
+   "value": "#e7dcf6",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/adoption/200",
+   "type": "COLOR",
+   "value": "#c9acfd",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/adoption/300",
+   "type": "COLOR",
+   "value": "#a98ddb",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/adoption/400",
+   "type": "COLOR",
+   "value": "#a171d5",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/adoption/500",
+   "type": "COLOR",
+   "value": "#8f73be",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/adoption/600",
+   "type": "COLOR",
+   "value": "#8050b1",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/adoption/700",
+   "type": "COLOR",
+   "value": "#4f3c6f",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/adoption/800",
+   "type": "COLOR",
+   "value": "#5b2987",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/contractor-experience/100",
+   "type": "COLOR",
+   "value": "#f3d9e4",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/contractor-experience/200",
+   "type": "COLOR",
+   "value": "#ffcbe1",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/contractor-experience/300",
+   "type": "COLOR",
+   "value": "#f49dc5",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/contractor-experience/400",
+   "type": "COLOR",
+   "value": "#dc81ae",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/contractor-experience/500",
+   "type": "COLOR",
+   "value": "#c8759c",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/contractor-experience/600",
+   "type": "COLOR",
+   "value": "#b35887",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/contractor-experience/700",
+   "type": "COLOR",
+   "value": "#893261",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/contractor-experience/800",
+   "type": "COLOR",
+   "value": "#69324d",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
+  },
+  {
+   "name": "data/charts/contractor-experience/900",
+   "type": "COLOR",
+   "value": "#630940",
+   "alias": null,
+   "scopes": [
+    "ALL_SCOPES"
+   ],
+   "desc": ""
   }
  ],
  "textStyles": [
@@ -2286,11 +2831,5 @@
     }
    ]
   }
- ],
- "_meta": {
-  "file": "Trinity Design System (for review)",
-  "fileKey": "Lx7MN3Ztd0qxhyF7rVAiOa",
-  "pulled": "2026-10-18",
-  "method": "Desktop Bridge, read-only"
- }
+ ]
 }

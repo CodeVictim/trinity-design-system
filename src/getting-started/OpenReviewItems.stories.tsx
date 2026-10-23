@@ -8,6 +8,7 @@ type Story = StoryObj<typeof meta>;
 const ROWS: [string, string, string, string][] = [
   ['Colors', 'data/semantic/* (5)', 'Aliases, not raw values; data/semantic/danger points up into Style (interaction/danger/default)', 'Colors › Data Visualization'],
   ['Colors', 'Annotation · purple/500 · neutral/shadow', 'Look like Figma tooling colors, not product colors', 'Colors › Palette'],
+  ['Colors', 'Chart supporting colors (9)', 'Used by the approved charts but not in Brand Colors yet: #FAF9F6, #706A5C, #D3CEC6, #8A867F, #457676, #6B9D9D, #FF8A80, #E5E1DB, #4A463F (from the Chart Colors frame’s own open items)', 'Colors › Chart Colors'],
   ['Spacing', 'spacing/large/10250 · 10450', 'Not whole pixels (409.67, 417.67)', 'Spacing › Spacing Scale'],
   ['Spacing', 'spacing/large/* over 200px (8)', 'Look like component dimensions — may belong in Layout', 'Spacing › Spacing Scale'],
   ['Opacity', 'opacity/fraction/036', 'Stored 0–1 while the rest of the scale is 0–100', 'Spacing › Opacity'],
